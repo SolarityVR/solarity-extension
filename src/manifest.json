@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Chrome Extension with Tailwind, React & Webpack",
-  "description": "A chrome extension boilerplate built with Tailwind 3, React 17, Webpack 5, and Webpack Dev Server 4",
+  "name": "Twitter Verse",
+  "description": "Twitter Extension",
   "background": { "service_worker": "background.bundle.js" },
   "action": {
     "default_popup": "popup.html",
@@ -17,10 +17,15 @@
       "css": ["content.styles.css"]
     }
   ],
+  "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
       "resources": ["content.styles.css", "icon-128.png", "icon-34.png"],
-      "matches": []
+      "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'",
+    "sandbox": "sandbox allow-scripts; script-src 'self' "
+  }
 }
