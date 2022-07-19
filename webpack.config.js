@@ -36,13 +36,9 @@ if (fileSystem.existsSync(secretsPath)) {
 var options = {
   mode: process.env.NODE_ENV || 'development',
   entry: {
-    newtab: path.join(__dirname, 'src', 'pages', 'Newtab', 'index.jsx'),
-    options: path.join(__dirname, 'src', 'pages', 'Options', 'index.jsx'),
-    popup: path.join(__dirname, 'src', 'pages', 'Popup', 'index.jsx'),
-    background: path.join(__dirname, 'src', 'pages', 'Background', 'index.js'),
-    contentScript: path.join(__dirname, 'src', 'pages', 'Content', 'index.js'),
-    devtools: path.join(__dirname, 'src', 'pages', 'Devtools', 'index.js'),
-    panel: path.join(__dirname, 'src', 'pages', 'Panel', 'index.jsx'),
+    popup: path.join(__dirname, 'src', 'popup', 'index.jsx'),
+    background: path.join(__dirname, 'src', 'background', 'index.js'),
+    contentScript: path.join(__dirname, 'src', 'content', 'index.js'),
   },
   chromeExtensionBoilerplate: {
     notHotReload: ['background', 'contentScript', 'devtools'],
@@ -133,7 +129,7 @@ var options = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/pages/Content/content.styles.css',
+          from: 'src/content/content.styles.css',
           to: path.join(__dirname, 'build'),
           force: true,
         },
@@ -149,7 +145,7 @@ var options = {
       ],
     }),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'pages', 'Popup', 'index.html'),
+      template: path.join(__dirname, 'src', 'popup', 'index.html'),
       filename: 'popup.html',
       chunks: ['popup'],
       cache: false,

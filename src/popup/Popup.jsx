@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from '../../assets/img/logo.png';
-import Greetings from '../../containers/Greetings/Greetings';
+import logo from '../assets/img/logo.png';
 import './Popup.css';
 
 const Popup = () => {
@@ -20,7 +19,6 @@ const Popup = () => {
           Learn React!
         </a>
         <h6 className="text-red-500">The color of this paragraph is defined using Tailwind.</h6>
-        <Greetings />
       </header>
     </div>
   );
