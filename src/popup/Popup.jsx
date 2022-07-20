@@ -1,25 +1,16 @@
-import React from 'react';
-import logo from '../assets/img/logo.png';
+import React, { useState } from 'react';
+
+import LandingPage from './pages/LandingPage';
+import UserInfoPage from './pages/UserInfoPage';
+
 import './Popup.css';
 
 const Popup = () => {
+  const [loginStages, setLoginStages] = useState(1);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Popup/Popup.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-        <h6 className="text-red-500">The color of this paragraph is defined using Tailwind.</h6>
-      </header>
+    <div className='w-[375px] h-[650px] rounded-lg bg-[#141414]'>
+      {loginStages == 0 && <LandingPage />}
+      {loginStages == 1 && <UserInfoPage />}
     </div>
   );
 };
