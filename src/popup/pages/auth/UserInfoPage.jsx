@@ -1,20 +1,20 @@
 import React from "react";
-import AddressImg from "../../assets/img/address.png";
-import GithubImg from '../../assets/img/social/github.png';
-import AddressButton from "../../components/Buttons/AddressButton";
-import DomainInput from "../../components/Forms/DomainInput";
-import { DiscordLink } from "../../components/Links";
-import TwitterLink from "../../components/Links/TwitterLink";
-import WalletButton from "../../components/Buttons/WalletButton";
-import { BackButton, PrimaryButton } from "../../components/Buttons";
-import { SharedInput } from "../../components/Forms";
+import AddressImg from "../../../assets/img/address.png";
+import GithubImg from '../../../assets/img/social/github.png';
+import AddressButton from "../../../components/Buttons/AddressButton";
+import DomainInput from "../../../components/Forms/DomainInput";
+import { DiscordLink } from "../../../components/Links";
+import TwitterLink from "../../../components/Links/TwitterLink";
+import WalletButton from "../../../components/Buttons/WalletButton";
+import { BackButton, PrimaryButton } from "../../../components/Buttons";
+import { SharedInput } from "../../../components/Forms";
 
 const UserInfoPage = () => {
   return (
-    <div className=" pr-[0] lg:pr-[7%]">
+    <div className=" pr-[0]">
       <div className="relative w-auto my-6 mx-auto">
         {/*content*/}
-        <div className="rounded-[30px] min-h-[calc(100vh-100px)] shadow-lg relative flex flex-col w-full bg-[#141416] outline-none focus:outline-none">
+        <div className="rounded-[30px] shadow-lg relative flex flex-col w-full bg-[#141416] outline-none focus:outline-none">
           {/*header*/}
           <div className="flex items-start justify-between pt-8 pl-[32px] pr-[32px] lg:p-14 lg:pb-0 lg:pr-12 rounded-t">
             <h3 className="text-[28px] lg:text-[30px] text-white font-medium tracking-[0.02em]">
@@ -46,7 +46,7 @@ const UserInfoPage = () => {
               </div>
             </div>
           </div>
-          <div className="w-full px-[32px] py-[32px] lg:px-14 lg:py-8 flex-auto flex items-end">
+          <div className="w-full px-[32px] py-[20px] lg:px-14 lg:py-8 flex-auto flex items-end">
             <div className="inline-block w-[20%] pr-2">
               <BackButton onClick={() => {}} styles="rounded-[15px]" />
             </div>

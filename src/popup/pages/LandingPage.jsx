@@ -3,10 +3,10 @@ import Logo from "../../assets/img/logo.png";
 import { WalletButton } from "../../components/Buttons";
 import { WALLETS } from "../data";
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   return (
     <div className="w-full h-full">
-      <div className="w-full h-full relative bg-black/70 pt-10">
+      <div className="w-full h-full relative bg-black/70 pt-10 rounded-lg">
         <img src={Logo} className="mx-auto w-24 h-24"/>
         <h2 className="text-primary text-3xl font-bold text-center mt-2">Solarity Extension</h2>
         <div className="absolute flex bottom-0 w-[100%] mx-auto" onClick={(e) => { e.stopPropagation() }}>
@@ -18,7 +18,6 @@ const LandingPage = () => {
               Getting Started,<br />
               Connect your wallet to continue!
               </h3>
-
             </div>
             <div className="relative p-8 flex-auto">
               {WALLETS.map(({ label, id, type, image }) => (
