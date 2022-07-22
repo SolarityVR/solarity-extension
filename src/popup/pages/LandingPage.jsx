@@ -1,9 +1,28 @@
 import React from "react";
+import { useEffect } from "react";
 import Logo from "../../assets/img/logo.png";
 import { WalletButton } from "../../components/Buttons";
 import { WALLETS } from "../data";
 
 const LandingPage = (props) => {
+
+  useEffect(() => {
+    window.addEventListener('ReceiveWallet', function(evt) {
+      if (evt.detail.msg == "receive-wallet") {
+        if(evt.detail.publicKey != undefined) {
+          const publicKey = evt.detail.publicKey;
+          console.log(evt)
+        } else {
+          alert('not connected solana');
+        }
+      }
+    })
+  }, [])
+  const connectWallet = (label) => {
+    var event = new CustomEvent('ReceiveContent', {detail:  "connect-wallet"});
+    window.dispatchEvent(event);
+  }
+
   return (
     <div className="w-full h-full">
       <div className="w-full h-full relative bg-black/70 pt-10 rounded-lg">
@@ -22,11 +41,7 @@ const LandingPage = (props) => {
             <div className="relative p-8 flex-auto">
               {WALLETS.map(({ label, id, type, image }) => (
                 <div className="py-2" key={id}>
-                  <WalletButton caption={label} icon={image} onClick={() => {
-                    connectWallet(id, type, ({ address, type, provider }) => {
-                      onSelect(address, type, provider);
-                    });
-                  }} styles="!w-[100%]" />
+                  <WalletButton caption={label} icon={image} onClick={(label) => connectWallet(label)} styles="!w-[100%]" />
                 </div>
               ))}
             </div>

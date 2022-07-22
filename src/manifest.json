@@ -1,26 +1,30 @@
 {
+  "version": "1.0.1",
   "manifest_version": 3,
   "name": "Twitter Verse",
   "description": "Twitter Extension",
-  "background": { "service_worker": "background.bundle.js" },
+  "background": { 
+    "service_worker": "/static/js/background.bundle.js" 
+  },
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": "logo.png"
+    "default_popup": "/static/js/popup.html"
   },
   "icons": {
-    "128": "logo.png"
+    "128": "logo.png",
+    "16": "logo.png",
+    "48": "logo.png"
   },
   "content_scripts": [
     {
       "matches": ["http://*/*"],
-      "js": ["contentScript.bundle.js"],
-      "css": ["content.styles.css"]
+      "css": ["/static/css/content.styles.css"],
+      "js": ["/static/js/contentScript.bundle.js"]
     }
   ],
   "host_permissions": ["<all_urls>"],
   "web_accessible_resources": [
     {
-      "resources": ["content.styles.css", "logo.png", "logo.png"],
+      "resources": ["/static/css/content.styles.css", "logo.png", "/modules/*"],
       "matches": ["<all_urls>"]
     }
   ],

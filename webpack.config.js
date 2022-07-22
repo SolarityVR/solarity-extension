@@ -13,7 +13,6 @@ var alias = {
   'react-dom': '@hot-loader/react-dom',
 };
 
-
 // load the secrets
 var secretsPath = path.join(__dirname, 'secrets.' + env.NODE_ENV + '.js');
 
@@ -42,10 +41,10 @@ var options = {
     contentScript: path.join(__dirname, 'src', 'content', 'index.js'),
   },
   chromeExtensionBoilerplate: {
-    notHotReload: ['background', 'contentScript', 'devtools'],
+    notHotReload: ['background', 'contentScript'],
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: 'static/js/[name].bundle.js',
     path: path.resolve(__dirname, 'build'),
     clean: true,
     publicPath: ASSET_PATH,
@@ -131,7 +130,43 @@ var options = {
       patterns: [
         {
           from: 'src/content/content.styles.css',
-          to: path.join(__dirname, 'build'),
+          to: path.join(__dirname, 'build/static/css'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/content/modules/background.js',
+          to: path.join(__dirname, 'build/modules'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/content/modules/bundle.js',
+          to: path.join(__dirname, 'build/modules'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/content/modules/index.iife.js',
+          to: path.join(__dirname, 'build/modules'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/content/modules/spl_token.js',
+          to: path.join(__dirname, 'build/modules'),
           force: true,
         },
       ],
@@ -147,8 +182,8 @@ var options = {
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'popup', 'index.html'),
-      filename: 'popup.html',
-      chunks: ['popup'],
+      filename: '/static/js/popup.html',
+      chunks: ['popup', 'contentScript'],
       cache: false,
     }),
   ],
