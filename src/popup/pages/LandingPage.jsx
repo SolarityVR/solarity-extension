@@ -7,26 +7,30 @@ import { WALLETS } from "../data";
 const LandingPage = (props) => {
 
   useEffect(() => {
-    window.addEventListener('ReceiveWallet', function(evt) {
+    window.addEventListener('ReceiveWallet', function (evt) {
       if (evt.detail.msg == "receive-wallet") {
-        if(evt.detail.publicKey != undefined) {
+        if (evt.detail.publicKey != undefined) {
           const publicKey = evt.detail.publicKey;
-          console.log(evt)
+          console.log(publicKey);
         } else {
-          alert('not connected solana');
+          console.error('not connected solana');
         }
       }
     })
   }, [])
+
   const connectWallet = (label) => {
-    var event = new CustomEvent('ReceiveContent', {detail:  "connect-wallet"});
-    window.dispatchEvent(event);
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, {
+        command: 'connectWalletAction'
+      });
+    });
   }
 
   return (
     <div className="w-full h-full">
       <div className="w-full h-full relative bg-black/70 pt-10 rounded-lg">
-        <img src={Logo} className="mx-auto w-24 h-24"/>
+        <img src={Logo} className="mx-auto w-24 h-24" />
         <h2 className="text-primary text-3xl font-bold text-center mt-2">Solarity Extension</h2>
         <div className="absolute flex bottom-0 w-[100%] mx-auto" onClick={(e) => { e.stopPropagation() }}>
           {/*content*/}
@@ -34,8 +38,8 @@ const LandingPage = (props) => {
             {/*header*/}
             <div className="pt-12 px-8 w-full">
               <h3 className="text-[20px] text-white font-normal tracking-[0.02em]">
-              Getting Started,<br />
-              Connect your wallet to continue!
+                Getting Started,<br />
+                Connect your wallet to continue!
               </h3>
             </div>
             <div className="relative p-8 flex-auto">
