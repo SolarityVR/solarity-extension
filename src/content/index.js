@@ -86,12 +86,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 })
 
 window.addEventListener('ReceiveWallet', function (evt) {
-  console.log(evt);
-  // if (evt.detail.msg == "receive-wallet") {
-  //   if (evt.detail.publicKey != undefined) {
-  //     // const publicKey = evt.detail.publicKey;
-  //   } else {
-  //     alert('not connected solana');
-  //   }
-  // }
+  if (evt.detail.msg == "receive-wallet") {
+    if (evt.detail.publicKey != undefined) {
+      chrome.runtime.sendMessage(sender.id, { "command": "getWalletAddress", "publicKey": evt.detail.publicKey });
+    }
+  }
 })
