@@ -1,28 +1,17 @@
 import React from "react";
-import { useEffect } from "react";
+
+import { WalletButton } from "../components/Buttons";
 import Logo from "../../assets/img/logo.png";
-import { WalletButton } from "../../components/Buttons";
 import { WALLETS } from "../data";
 
 const LandingPage = (props) => {
 
-  useEffect(() => {
-    window.addEventListener('ReceiveWallet', function (evt) {
-      if (evt.detail.msg == "receive-wallet") {
-        if (evt.detail.publicKey != undefined) {
-          const publicKey = evt.detail.publicKey;
-          console.log(publicKey);
-        } else {
-          console.error('not connected solana');
-        }
-      }
-    })
-  }, [])
-
-  const connectWallet = (label) => {
+  // Send wallet connection message to background
+  const connectWallet = (walletType) => {
+    localStorage.setItem('walletType', walletType);
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       chrome.tabs.sendMessage(tabs[0].id, {
-        command: 'connectWalletAction'
+        command: 'login-wallet-connection-action',
       });
     });
   }
@@ -45,7 +34,7 @@ const LandingPage = (props) => {
             <div className="relative p-8 flex-auto">
               {WALLETS.map(({ label, id, type, image }) => (
                 <div className="py-2" key={id}>
-                  <WalletButton caption={label} icon={image} onClick={(label) => connectWallet(label)} styles="!w-[100%]" />
+                  <WalletButton caption={label} icon={image} onClick={() => connectWallet(type)} styles="!w-[100%]" />
                 </div>
               ))}
             </div>

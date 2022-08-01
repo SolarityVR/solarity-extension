@@ -1,10 +1,10 @@
-var webpack = require('webpack'),
-  path = require('path'),
-  fileSystem = require('fs-extra'),
-  env = require('./utils/env'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  TerserPlugin = require('terser-webpack-plugin');
+var webpack = require('webpack');
+var path = require('path');
+var fileSystem = require('fs-extra');
+var env = require('./utils/env');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var TerserPlugin = require('terser-webpack-plugin');
 var { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const ASSET_PATH = process.env.ASSET_PATH || '/';
@@ -98,6 +98,12 @@ var options = {
   },
   resolve: {
     alias: alias,
+    fallback: {
+      "util": require.resolve("util/"),
+      "crypto": require.resolve("crypto-browserify"),
+      "stream": require.resolve("stream-browserify"),
+      "assert": require.resolve("assert/")
+    },
     extensions: fileExtensions
       .map((extension) => '.' + extension)
       .concat(['.js', '.jsx', '.ts', '.tsx', '.css']),
@@ -107,6 +113,9 @@ var options = {
     new webpack.ProgressPlugin(),
     // expose and write the allowed env vars on the compiled bundle
     new webpack.EnvironmentPlugin(['NODE_ENV']),
+    new webpack.DefinePlugin({
+      process: { env: {} }
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -131,6 +140,15 @@ var options = {
         {
           from: 'src/content/content.styles.css',
           to: path.join(__dirname, 'build/static/css'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/content/modules/bs58.bundle.js',
+          to: path.join(__dirname, 'build/modules'),
           force: true,
         },
       ],

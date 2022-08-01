@@ -1,15 +1,92 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import AddressImg from "../../../assets/img/address.png";
 import GithubImg from '../../../assets/img/social/github.png';
-import AddressButton from "../../../components/Buttons/AddressButton";
-import DomainInput from "../../../components/Forms/DomainInput";
-import { DiscordLink } from "../../../components/Links";
-import TwitterLink from "../../../components/Links/TwitterLink";
-import WalletButton from "../../../components/Buttons/WalletButton";
-import { BackButton, PrimaryButton } from "../../../components/Buttons";
-import { SharedInput } from "../../../components/Forms";
+import AddressButton from "../../components/Buttons/AddressButton";
+import DomainInput from "../../components/Forms/DomainInput";
+import { DiscordLink } from "../../components/Links";
+import TwitterLink from "../../components/Links/TwitterLink";
+import WalletButton from "../../components/Buttons/WalletButton";
+import { BackButton, PrimaryButton } from "../../components/Buttons";
+import { SharedInput } from "../../components/Forms";
+
+import { minifyAddress } from "../../utils";
+import { apiCaller, getErrorMessage } from "../../utils/fetcher";
+import { setPageStages, setUserInfo } from "../../redux/slices/authSlice";
 
 const UserInfoPage = () => {
+  const [domain, setDomain] = useState(undefined);
+  const [bio, setBio] = useState(undefined);
+  const [domainError, setDomainError] = useState('');
+  const [bioError, setBioError] = useState('');
+
+  const dispatch = useDispatch();
+
+  const { publicKey } = useSelector((state) => ({
+    publicKey: state.auth.publicKey,
+  }));
+
+  // Get if current domain is in DB
+  const checkDomainAvailability = (formattedDomain) => {
+    apiCaller
+      .get(`profile/domainAvailability/${formattedDomain}`)
+      .then((response) => {
+        setDomainError("")
+      })
+      .catch((err) => {
+        const message = getErrorMessage(err)
+        setDomainError(message)
+      });
+  }
+
+  // Validate Domain Input
+  useEffect(() => {
+    // Domain
+    if (domain == "") {
+      setDomainError("Please input your domain name.")
+    } else if (domain != undefined) {
+      let formatted = domain.toLowerCase()
+      formatted = formatted.replace(" ", "")
+      formatted = formatted.substr(0, formatted.lastIndexOf("."))
+      checkDomainAvailability(formatted)
+    }
+  }, [domain])
+
+  useEffect(() => {
+    // Bio
+    if (bio == "") {
+      setBioError("Please input your bio.");
+    } else {
+      setBioError("");
+    }
+  }, [bio]);
+
+  const handleUserInfo = () => {
+    // dispatch(startLoadingApp())
+    if (!!domain && !!bio) {
+      const payload = {
+        action: "info",
+        domain,
+        title: bio
+      }
+      dispatch(setUserInfo({
+        data: payload,
+        successFunction: () => {
+          dispatch(setPageStages(2));
+        },
+        errorFunction: () => { },
+        finalFunction: () => { },
+      }))
+
+    } else {
+      alert('please input fields');
+      return;
+    }
+
+    // dispatch(stopLoadingApp())
+  }
+
   return (
     <div className=" pr-[0]">
       <div className="relative w-auto my-6 mx-auto">
@@ -20,23 +97,25 @@ const UserInfoPage = () => {
             <h3 className="text-[28px] lg:text-[30px] text-white font-medium tracking-[0.02em]">
               Creating a passport
             </h3>
-            <AddressButton caption={""} icon={AddressImg} onClick={null} />
+            <AddressButton caption={minifyAddress(publicKey, 3)} icon={AddressImg} onClick={null} />
           </div>
           {/*body*/}
-          {/* {discordUsername ? discordUsername : 'dasd'} */}
           <div className="relative p-[32px] lg:p-14 flex-auto">
             <div>
-              <DomainInput changeValue={() => {}} isError={false} />
+              <DomainInput changeValue={setDomain} isError={domainError ? true : false} />
               {
-                // error ? <div className="text-[16px] text-rose-600">{error}</div> : null
+                domainError ? <div className="text-[16px] text-rose-600 ">{domainError}</div> : null
               }
             </div>
             <div className="mt-6">
-              <SharedInput changeValue={() => {}} caption="Input your title" />
+              <SharedInput changeValue={setBio} caption="Input your bio" />
+              {
+                bioError != '' ? <div className="text-[16px] text-rose-600">{bioError}</div> : null
+              }
             </div>
             <div className="grid grid-cols-1 xl:grid-cols-3">
               <div className="mt-6 mb-3 xl:mt-6 xl:mb-6 xl:text-left">
-                <TwitterLink />
+                <TwitterLink disabled={false} />
               </div>
               <div className="my-3 xl:my-6 xl:text-center">
                 <DiscordLink />
@@ -48,10 +127,10 @@ const UserInfoPage = () => {
           </div>
           <div className="w-full px-[32px] py-[20px] lg:px-14 lg:py-8 flex-auto flex items-end">
             <div className="inline-block w-[20%] pr-2">
-              <BackButton onClick={() => {}} styles="rounded-[15px]" />
+              <BackButton onClick={() => { }} styles="rounded-[15px]" />
             </div>
             <div className="inline-block w-[80%] pl-2">
-              <PrimaryButton caption="Continue" icon="" bordered={false} onClick={() => {}} disabled={false} styles="rounded-[15px]" />
+              <PrimaryButton caption="Continue" icon="" bordered={false} onClick={handleUserInfo} disabled={false} styles="rounded-[15px]" />
             </div>
           </div>
         </div>

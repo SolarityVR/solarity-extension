@@ -8,10 +8,7 @@ const Config = {
     LOCAL_FRONTEND_URL: "http://localhost:3000",
     LOCAL_MINTING_URL: "http://localhost:3001",
     MINTING_URL: "",
-    CLOUD_NAME: "dmzpebj2g",
-    API_KEY: "977841792252298",
-    API_SECRET: "eP9ISPA9RvnV7COrSF9a-xy8f1w",
-    PRESET_NAME: "drilvtxg"
+    NODE_ENV: "development"
 };
 
 export default Config;

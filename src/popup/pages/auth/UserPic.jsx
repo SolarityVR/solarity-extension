@@ -1,41 +1,83 @@
-import React, { useEffect, useState } from "react";
+import React, { createRef, useCallback, useEffect, useState } from "react";
 import Dropzone from 'react-dropzone'
-import config from "../../../config";
-// import cloudinary from "cloudinary/lib/cloudinary";
+import { create } from 'ipfs';
+import toBuffer from 'blob-to-buffer';
+import { Buffer } from "buffer";
+import async from 'async';
 
-import { AddressButton, BackButton, PrimaryButton } from "../../../components/Buttons";
+import { AddressButton, BackButton, PrimaryButton } from "../../components/Buttons";
+import { parseName } from "../../utils";
+
 import AddressImg from "../../../assets/img/address.png";
 import GalleryImg from "../../../assets/img/auth/gallery.png";
-console.log("config.CLOUD_NAME", config.CLOUD_NAME);
+import AvatarPanel from "../../components/Panels/AvatarPanel";
+import { getNfts } from "../../hooks";
 
-// cloudinary.config({
-//   cloud_name: config.CLOUD_NAME,
-//   api_key: config.API_KEY,
-//   api_secret: config.API_SECRET
-// });
+var ipfs = window.ipfs;
+window.Buffer = Buffer;
 
 const UserPic = (props) => {
-  const [files, setFiles] = useState(null);
-  const [imageData, setImageData] = useState([]);
+  const [images, setImages] = useState([]);
+  const [selectedAvatar, setSelectedAvatar] = useState();
+  const [active, setActive] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const dropzoneRef = createRef();
 
-  const uploadImage = async (files) => {
-    let images = []
-    files.forEach(async (file) => {
-      const data = new FormData();
-      data.append("file", file);
-      data.append("upload_preset", config.PRESET_NAME);
-      data.append("cloud_name", config.CLOUD_NAME);
-      data.append("folder", "assets/avatars");
-      try {
-        const resp = await axios.post(`https://api.cloudinary.com/v1_1/${config.CLOUD_NAME}/image/upload`, data);
-        console.log(resp)
-        images.push({ url: resp.data.url, public_id: resp.data.public_id, title: resp.data.original_filename })
-        setImageData([...images]);
-      } catch (err) {
-        console.log("errr : ", err);
-      }
-    });
+  const { profileData } = useSelector((state) => ({
+    profileData: state.auth.profile,
+  }));
+
+  const [nfts, nftLoading, nftError, fetchNFTs] = getNfts(
+    profileData.domain,
+    profileData.solanaAddress,
+    true
+  );
+
+  const rootProps = {
+    onClick: (e) => {
+      if (props.dropOnly) e.stopPropagation();
+    }
   }
+
+  useEffect(() => {
+    if (!ipfs && !window.ipfs && !props.ipfs) {
+      console.debug("=> IPFS Dropzone: Creating IPFS node")
+      async function initIPFS() {
+        ipfs = await create({ repo: 'ok' + Math.random() })
+        setActive(true);
+        window.ipfs = ipfs;
+        console.debug("=> IPFS Dropzone: IPFS node created")
+      }
+      initIPFS()
+    } else if (window.ipfs && !ipfs) {
+      console.debug("=> IPFS Dropzone: Reusing open IPFS node")
+      ipfs = window.ipfs;
+      setActive(true);
+    }
+  }, [window.ipfs, props.ipfs])
+
+  const onDrop = useCallback((files) => {
+    if (files && files.length > 0) {
+      if (props.onLoadStart) props.onLoadStart(files.map((x) => parseName(x.name)));
+      async.map(files, (file, cb) => {
+        setLoading(true);
+        toBuffer(file, async (err, buff) => {
+          if (err) return cb(err)
+          if (!ipfs) { setLoading(false); return; }
+          ipfs.add(buff).then((result) => {
+            setLoading(false);
+            setImages([...images, 'https://ipfs.io/ipfs/' + result.path]);
+            console.debug("=> IPFS Dropzone added: ", result.cid.string)
+            let _file = parseName(file.name)
+            cb(null, { ..._file, cid: result.cid.string })
+          })
+        })
+      }, (err, results) => {
+        if (err) return console.error("=> IPFS Dropzone: IPFS Upload Error: ", err)
+        if (props.onLoad) props.onLoad(results)
+      })
+    }
+  }, [])
 
   return (
     <div className="h-full pr-[0]">
@@ -50,10 +92,10 @@ const UserPic = (props) => {
             <AddressButton caption={""} icon={AddressImg} onClick={null} />
           </div>
           <div className="relative p-[32px] lg:p-14 flex-auto">
-            <div className="mb-10">
-              <Dropzone onDrop={acceptedFiles => { uploadImage(acceptedFiles); }}>
-                {({ getRootProps, getInputProps }) => (
-                  <div {...getRootProps()}>
+            <div className="mb-5">
+              <Dropzone ref={dropzoneRef} onDrop={onDrop}>
+                {({ getRootProps, getInputProps, isDragActive }) => (
+                  <div {...getRootProps()} {...props}>
                     <input {...getInputProps()} />
                     <label
                       className="flex w-full h-24 px-4 transition bg-transparent border-2 border-white/20 border-dashed rounded-md appearance-none cursor-pointer hover:border-white/30 focus:outline-none">
@@ -61,8 +103,8 @@ const UserPic = (props) => {
                         <img src={GalleryImg} />
                       </span>
                       <span className="flex items-center space-x-2">
-                        {files ? <span className="font-medium text-[#f3f3f3]">
-                          <label className="text-primary">{files.length}</label> file&#40;s&#41; selected
+                        {images ? <span className="font-medium text-[#f3f3f3]">
+                          <label className="text-primary">{images.length}</label> file&#40;s&#41; selected
                           <br></br>
                           <label className="text-[14px] text-white/30">Supports&#58; JPEG, JPEG2000, PNG</label>
                         </span> : <span className="font-medium text-[#f3f3f3]">
@@ -118,15 +160,13 @@ const UserPic = (props) => {
                     }
                   </div>
               } */}
-              {/* <div className="grid grid-cols-2 xl:grid-cols-3 mt-5 max-h-[35vh]">
+              <div className="grid grid-cols-2 xl:grid-cols-3 mt-5 max-h-[35vh]">
                 {
-                  imageData.map((image, index) => (
+                  images.map((image, index) => (
                     <div className="p-2" key={index}>
                       <AvatarPanel
-                        imageUrl={image.url}
-                        title={image.title}
+                        imageUrl={image}
                         onClick={() => {
-                          setAvatar(image.url)
                           setSelectedAvatar(image)
                         }}
                         selected={image == selectedAvatar}
@@ -134,15 +174,15 @@ const UserPic = (props) => {
                     </div>)
                   )
                 }
-              </div> */}
+              </div>
             </div>
           </div>
           <div className="w-full p-[32px] lg:p-14 flex-auto flex items-end px-[32px] py-[32px] lg:px-14 lg:py-8">
             <div className="inline-block w-[20%] pr-2">
-              <BackButton onClick={() => {}} styles="rounded-[15px]" />
+              <BackButton onClick={() => { }} styles="rounded-[15px]" />
             </div>
             <div className="inline-block w-[80%] pl-2">
-              <PrimaryButton caption="Complete" icon="" bordered={false} onClick={() => {}} disabled={false} styles="rounded-[15px]" />
+              <PrimaryButton caption="Complete" icon="" bordered={false} onClick={() => { }} disabled={false} styles="rounded-[15px]" />
             </div>
           </div>
         </div>
