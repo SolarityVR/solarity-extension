@@ -6,12 +6,14 @@ import { Buffer } from "buffer";
 import async from 'async';
 
 import { AddressButton, BackButton, PrimaryButton } from "../../components/Buttons";
-import { parseName } from "../../utils";
+import { minifyAddress, parseName } from "../../utils";
 
 import AddressImg from "../../../assets/img/address.png";
 import GalleryImg from "../../../assets/img/auth/gallery.png";
 import AvatarPanel from "../../components/Panels/AvatarPanel";
 import { getNfts } from "../../hooks";
+import { useSelector } from "react-redux";
+import NftPanel from "../../components/Panels/NFTPanel";
 
 var ipfs = window.ipfs;
 window.Buffer = Buffer;
@@ -19,12 +21,14 @@ window.Buffer = Buffer;
 const UserPic = (props) => {
   const [images, setImages] = useState([]);
   const [selectedAvatar, setSelectedAvatar] = useState();
+  const [selectedNft, setSelectedNft] = useState(null);
   const [active, setActive] = useState(false);
   const [loading, setLoading] = useState(false);
   const dropzoneRef = createRef();
 
-  const { profileData } = useSelector((state) => ({
+  const { profileData, publicKey } = useSelector((state) => ({
     profileData: state.auth.profile,
+    publicKey: state.auth.publicKey,
   }));
 
   const [nfts, nftLoading, nftError, fetchNFTs] = getNfts(
@@ -38,6 +42,10 @@ const UserPic = (props) => {
       if (props.dropOnly) e.stopPropagation();
     }
   }
+
+  useEffect(() => {
+    fetchNFTs();
+  }, [])
 
   useEffect(() => {
     if (!ipfs && !window.ipfs && !props.ipfs) {
@@ -56,7 +64,48 @@ const UserPic = (props) => {
     }
   }, [window.ipfs, props.ipfs])
 
-  const onDrop = useCallback((files) => {
+  useEffect(() => {
+    if (selectedNft) {
+      dispatch(startLoadingApp());
+      dispatch(
+        setProfilePic({
+          data: selectedNft,
+          successFunction: () => {
+            showSuccessToast("You profile pic has been updated");
+          },
+          errorFunction: () => {
+            showErrorToast("Unable to update the profile pic");
+          },
+          finalFunction: () => {
+            dispatch(stopLoadingApp());
+            setSelectedAvatar(null)
+          },
+        })
+      );
+    }
+  }, [selectedNft])
+
+  useEffect(() => {
+    if (selectedAvatar) {
+      dispatch(
+        setUploadPic({
+          data: { url: selectedAvatar },
+          successFunction: () => {
+            showSuccessToast("You profile pic has been updated");
+          },
+          errorFunction: () => {
+            showErrorToast("Unable to update the profile pic");
+          },
+          finalFunction: () => {
+            dispatch(stopLoadingApp());
+            setSelectedNft(null)
+          },
+        })
+      );
+    }
+  }, [selectedAvatar])
+
+  const onDrop = (files) => {
     if (files && files.length > 0) {
       if (props.onLoadStart) props.onLoadStart(files.map((x) => parseName(x.name)));
       async.map(files, (file, cb) => {
@@ -66,7 +115,7 @@ const UserPic = (props) => {
           if (!ipfs) { setLoading(false); return; }
           ipfs.add(buff).then((result) => {
             setLoading(false);
-            setImages([...images, 'https://ipfs.io/ipfs/' + result.path]);
+            setImages([...images, { url: 'https://ipfs.io/ipfs/' + result.path }]);
             console.debug("=> IPFS Dropzone added: ", result.cid.string)
             let _file = parseName(file.name)
             cb(null, { ..._file, cid: result.cid.string })
@@ -77,7 +126,7 @@ const UserPic = (props) => {
         if (props.onLoad) props.onLoad(results)
       })
     }
-  }, [])
+  }
 
   return (
     <div className="h-full pr-[0]">
@@ -89,7 +138,7 @@ const UserPic = (props) => {
             <h3 className="text-[28px] lg:text-[30px] text-white font-medium tracking-[0.02em]">
               Choose profile picture
             </h3>
-            <AddressButton caption={""} icon={AddressImg} onClick={null} />
+            <AddressButton caption={minifyAddress(publicKey, 3)} icon={AddressImg} onClick={null} />
           </div>
           <div className="relative p-[32px] lg:p-14 flex-auto">
             <div className="mb-5">
@@ -119,7 +168,7 @@ const UserPic = (props) => {
               </Dropzone>
             </div>
             <div className="overflow-scroll">
-              {/* {
+              {
                 nftLoading ?
                   <h3 className="text-center text-[24px] lg:text-[26px] text-white font-medium tracking-[0.02em]">
                     Loading NFTs...
@@ -146,7 +195,6 @@ const UserPic = (props) => {
                               return selectedNft.mintAddress == mintAddress;
                             })()}
                             onClick={() => {
-                              setAvatar(image)
                               setSelectedNft({
                                 imageNetwork: type,
                                 mintAddress,
@@ -159,15 +207,15 @@ const UserPic = (props) => {
                       ))
                     }
                   </div>
-              } */}
+              }
               <div className="grid grid-cols-2 xl:grid-cols-3 mt-5 max-h-[35vh]">
                 {
                   images.map((image, index) => (
                     <div className="p-2" key={index}>
                       <AvatarPanel
-                        imageUrl={image}
+                        imageUrl={image.url}
                         onClick={() => {
-                          setSelectedAvatar(image)
+                          setSelectedAvatar(image.url)
                         }}
                         selected={image == selectedAvatar}
                       />

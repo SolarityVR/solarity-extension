@@ -17,16 +17,16 @@ export const getNfts = (
   const [ethNfts, setEthNfts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const { logged, profileData } = useSelector((state) => ({
-    logged: state.auth.logged,
-    profileData: state.profile.data,
+  const { authFlag, profileData } = useSelector((state) => ({
+    authFlag: state.auth.authFlag,
+    profileData: state.auth.profile,
   }));
 
   useEffect(() => {
     getSolanaNftData();
   }, [solNfts.length]);
 
-  if (!solanaAddress && logged) {
+  if (!solanaAddress && authFlag) {
     solanaAddress = profileData.solanaAddress;
   }
 

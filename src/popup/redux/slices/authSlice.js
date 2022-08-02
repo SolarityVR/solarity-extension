@@ -10,11 +10,32 @@ const initialState = {
   walletType: ""
 };
 
+export const userExist = createAsyncThunk(
+  "auth/userExist",
+  async ({ publicKey, walletType }, { dispatch }) => {
+    let response = false;
+    const {
+      data: { exist },
+    } = await apiCaller.post("/auth/userExist", {
+      publicKey,
+      walletType
+    });
+
+    dispatch(setPublicKey(publicKey));
+    dispatch(setWalletType(walletType));
+
+    if (exist) {
+      dispatch(connectWallet({ publicKey, walletType }));
+    } else {
+      dispatch(setPageStages(1));
+    }
+  }
+)
+
 export const connectWallet = createAsyncThunk(
   "auth/login",
   async ({ publicKey, walletType }, { dispatch }) => {
     let response = false;
-    dispatch(setPublicKey(publicKey));
     // dispatch(startLoadingApp());
     try {
       // Get nonce from Backend
@@ -56,6 +77,31 @@ export const setUserInfo = createAsyncThunk(
       } = await apiCaller.post("/profile/initProfile", data);
       successFunction();
       dispatch(setProfile(profile));
+    } catch (err) {
+      errorFunction(getErrorMessage(err));
+      returnValue = false;
+    }
+    finalFunction();
+    return returnValue;
+  }
+);
+
+export const setUploadPic = createAsyncThunk(
+  "profile/setUploadPic",
+  async ({
+    data,
+    successFunction,
+    errorFunction,
+    finalFunction,
+  }) => {
+
+    let returnValue = null;
+    try {
+      const {
+        data: { profile },
+      } = await apiCaller.post("/profile/uploadPic", data);
+      successFunction();
+      returnValue = profile;
     } catch (err) {
       errorFunction(getErrorMessage(err));
       returnValue = false;
