@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 const DomainInput = (props) => {
   const [classFocus, setClassFocus] = useState('text-white/60');
   const [classBorder, setClassBorder] = useState('border-white/10');
-  const [titleValue, setTitleValue] = useState('');
+  const [titleValue, setTitleValue] = useState(props.bio || '');
   const focusInput = () => {
     setClassFocus('top-[-15%] !text-[12px] text-primary');
     setClassBorder('border-primary');

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const DomainInput = (props) => {
   const [classFocus, setClassFocus] = useState('text-white/60');
   const [classBorder, setClassBorder] = useState('border-white/10');
-  const [domainValue, setDomainValue] = useState('');
+  const [domainValue, setDomainValue] = useState(props.domain || "");
   const [domainFooter, setDomainFooter] = useState('.verse');
   const focusInput = () => {
     setClassFocus('top-[-15%] !text-[12px] text-primary');

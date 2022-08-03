@@ -2,12 +2,17 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { apiCaller } from "../../utils/fetcher";
 
 const initialState = {
-  publicKey: "",
   pageStages: 0,
-  profile: {},
+  publicKey: "",
+  walletType: "",
   authFlag: false,
   nonce: null,
-  walletType: ""
+  registration: {
+    domain: "",
+    bio: "",
+    profileImage: {},
+  },
+  profile: {},
 };
 
 export const userExist = createAsyncThunk(
@@ -140,6 +145,12 @@ export const authSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    setDomainState: (state, action) => {
+      state.registration.domain = action.payload;
+    },
+    setBioState: (state, action) => {
+      state.registration.bio = action.payload;
+    },
     setPublicKey: (state, action) => {
       state.publicKey = action.payload;
     },
@@ -163,6 +174,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setPageStages, setPublicKey, setProfile, setAuthFlag, setWalletType } = authSlice.actions;
+export const { setDomainState, setBioState, setPageStages, setPublicKey, setProfile, setAuthFlag, setWalletType } = authSlice.actions;
 
 export default authSlice.reducer;

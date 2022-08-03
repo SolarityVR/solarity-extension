@@ -13,7 +13,7 @@ import { SharedInput } from "../../components/Forms";
 
 import { minifyAddress } from "../../utils";
 import { apiCaller, getErrorMessage } from "../../utils/fetcher";
-import { setPageStages, setUserInfo } from "../../redux/slices/authSlice";
+import { setBioState, setDomainState, setPageStages } from "../../redux/slices/authSlice";
 
 const UserInfoPage = () => {
   const [domain, setDomain] = useState(undefined);
@@ -23,16 +23,23 @@ const UserInfoPage = () => {
 
   const dispatch = useDispatch();
 
-  const { publicKey } = useSelector((state) => ({
+  const { publicKey, domainState, bioState } = useSelector((state) => ({
     publicKey: state.auth.publicKey,
+    domainState: state.auth.registration.domain,
+    bioState: state.auth.registration.bio,
   }));
 
   // Get if current domain is in DB
   const checkDomainAvailability = (formattedDomain) => {
     apiCaller
-      .get(`profile/domainAvailability/${formattedDomain}`)
+      .get(`auth/domainAvailability/${formattedDomain}`)
       .then((response) => {
-        setDomainError("")
+        if (response.data.available) {
+          dispatch(setDomainState(domain))
+          setDomainError("")
+        } else {
+          setDomainError(response.data.reason)
+        }
       })
       .catch((err) => {
         const message = getErrorMessage(err)
@@ -54,37 +61,21 @@ const UserInfoPage = () => {
   }, [domain])
 
   useEffect(() => {
-    // Bio
-    if (bio == "") {
-      setBioError("Please input your bio.");
-    } else {
-      setBioError("");
-    }
+    dispatch(setBioState(bio));
   }, [bio]);
 
   const handleUserInfo = () => {
-    // dispatch(startLoadingApp())
-    if (!!domain && !!bio) {
-      const payload = {
-        action: "info",
-        domain,
-        title: bio
-      }
-      dispatch(setUserInfo({
-        data: payload,
-        successFunction: () => {
-          dispatch(setPageStages(2));
-        },
-        errorFunction: () => { },
-        finalFunction: () => { },
-      }))
-
+    if (!domain || !!domainError) {
+      alert('Fill out your domain please.');
     } else {
-      alert('please input fields');
-      return;
+      dispatch(setPageStages(2));
     }
+  }
 
-    // dispatch(stopLoadingApp())
+  const cancelUserInfo = () => {
+    dispatch(setBioState(""));
+    dispatch(setDomainState(""));
+    dispatch(setPageStages(0));
   }
 
   return (
@@ -102,13 +93,13 @@ const UserInfoPage = () => {
           {/*body*/}
           <div className="relative p-[32px] lg:p-14 flex-auto">
             <div>
-              <DomainInput changeValue={setDomain} isError={domainError ? true : false} />
+              <DomainInput changeValue={setDomain} domain={domainState} isError={domainError ? true : false} />
               {
                 domainError ? <div className="text-[16px] text-rose-600 ">{domainError}</div> : null
               }
             </div>
             <div className="mt-6">
-              <SharedInput changeValue={setBio} caption="Input your bio" />
+              <SharedInput changeValue={setBio} bio={bioState} caption="Input your bio (optional)" />
               {
                 bioError != '' ? <div className="text-[16px] text-rose-600">{bioError}</div> : null
               }
@@ -127,7 +118,7 @@ const UserInfoPage = () => {
           </div>
           <div className="w-full px-[32px] py-[20px] lg:px-14 lg:py-8 flex-auto flex items-end">
             <div className="inline-block w-[20%] pr-2">
-              <BackButton onClick={() => { }} styles="rounded-[15px]" />
+              <BackButton onClick={cancelUserInfo} styles="rounded-[15px]" />
             </div>
             <div className="inline-block w-[80%] pl-2">
               <PrimaryButton caption="Continue" icon="" bordered={false} onClick={handleUserInfo} disabled={false} styles="rounded-[15px]" />
