@@ -1,3 +1,4 @@
+// Minify wallet address
 export const minifyAddress = (address, rate) => {
   if (address == null) return "";
   if (address.length <= 5) return address;
@@ -7,6 +8,15 @@ export const minifyAddress = (address, rate) => {
     address.substring(address.length - (rate || 3), address.length)
   );
 };
+
+//Minify string length
+export const minifyString = (str, len) => {
+  if (str == null || str == undefined) return "";
+  if (str.length <= len + 3) return str;
+  return (
+    str.substr(0, len) + "..."
+  );
+}
 
 // Set empty string if param is undefined
 export const setValue = (str) => {

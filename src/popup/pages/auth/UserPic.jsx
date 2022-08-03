@@ -14,26 +14,32 @@ import AvatarPanel from "../../components/Panels/AvatarPanel";
 import { getNfts } from "../../hooks";
 import { useSelector } from "react-redux";
 import NftPanel from "../../components/Panels/NFTPanel";
+import { useDispatch } from "react-redux";
+import { setPageStages, registerAction } from "../../redux/slices/authSlice";
 
 var ipfs = window.ipfs;
 window.Buffer = Buffer;
 
 const UserPic = (props) => {
   const [images, setImages] = useState([]);
-  const [selectedAvatar, setSelectedAvatar] = useState();
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [selectedNft, setSelectedNft] = useState(null);
   const [active, setActive] = useState(false);
   const [loading, setLoading] = useState(false);
   const dropzoneRef = createRef();
+  const dispatch = useDispatch();
 
-  const { profileData, publicKey } = useSelector((state) => ({
+  const { profileData, publicKey, domain, walletType, bio } = useSelector((state) => ({
     profileData: state.auth.profile,
+    walletType: state.auth.walletType,
     publicKey: state.auth.publicKey,
+    domain: state.auth.registration.domain,
+    bio: state.auth.registration.bio
   }));
 
   const [nfts, nftLoading, nftError, fetchNFTs] = getNfts(
-    profileData.domain,
-    profileData.solanaAddress,
+    domain,
+    publicKey,
     true
   );
 
@@ -65,44 +71,13 @@ const UserPic = (props) => {
   }, [window.ipfs, props.ipfs])
 
   useEffect(() => {
-    if (selectedNft) {
-      dispatch(startLoadingApp());
-      dispatch(
-        setProfilePic({
-          data: selectedNft,
-          successFunction: () => {
-            showSuccessToast("You profile pic has been updated");
-          },
-          errorFunction: () => {
-            showErrorToast("Unable to update the profile pic");
-          },
-          finalFunction: () => {
-            dispatch(stopLoadingApp());
-            setSelectedAvatar(null)
-          },
-        })
-      );
-    }
+    if (selectedAvatar && selectedNft)
+      setSelectedAvatar(null);
   }, [selectedNft])
 
   useEffect(() => {
-    if (selectedAvatar) {
-      dispatch(
-        setUploadPic({
-          data: { url: selectedAvatar },
-          successFunction: () => {
-            showSuccessToast("You profile pic has been updated");
-          },
-          errorFunction: () => {
-            showErrorToast("Unable to update the profile pic");
-          },
-          finalFunction: () => {
-            dispatch(stopLoadingApp());
-            setSelectedNft(null)
-          },
-        })
-      );
-    }
+    if (selectedAvatar && selectedNft)
+      setSelectedNft(null);
   }, [selectedAvatar])
 
   const onDrop = (files) => {
@@ -128,6 +103,25 @@ const UserPic = (props) => {
     }
   }
 
+  const cancelUserPic = () => {
+    setSelectedAvatar(null);
+    setSelectedNft(null);
+    dispatch(setPageStages(1));
+  }
+
+  const register = () => {
+    if (!selectedAvatar && !selectedNft) {
+      alert('Select a item for profile image please.')
+    }
+    var profileImage = {};
+    if (selectedAvatar) {
+      profileImage.link = selectedAvatar.url;
+    } else {
+      profileImage = selectedNft;
+    }
+    dispatch(registerAction({ profileImage, publicKey, walletType, domain, bio }))
+  }
+
   return (
     <div className="h-full pr-[0]">
       <div className="relative w-auto my-6 mx-auto h-full">
@@ -140,7 +134,7 @@ const UserPic = (props) => {
             </h3>
             <AddressButton caption={minifyAddress(publicKey, 3)} icon={AddressImg} onClick={null} />
           </div>
-          <div className="relative p-[32px] lg:p-14 flex-auto">
+          <div className="relative p-[32px] pb-0 lg:p-14 flex-auto">
             <div className="mb-5">
               <Dropzone ref={dropzoneRef} onDrop={onDrop}>
                 {({ getRootProps, getInputProps, isDragActive }) => (
@@ -167,14 +161,14 @@ const UserPic = (props) => {
                 )}
               </Dropzone>
             </div>
-            <div className="overflow-scroll">
+            <div className="overflow-scroll h-[322px]">
               {
                 nftLoading ?
                   <h3 className="text-center text-[24px] lg:text-[26px] text-white font-medium tracking-[0.02em]">
                     Loading NFTs...
                   </h3>
                   :
-                  <div className="grid grid-cols-2 xl:grid-cols-3 mt-5 max-h-[35vh]">
+                  <div className="grid grid-cols-2 xl:grid-cols-3 mt-5">
                     {
                       nfts.map(({ type, mintAddress, contractAddress, tokenId, name, image, collectionName }, index) => (
                         <div className="p-2" key={index}>
@@ -215,7 +209,7 @@ const UserPic = (props) => {
                       <AvatarPanel
                         imageUrl={image.url}
                         onClick={() => {
-                          setSelectedAvatar(image.url)
+                          setSelectedAvatar(image)
                         }}
                         selected={image == selectedAvatar}
                       />
@@ -227,10 +221,10 @@ const UserPic = (props) => {
           </div>
           <div className="w-full p-[32px] lg:p-14 flex-auto flex items-end px-[32px] py-[32px] lg:px-14 lg:py-8">
             <div className="inline-block w-[20%] pr-2">
-              <BackButton onClick={() => { }} styles="rounded-[15px]" />
+              <BackButton onClick={cancelUserPic} styles="rounded-[15px]" />
             </div>
             <div className="inline-block w-[80%] pl-2">
-              <PrimaryButton caption="Complete" icon="" bordered={false} onClick={() => { }} disabled={false} styles="rounded-[15px]" />
+              <PrimaryButton caption="Complete" icon="" bordered={false} onClick={register} disabled={false} styles="rounded-[15px]" />
             </div>
           </div>
         </div>

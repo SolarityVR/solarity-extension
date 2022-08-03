@@ -37,6 +37,26 @@ export const userExist = createAsyncThunk(
   }
 )
 
+export const registerAction = createAsyncThunk(
+  "auth/register",
+  async ({ profileImage, publicKey, walletType, domain, bio }, { dispatch }) => {
+    try {
+      let response = false;
+      await apiCaller.post("/auth/register", {
+        publicKey,
+        walletType,
+        username: domain,
+        bio,
+        daos: {},
+        profileImage
+      });
+      dispatch(connectWallet({ publicKey, walletType }));
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+)
+
 export const connectWallet = createAsyncThunk(
   "auth/login",
   async ({ publicKey, walletType }, { dispatch }) => {
