@@ -1,15 +1,11 @@
 import React from "react";
-import Header from './components/Header';
 
 const ProfilePage = (props) => {
   return (
     <div className="bg-globalBgColor flex sm:flex-row xs:flex-col w-full relative">
       <div className="bg-globalBgColor flex flex-col custom-2xl:px-[56px] xl:px-[25px] lg:px-[56px] md:px-[25px] sm:px-[20px] xs:px-[24px] w-full">
-        <Header />
         {props.banner}
-        {children}
       </div>
-
     </div>
   );
 }

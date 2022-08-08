@@ -19,18 +19,19 @@ module.exports = {
         'secondary': 'var(--secondary-color)',
         'footer': 'var(--footer-color)',
         'content': '#cecece',
+        'lightGrey': "#E3E3E3",
         // kisikbo5 wrote this
         'globalBgColor': '#131314',
-        'semiSplitter' : '#1d1f1f'
+        'semiSplitter': '#1d1f1f'
       }
     },
     screens: {
-      'xs' : '220px',
-      'sm' : '640px',
-      'md' : '768px',
-      'lg' : '1024px',
-      'xl' : '1280px',
-      'custom-2xl' : '1680px'
+      'xs': '220px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      'custom-2xl': '1680px'
     }
   },
   plugins: [],

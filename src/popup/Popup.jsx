@@ -4,7 +4,12 @@ import { useSelector, useDispatch } from "react-redux";
 // import LandingPage from './pages/LandingPage';
 // import UserInfoPage from './pages/auth/UserInfoPage';
 // import UserPic from './pages/auth/UserPic';
-import ProfilePage from './pages/ProfilePage';
+// import ProfilePage from './pages/ProfilePage';
+import MainPage from './pages/MainPage.jsx';
+
+import Layout from './components/Layout';
+import Header from './components/Layout/Header';
+import Footer from './components/Layout/Footer';
 
 // import { setPageStages, login, userExist } from './redux/slices/authSlice';
 
@@ -39,13 +44,15 @@ const Popup = () => {
   // }
 
   return (
-    <div className='w-[400px] h-[650px] rounded-lg bg-[#141414]'>
+    <div className='w-[375px] h-[650px] bg-[#141414] relative'>
       {/* login and register */}
       {/* {pageStages == 0 && <LandingPage />}
       {pageStages == 1 && <UserInfoPage />}
       {pageStages == 2 && <UserPic />} */}
-      {pageStages == 3 && <ProfilePage />}
-      {/*  */}
+      {/* Main Layout */}
+      <Layout header={<Header />} footer={<Footer activeMenu={'home'} />}>
+        {pageStages == 3 && <MainPage />}
+      </Layout>
     </div>
   );
 };
