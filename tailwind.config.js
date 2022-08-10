@@ -20,6 +20,7 @@ module.exports = {
         'footer': 'var(--footer-color)',
         'content': '#cecece',
         'lightGrey': "#E3E3E3",
+        'lightDark': "#181818",
         // kisikbo5 wrote this
         'globalBgColor': '#131314',
         'semiSplitter': '#1d1f1f'
