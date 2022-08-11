@@ -7,7 +7,7 @@ const ItemTemplate = (props) => {
     <div className="p-[14px] text-lightGrey bg-lightDark rounded-[15px]">
       <div className="flex">
         {props.image}
-        <div className={`pl-[${props.gap}] relative w-full`}>
+        <div className={`pl-${props.gap} relative w-full`}>
           {props.title && (
             <div className="text-base font-bold leading-tight mb-2">
               {props.title}

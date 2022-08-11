@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import UserInfoMenu from '../Common/UserInfoMenu'
-import LogoSVGImg from '../../../assets/img/logo.png'
 import SearchGameBox from '../Common/SearchGameBox'
+
+const logoSVGImg = chrome.runtime.getURL('static/img/library/logo.png')
 
 const Header = () => {
     const [active, setActive] = useState('Explore')
@@ -18,7 +19,7 @@ const Header = () => {
                             h-full self-center 
                             custom-2xl:w-fit xl:w-fit lg:w-full md:w-full sm:w-full items-center'>
                 <div className='h-[92px] w-[92px] flex items-center justify-center border-b-[1px] border-[#1D1F1F] md:mr-[25px] cursor-pointer'>
-                    <img src={LogoSVGImg} width={40} height={40} />
+                    <img src={logoSVGImg} width={40} height={40} />
                 </div>
                 <div className='hidden md:block'>
                     <SearchGameBox />

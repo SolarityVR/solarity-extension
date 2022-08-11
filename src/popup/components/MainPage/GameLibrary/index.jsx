@@ -14,7 +14,7 @@ const RecommendedQuest = (props) => {
           <ItemTemplate
             image={<img src={LibraryMain} width={72} height={72} />}
             title="Assassin’s Creed"
-            gap="24px"
+            gap="6"
           />
         ))}
       </div>

@@ -1,5 +1,7 @@
 import React from "react";
 import { UsersLarge, FavoriteLarge, LikesLarge, Play } from "../../../Icons";
+import Pets from "../../../../../assets/img/library/pets.png";
+const pets = chrome.runtime.getURL('static/img/library/pets.png')
 
 const GameDetailPanel = (props) => {
   const { data, onPlay } = props
@@ -7,7 +9,7 @@ const GameDetailPanel = (props) => {
   return (
     <div className="flex flex-col relative overflow-hidden
                         w-full rounded-[20px] border-[1.2px] border-[#272829] hover:border-primary transition duration-300 bg-[#242424]">
-      <div className="w-full "><img src={data.image} style={{ width: "100%" }} /></div>
+      <div className="w-full "><img src={pets} style={{ width: "100%" }} /></div>
       <div className="py-[10px] px-[20px]">
         <div className="text-[24px] text-[#F3F3F3] leading-[36px]">{data.title}</div>
         <div className="flex flex-row justify-between items-center text-[#929298] text-[16px] mb-[20px]">

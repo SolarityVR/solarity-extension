@@ -13,7 +13,7 @@ const RecommendedQuest = (props) => {
         image={<img src={QuestMainimg} width={118} height={114} />}
         title="Collect all pets!"
         detail="Damage with Legendary Weapons"
-        gap="14px"
+        gap="3"
       />
     </div>
   );

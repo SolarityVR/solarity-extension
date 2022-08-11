@@ -198,6 +198,15 @@ var options = {
         },
       ],
     }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/assets/img/library/',
+          to: path.join(__dirname, 'build/static/img/library'),
+          force: true,
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'src', 'popup', 'index.html'),
       filename: '/static/js/popup.html',

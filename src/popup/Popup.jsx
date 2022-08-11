@@ -52,6 +52,7 @@ const Popup = () => {
       {/* Main Layout */}
       <Layout header={<Header />} footer={<Footer activeMenu={'home'} />}>
         {pageStages == 3 && <MainPage />}
+        {pageStages == 4 && <FriendPage />}
       </Layout>
     </div>
   );

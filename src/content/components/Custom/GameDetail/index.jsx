@@ -4,6 +4,10 @@ import GameDetailPanel from "./GameDetailPanel";
 import { GameDetailData } from "../../../data";
 import { ArrowLeft } from "../../Icons";
 
+const stores = chrome.runtime.getURL('static/img/library/stores.png')
+const badges = chrome.runtime.getURL('static/img/library/badges.png')
+const logo = chrome.runtime.getURL('logo.png')
+
 const GameDetail = (props) => {
   const { setPage, setIframe } = props
   const [tabIndex, setTabIndex] = useState(0);
@@ -60,7 +64,7 @@ const GameDetail = (props) => {
                       {
                         [0, 1, 2, 3].map(index => (
                           <div className="flex flex-row" key={index}>
-                            <div className=""><img src="/images/library/temp/badges.png" width={70} height={70} /></div>
+                            <div className=""><img src={badges} width={70} height={70} /></div>
                             <div className="ml-[15px]">
                               <div className="text-[16px] text-white font-medium">Second Sea</div>
                               <div className="text-[12px] text-white font-normal">You&apos;ve unlocked the Second Sea!</div>
@@ -80,12 +84,12 @@ const GameDetail = (props) => {
                         {
                           [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(index => (
                             <div className="bg-[#181818] px-[15px] py-[20px] rounded-[20px] w-[70%] sm:w-full" key={index}>
-                              <div className="text-center mb-[15px]">
-                                <img src="/images/library/temp/stores.png" height={80} width={80} />
+                              <div className="flex justify-center text-center mb-[15px]">
+                                <img src={stores} height={80} width={80} />
                               </div>
                               <div className="text-white font-semibold text-[18px]">2x Money</div>
                               <div className="flex items-center text-white font-medium text-[18px] mt-[10px]">
-                                <img src="/images/library/temp/logo.png" height={18} width={18} />&nbsp;<span>450</span>
+                                <img src={logo} height={18} width={18} />&nbsp;<span>450</span>
                               </div>
                               <button className={`font-medium py-[8.5px] rounded-[12px] text-white w-[100%] text-[14px] sm:text-[14px] text-center tracking-wider  inline-flex items-center justify-center bg-primary hover:bg-lightprimary mt-[20px]`}>
                                 <span>Buy</span>
