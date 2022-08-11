@@ -54,16 +54,16 @@ const Modal = () => {
                 });
             }}
             lockAspectRatio={16 / 9}
-            minHeight={'281'}
+            minHeight={'181'}
             maxHeight={'90vh'}
-            minWidth={'500'}
+            minWidth={'300'}
             maxWidth={'90vw'}
             dragHandleClassName={`${isIframe ? '' : 'handleDraggling'}`}
             enableResizing={enabledResizing}
-            bounds="body"
+            bounds="window"
         >
             <div className={`modal-content w-[100%] h-[100%] flex flex-col relative bg-globalBgColor border-[1px] border-[#1d1f1f] rounded-[25px] resize select-none ${isIframe ? '' : 'px-[10px] pb-[10px] pt-[30px]'}`}>
-                <div className={`${isIframe ? '' : 'handleDraggling'} m-auto right-0 h-[30px] w-[95%] absolute top-0 left-0 z-[10000] rounded-[50px] overflow-hidden cursor-move`}></div>
+                <div className={`${isIframe ? '' : 'handleDraggling'} m-auto right-0 h-[20px] w-[95%] absolute top-0 left-0 z-[10000] rounded-[50px] overflow-hidden cursor-move`}></div>
                 {
                     isIframe ?
                         <div className='w-full h-full overflow-hidden rounded-[25px]'>
@@ -79,7 +79,7 @@ const Modal = () => {
                             }
                         </LibraryLayout>
                 }
-                <div id="game-modal-close" className="absolute top-[-27px] right-[-20px] cursor-pointer">
+                <div id="game-modal-close" className="z-[1000] absolute top-[20px] right-[20px] cursor-pointer">
                     <CloseIcon />
                 </div>
             </div>

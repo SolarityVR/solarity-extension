@@ -41,7 +41,7 @@ B.onload = function () {
 $('body').css('position', 'relative');
 const gameModal = document.createElement('div');
 gameModal.style.position="absolute";
-gameModal.style.top='50px';
+gameModal.style.top='0px';
 gameModal.style.left="0px";
 gameModal.id = "game-modal";
 document.body.appendChild(gameModal);
