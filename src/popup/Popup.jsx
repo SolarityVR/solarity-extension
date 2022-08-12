@@ -14,12 +14,13 @@ import Footer from './components/Layout/Footer';
 // import { setPageStages, login, userExist } from './redux/slices/authSlice';
 
 import './Popup.css';
+import FriendPage from './pages/FriendPage/index.jsx';
 // import { setValue } from './utils';
 
 const Popup = () => {
   const [loginStages, setLoginStages] = useState(0);
   const [solanaAddress, setSolanaAddress] = useState("");
-  const [pageStages, setPageStages] = useState(3);
+  const [pageStages, setPageStages] = useState(4);
 
   // const { pageStages, authFlag, profileData } = useSelector((state) => ({
   //   profileData: state.auth.profile,

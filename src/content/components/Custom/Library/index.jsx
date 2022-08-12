@@ -5,7 +5,11 @@ import { GameLibraryData, LibraryMenu } from "../../../data";
 import GamePanel from "./Panels/GamePanel";
 
 const Library = (props) => {
-  const { setPage } = props
+  const { setPage, selectGame } = props
+
+  const [tabIndex, setTabIndex] = useState(0);
+  const [active, setActive] = useState("Up and Coming");
+
   const rightScroll = () => {
     document.querySelector(".library-tab").scrollLeft += 80;
   };
@@ -14,8 +18,11 @@ const Library = (props) => {
     document.querySelector(".library-tab").scrollLeft -= 80;
   };
 
-  const [tabIndex, setTabIndex] = useState(0);
-  const [active, setActive] = useState("Up and Coming");
+  const onClickGameItem = (data) => {
+    setPage(1);
+    selectGame(data);
+  }
+
 
   return (
     <div className="flex flex-col w-full px-[30px]">
@@ -61,7 +68,7 @@ const Library = (props) => {
       <div className="gap-[32px] grid custom-2xl:grid-cols-7 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 justify-items-center my-[32px]">
         {
           GameLibraryData.map((item, index) => (
-            <GamePanel image={item.image} key={index} title={item.title} likes={item.likes} members={item.members} onClick={() => setPage(1)} />
+            <GamePanel image={item.image} key={index} title={item.title} likes={item.likes} members={item.members} onClick={() => onClickGameItem(item)} />
           ))
         }
       </div>

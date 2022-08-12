@@ -12,6 +12,7 @@ const Modal = () => {
     const [gameLibraryToggle, setGameLibraryToggle] = useState(false);
     const [gameLibraryPageFlag, setGameLibraryPageFlag] = useState(0);
     const [isIframe, setIsIframe] = useState(false);
+    const [selectedGame, setSelectedGame] = useState(null);
 
     const innerWidth = window.innerWidth
     const innerHeight = window.innerHeight
@@ -63,7 +64,7 @@ const Modal = () => {
             bounds="window"
         >
             <div className={`modal-content w-[100%] h-[100%] flex flex-col relative bg-globalBgColor border-[1px] border-[#1d1f1f] rounded-[25px] resize select-none ${isIframe ? '' : 'px-[10px] pb-[10px] pt-[30px]'}`}>
-                <div className={`${isIframe ? '' : 'handleDraggling'} m-auto right-0 h-[20px] w-[95%] absolute top-0 left-0 z-[10000] rounded-[50px] overflow-hidden cursor-move`}></div>
+                <div className={`${isIframe ? '' : 'handleDraggling'} m-auto right-0 h-[15px] w-[95%] absolute top-0 left-0 z-[10000] rounded-[50px] overflow-hidden cursor-move`}></div>
                 {
                     isIframe ?
                         <div className='w-full h-full overflow-hidden rounded-[25px]'>
@@ -73,13 +74,13 @@ const Modal = () => {
                         <LibraryLayout>
                             {
                                 gameLibraryPageFlag === 0 ?
-                                    <Library setPage={setGameLibraryPageFlag} />
+                                    <Library setPage={setGameLibraryPageFlag} selectGame={setSelectedGame} />
                                     :
-                                    <GameDetail setPage={setGameLibraryPageFlag} setIframe={setIsIframe} />
+                                    <GameDetail setPage={setGameLibraryPageFlag} setIframe={setIsIframe} selectedGame={selectedGame} />
                             }
                         </LibraryLayout>
                 }
-                <div id="game-modal-close" className="z-[1000] absolute top-[20px] right-[20px] cursor-pointer">
+                <div id="game-modal-close" className="z-[1000] absolute top-[15px] right-[15px] cursor-pointer">
                     <CloseIcon />
                 </div>
             </div>

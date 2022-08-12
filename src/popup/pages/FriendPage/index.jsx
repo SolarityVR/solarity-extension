@@ -1,11 +1,12 @@
 import React from "react";
+import { SearchInput } from "../../components/Forms";
 
 const FriendPage = () => {
   return (
     <div>
-      <SearchButton />
-      <FriendList />
-      <Flocks />
+      <SearchInput />
+      {/* <FriendList /> */}
+      {/* <Flocks /> */}
     </div>
   );
 }
