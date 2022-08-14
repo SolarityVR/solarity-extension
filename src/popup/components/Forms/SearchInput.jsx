@@ -8,7 +8,7 @@ const SearchBox = () => {
                         custom-2xl:mr-[20px] xl:mr-[10px] 
                         custom-2xl:w-[346px] xl:w-[200px]
                         relative">
-            <input type="search" placeholder="Search" className={`bg-globalBgColor  border-[1.2px] rounded-[15px] focus:border-primary
+            <input type="search" placeholder="Search for friends or players" className={`bg-globalBgColor  border-[1.2px] rounded-[15px] focus:border-primary
                                                                 px-[16px] py-[11px] text-[#929298] w-full ${typing ? 'border-primary' : 'border-[#272829]'}`} onChange={(e) => { e.target.value !== '' ? setTyping(true) : setTyping(false) }} />
             <div className={`absolute right-[20px] ${typing ? 'hidden' : 'block'}`} >
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

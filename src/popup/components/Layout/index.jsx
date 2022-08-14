@@ -6,7 +6,7 @@ const Layout = (props) => {
       <div className=" absolute top-0 w-full">
         {props.header}
       </div>
-      <div className="pt-[81px]">
+      <div className="p-6 !pt-[95px]">
         {props.children}
       </div>
       {props.footer}

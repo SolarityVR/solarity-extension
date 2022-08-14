@@ -4,7 +4,7 @@ import GameLibrary from '../components/MainPage/GameLibrary';
 
 const MainPage = (props) => {
   return (
-    <div className="h-[515px] overflow-auto p-6">
+    <div className="h-[515px] overflow-auto">
       <RecommendedQuest />
       <GameLibrary />
     </div>
