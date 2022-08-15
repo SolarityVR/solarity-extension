@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Rnd } from 'react-rnd'
 import GameDetail from "./components/Custom/GameDetail";
 import Library from "./components/Custom/Library";
-import { CloseIcon } from "./components/Icons";
+import { ArrowLeft, CloseIcon } from "./components/Icons";
 import LibraryLayout from "./components/LibraryLayout";
 import '../assets/styles/tailwind.css';
 import './content.styles.css';
@@ -68,7 +68,15 @@ const Modal = () => {
                 {
                     isIframe ?
                         <div className='w-full h-full overflow-hidden rounded-[25px]'>
-                            <iframe frameBorder="0" src="https://solarity-frontend.vercel.app/oraziogrinzosih/hub/" featurepolicy="{&quot;vr&quot;: [&quot;*&quot;]}" allow="camera;microphone;vr;" allowFullScreen={true} scrolling="no" width="100%" height="100%"></iframe>
+                            <div className='fixed top-[5vh] left-[30px] cursor-pointer text-primary' onClick={() => setIsIframe(false)}>
+                                <div className='flex rounded-lg bg-brandblack px-4 py-2'>
+                                    <div className="mt-2">
+                                        <ArrowLeft />
+                                    </div>
+                                    <span className='ml-3'>Back</span>
+                                </div>
+                            </div>
+                            <iframe frameBorder="0" src={selectedGame.iframe} featurepolicy="{&quot;vr&quot;: [&quot;*&quot;]}" allow="camera;microphone;vr;" allowFullScreen={true} scrolling="no" width="100%" height="100%"></iframe>
                         </div>
                         :
                         <LibraryLayout>
