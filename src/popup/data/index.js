@@ -334,14 +334,14 @@ export const ChattingBoxData = [
 export const GAME_LIBRARIES = [
   {
     image: LibraryMain,
-    title: "Assassin’s Creed"
+    title: "Mini Royale"
   },
   {
     image: LibraryMain,
-    title: "Assassin’s Creed"
+    title: "Aurory"
   },
   {
     image: LibraryMain,
-    title: "Assassin’s Creed"
+    title: "OnCyber"
   },
 ];
