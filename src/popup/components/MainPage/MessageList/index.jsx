@@ -1,31 +1,37 @@
 import React from "react";
-import { FLOCKS } from "../../../data";
+import { SUGGESTED_FRIENDS } from "../../../data";
+import { PrimaryButton } from "../../Buttons";
 import PrimaryBorderButton from "../../Buttons/PrimaryBorderButton";
+import { Link } from "../../Icons";
 import { TitleItem } from "../../Items";
-import ItemTemplate from "../../Panels/ItemTemplate";
+import MessageListItem from "../../Panels/MessageListItem";
 
-const MessageList = () => {
+const MessageList = (props) => {
+  const { selectedFriend, setSelectedFriend } = props;
+
   return (
-    <div className="px-6 pt-5 pb-6">
-      <TitleItem title="Suggested" comment="11" />
+    <div className="px-6 pb-6">
+      <TitleItem title="Suggested" comment="" />
       <div className="grid gap-y-3">
-        {FLOCKS.map((flock, index) => (
-          <ItemTemplate
-            title={flock.title}
-            detail={flock.detail}
-            time={flock.time}
+        {SUGGESTED_FRIENDS.map((friend, index) => (
+          <MessageListItem
+            title={friend.name}
             image={<img
-              src={flock.img}
+              src={friend.img}
               width={52}
               height={52} />
             }
+            status={friend.status}
+            selected={friend === selectedFriend}
             gap={3}
             key={index}
+            onSelect={() => setSelectedFriend(friend)}
           />
         ))}
       </div>
-      <div className="py-6 flex justify-center">
-        <PrimaryBorderButton caption="See active flocks" styles="py-1" />
+      <div className="py-6 grid gap-5">
+        <PrimaryButton disabled={selectedFriend ? false : true} caption="Create a chat" styles="py-3 w-full rounded-[15px]" />
+        <PrimaryBorderButton icon={<Link />} caption="Copy invitation link" styles="py-[18px] w-full rounded-[15px]" />
       </div>
     </div>
   );

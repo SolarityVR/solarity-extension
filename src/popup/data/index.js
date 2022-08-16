@@ -76,6 +76,33 @@ export const FRIENDS = [
   }
 ];
 
+export const SUGGESTED_FRIENDS = [
+  {
+    name: "Giana Bergson",
+    img: Avatar1,
+    status: "idle",
+    isSelected: false
+  },
+  {
+    name: "Giana Bergson",
+    img: Avatar2,
+    status: "idle",
+    isSelected: false
+  },
+  {
+    name: "Giana Bergson",
+    img: Avatar3,
+    status: "idle",
+    isSelected: false
+  },
+  {
+    name: "Giana Bergson",
+    img: Avatar4,
+    status: "idle",
+    isSelected: false
+  }
+];
+
 export const FLOCKS = [
   {
     img: Yield,
