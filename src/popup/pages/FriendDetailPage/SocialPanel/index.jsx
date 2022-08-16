@@ -4,7 +4,7 @@ import DiscordImg from '../../../../assets/img/social/discord.png';
 
 const SocialPanel = () => {
   return (
-    <div className="flex gap-3 border border-primary rounded-2xl p-[14px]">
+    <div className="flex gap-3 border border-transparent rounded-2xl p-[14px] hover:border-primary bg-lightDark">
       <div className="flex gap-3">
         {[TwitterImg, DiscordImg].map((social, index) => (
           <div className="!w-10 h-10 rounded-lg border border-semiSplitter flex items-center cursor-pointer hover:border-primary hover:bg-focusbackground" key={index}>

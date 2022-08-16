@@ -15,7 +15,7 @@ const Footer = (props) => {
       {
         MENU_ITEMS.map((item, index) => (
           <div
-            className={"cursor-pointer hover:text-primary " + (item.name == props.activeMenu ? "text-primary" : "text-white")}
+            className={"cursor-pointer hover:text-primary " + (index == props.activeMenu ? "text-primary" : "text-white")}
             key={index}
             onClick={() => switchMenu(index + 3)}
           >

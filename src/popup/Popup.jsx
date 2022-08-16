@@ -33,29 +33,29 @@ const Popup = () => {
   }));
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    chrome.runtime.onMessage.addListener(onExtMessage);
-  }, [])
+  // useEffect(() => {
+  //   chrome.runtime.onMessage.addListener(onExtMessage);
+  // }, [])
 
-  const onExtMessage = (message, sender, sendResponse) => {
-    switch (message.command) {
-      case 'wallet-connected':
-        dispatch(userExist({ publicKey: message.publicKey, walletType: setValue(localStorage.getItem('walletType')) }));
-        break;
-      case 'receive-signature':
-        dispatch(login({ publicKey: message.publicKey, walletType: message.walletType, signature: message.signature }))
-        break;
-    }
-  }
+  // const onExtMessage = (message, sender, sendResponse) => {
+  //   switch (message.command) {
+  //     case 'wallet-connected':
+  //       dispatch(userExist({ publicKey: message.publicKey, walletType: setValue(localStorage.getItem('walletType')) }));
+  //       break;
+  //     case 'receive-signature':
+  //       dispatch(login({ publicKey: message.publicKey, walletType: message.walletType, signature: message.signature }))
+  //       break;
+  //   }
+  // }
 
   return (
     <div className='w-[375px] h-[600px] bg-[#141414] relative'>
       {/* login and register */}
-      {pageStages == 0 && <LandingPage />}
+      {/* {pageStages == 0 && <LandingPage />}
       {pageStages == 1 && <UserInfoPage />}
-      {pageStages == 2 && <UserPic />}
+      {pageStages == 2 && <UserPic />} */}
       {/* Main Layout */}
-      <Layout header={<Header />} footer={<Footer activeMenu={'home'} />}>
+      <Layout header={<Header />} footer={<Footer activeMenu={pageStages - 3} />} pageStages={pageStages}>
         {pageStages == 3 && <MainPage />}
         {pageStages == 4 && <FriendPage />}
         {pageStages == 5 && <ChatMainPage />}

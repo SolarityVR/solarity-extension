@@ -13,7 +13,7 @@ const ChatsPanel = () => {
     <div>
       <TitleItem 
         title="Chats" 
-        comment="1unread" 
+        comment="1 unread" 
         button={
           <div className=" cursor-pointer bg-darkGreen text-primary p-[8px] rounded-md" onClick={() => dispatch(setPageStages(10))}>
             <RoundPlus />

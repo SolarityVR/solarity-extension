@@ -228,3 +228,96 @@ export const FRIEND_LIST_DATA = [
     isActive: false,
   },
 ];
+
+export const ChattingBoxData = [
+  {
+      imgUrl : Avatar1,
+      uName : "Konstantin1982.sol",
+      before : "40m",
+      text : "Hi, we are currently hiring a Minecraft Modder for MrBeast Gaming. We switched back to google forms so if you applied above or tried to apply, use this form instead."
+  },
+  {
+      imgUrl : Avatar2,
+      uName : "Johny",
+      before : "32m",
+      text : "Hello, guys! How are you?"
+  },
+  {
+      imgUrl : Avatar3,
+      uName : "Alex1440",
+      before : "25m",
+      text : "Johny, i’m fine :)"
+  },
+  {
+      imgUrl : Avatar7,
+      uName : "You",
+      before : "25m",
+      text : "Please apply using the link below"
+  },
+  {
+      imgUrl : Avatar5,
+      uName : "Eugene",
+      before : "40m",
+      text : "Please apply using the link below https://forms.gle/dYRrYcg7xpQmEwT67"
+  },
+  {
+      imgUrl : Avatar6,
+      uName : "Konstantin1982.sol",
+      before : "40m",
+      text : "Shortime"
+  },
+  {
+      imgUrl : Avatar7,
+      uName : "kisikbo5.sol",
+      before : "40m",
+      text : "Hi, we are currently hiring a Minecraft Modder for MrBeast Gaming. We switched back to google forms so if you applied above or tried to apply, use this form instead."
+  },
+  {
+      imgUrl : Avatar1,
+      uName : "vlady.sol",
+      before : "40m",
+      text : "What is the mainpoint of your explanation?"
+  },
+  {
+      imgUrl : Avatar4,
+      uName : "Nazyar.sol",
+      before : "40m",
+      text : "Oh, come on"
+  },
+  {
+      imgUrl : Avatar3,
+      uName : "vlady.sol",
+      before : "40m",
+      text : "Hey, guys, Heads up, keep going!"
+  },
+  {
+      imgUrl : Avatar6,
+      uName : "Duchdenwald.sol",
+      before : "40m",
+      text : "On 21th March there is going to be a conference of Sol NFT supporters"
+  },
+  {
+      imgUrl : Avatar7,
+      uName : "Schulze.sol",
+      before : "40m",
+      text : "That's cool"
+  },
+  {
+      imgUrl : Avatar6,
+      uName : "BigRocks.sol",
+      before : "40m",
+      text : "Hi, we are currently hiring a Minecraft Modder for MrBeast Gaming. We switched back to google forms so if you applied above or tried to apply, use this form instead."
+  },
+  {
+      imgUrl : Avatar5,
+      uName : "Jenny",
+      before : "40m",
+      text : "Nothig to say more.\nlet's meet some other day"
+  },
+  {
+      imgUrl : Avatar4,
+      uName : "Konstantin1982.sol",
+      before : "40m",
+      text : "Cya!"
+  },
+]

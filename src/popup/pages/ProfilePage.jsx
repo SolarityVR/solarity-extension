@@ -4,7 +4,7 @@ import SocialList from '../components/MainPage/SocialList';
 
 import Avatar from '../../assets/img/temp/Avatar_Konstantin1982.png';
 import Verified from '../../assets/img/profile/verified.png';
-import Logo from '../../assets/img/logo.png';
+import Logo1 from '../../assets/img/logo1.png';
 import BannerDescriptionWallet from "../components/MainPage/BannerDescriptionWallet";
 import { Power, Setting } from "../components/Icons";
 
@@ -32,7 +32,7 @@ const ProfilePage = () => {
           button={
             <div className="flex gap-2 items-center">
               <div>
-                <img src={Logo} width={16} height={16} />
+                <img src={Logo1} width={20} height={20} />
               </div>
               <div className="text-white text-xl">{450}</div>
             </div>

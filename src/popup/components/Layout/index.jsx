@@ -3,11 +3,13 @@ import React from "react";
 const Layout = (props) => {
   return (
     <div className="w-full h-full">
-      <div className=" absolute top-0 w-full">
-        {props.header}
-      </div>
-      <div className="py-6 !pt-[81px]">
-        <div className="h-[476px] overflow-y-auto">
+      {props.pageStages != 9 && (
+        <div className=" absolute top-0 w-full">
+          {props.header}
+        </div>
+      )}
+      <div className={"py-6 " + (props.pageStages != 9 ? "!pt-[81px]" : "")}>
+        <div className={"overflow-y-auto " + (props.pageStages != 9 ? "h-[476px]" : "h-[557px]")}>
           {props.children}
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import PrimaryBorderButton from "../Buttons/PrimaryBorderButton";
 import { ArrowBack, Play, Schedule } from "../Icons";
-import Logo from '../../../assets/img/logo.png';
+import Logo1 from '../../../assets/img/logo1.png';
 
 const TwoItemTemplate = (props) => {
   return (
@@ -26,7 +26,7 @@ const TwoItemTemplate = (props) => {
               </div>
             )}
             {props.nextIcon && (
-              <div className="absolute -right-5 h-[20px] top-[65%] text-primary cursor-pointer"><ArrowBack /></div>
+              <div className="absolute -right-2 h-[20px] top-[65%] text-primary cursor-pointer"><ArrowBack /></div>
             )}
           </div>
         </div>
@@ -41,7 +41,7 @@ const TwoItemTemplate = (props) => {
         {props.rewardType && (
           <div className="flex gap-2 items-center">
             <div>
-              <img src={Logo} width={16} height={16} />
+              <img src={Logo1} width={20} height={20} />
             </div>
             <div className="text-white text-xl">{props.reward}</div>
           </div>

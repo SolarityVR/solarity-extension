@@ -12,7 +12,7 @@ const InvitationPanel = () => {
           image={<img src={Avatar1} width={52} height={52} />}
           title={"Konstantin1982.sol"}
           detail={"invited you to a flock!"}
-          isActive={true}
+          isActive={false}
           gap={3}
         />
       </div>
