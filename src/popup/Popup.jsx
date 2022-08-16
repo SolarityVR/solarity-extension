@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 // import LandingPage from './pages/LandingPage';
 // import UserInfoPage from './pages/auth/UserInfoPage';
 // import UserPic from './pages/auth/UserPic';
-// import ProfilePage from './pages/ProfilePage';
 import MainPage from './pages/MainPage.jsx';
 
 import Layout from './components/Layout';
@@ -14,13 +13,16 @@ import Footer from './components/Layout/Footer';
 // import { setPageStages, login, userExist } from './redux/slices/authSlice';
 
 import './Popup.css';
-import FriendPage from './pages/FriendPage/index.jsx';
+import FriendPage from './pages/FriendPage';
+import ChatMainPage from './pages/ChatPages/ChatMainPage';
+import QuestPage from './pages/QuestPage';
+import ProfilePage from './pages/ProfilePage';
 // import { setValue } from './utils';
 
 const Popup = () => {
   const [loginStages, setLoginStages] = useState(0);
   const [solanaAddress, setSolanaAddress] = useState("");
-  const [pageStages, setPageStages] = useState(4);
+  const [pageStages, setPageStages] = useState(6);
 
   // const { pageStages, authFlag, profileData } = useSelector((state) => ({
   //   profileData: state.auth.profile,
@@ -54,6 +56,9 @@ const Popup = () => {
       <Layout header={<Header />} footer={<Footer activeMenu={'home'} />}>
         {pageStages == 3 && <MainPage />}
         {pageStages == 4 && <FriendPage />}
+        {pageStages == 5 && <ChatMainPage />}
+        {pageStages == 6 && <QuestPage />}
+        {pageStages == 7 && <ProfilePage />}
       </Layout>
     </div>
   );

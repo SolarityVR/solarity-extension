@@ -22,9 +22,11 @@ module.exports = {
         'lightGrey': "#E3E3E3",
         'lightDark': "#181818",
         "brandblack": "#1F2125",
+        'secondaryColor': "#53DD22",
         // kisikbo5 wrote this
         'globalBgColor': '#131314',
-        'semiSplitter': '#1d1f1f'
+        'semiSplitter': '#1d1f1f',
+        'darkGreen': "#162724"
       }
     },
     screens: {

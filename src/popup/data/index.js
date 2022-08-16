@@ -1,6 +1,18 @@
 import React from "react";
 import { Home, Inbox, User, Users, WinBar } from "../components/Icons";
+// For avatars
+import Avatar1 from '../../assets/img/library/avatars/1.png';
+import Avatar2 from '../../assets/img/library/avatars/2.png';
+import Avatar3 from '../../assets/img/library/avatars/3.png';
+import Avatar4 from '../../assets/img/library/avatars/4.png';
+import Avatar5 from '../../assets/img/library/avatars/5.png';
+import Avatar6 from '../../assets/img/library/avatars/6.png';
+import Avatar7 from '../../assets/img/library/avatars/7.png';
 
+// For flocks
+import Yield from '../../assets/img/library/flocks/yield.png';
+import Monke from '../../assets/img/library/flocks/monke.png';
+import BAYC from '../../assets/img/library/flocks/BAYC.png';
 export const WALLETS = [
   {
     label: "Phantom",
@@ -36,5 +48,97 @@ export const MENU_ITEMS = [
   {
     name: 'user',
     content: <User />,
+  }
+];
+
+export const FRIENDS = [
+  {
+    img: Avatar1,
+    isActive: true
+  },
+  {
+    img: Avatar2,
+    isActive: false
+  },
+  {
+    img: Avatar3,
+    isActive: false
+  },
+  {
+    img: Avatar4,
+    isActive: false
+  }
+];
+
+export const FLOCKS = [
+  {
+    img: Yield,
+    title: "Yield Guild",
+    detail: "Grinding on Axie",
+    time: "12:30PM"
+  },
+  {
+    img: Monke,
+    title: "Monke DAO",
+    detail: "Minting Group Session",
+    time: "2 minutes ago"
+  },
+  {
+    img: BAYC,
+    title: "BAYC Guild",
+    detail: "Live in OtherSide",
+    time: "1 month ago"
+  },
+];
+
+export const CHATS = [
+  {
+    image: <img src={Avatar5} width={52} height={52} />,
+    title: "Yield Guild",
+    detail: "Grinding on Axie",
+    time: "12:30PM",
+    gap: 3,
+    badge: 1
+  },
+  {
+    image: <img src={Avatar6} width={52} height={52} />,
+    title: "Monke DAO",
+    detail: "Minting Group Session",
+    time: "2 minutes ago",
+    gap: 3
+  },
+
+  {
+    image: <img src={Avatar7} width={52} height={52} />,
+    title: "BAYC Guild",
+    detail: "Live in OtherSide",
+    time: "1 month ago",
+    gap: 3
+  },
+
+];
+
+export const LIVE_EVENT_ONLINE_USERS = [
+  {
+    title: 'Shareholders’ meeting',
+    time: "50 min",
+    users: [
+      {
+        img: Avatar1,
+      },
+      {
+        img: Avatar2,
+      },
+      {
+        img: Avatar3,
+      },
+      {
+        img: Avatar4,
+      },
+      {
+        img: Avatar5,
+      }
+    ],
+    showUsers: 3
   }
 ];

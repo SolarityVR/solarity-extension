@@ -4,3 +4,6 @@ export { default as Inbox } from "./Inbox";
 export { default as WinBar } from "./WinBar";
 export { default as User } from "./User";
 export { default as Play } from "./Play";
+export { default as RoundPlus } from "./RoundPlus";
+export { default as ArrowBack } from "./ArrowBack";
+export { default as Schedule } from "./Schedule";

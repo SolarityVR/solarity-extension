@@ -4,24 +4,26 @@ import { Play } from "../Icons";
 
 const ItemTemplate = (props) => {
   return (
-    <div className="p-[14px] text-lightGrey bg-lightDark rounded-[15px]">
+    <div className={`p-[14px] text-lightGrey bg-lightDark rounded-[15px] cursor-pointer border hover:border-primary ` + (props.isActive ? "border-primary" : "border-transparent")}>
       <div className="flex">
         {props.image}
         <div className={`pl-${props.gap} relative w-full`}>
           {props.title && (
-            <div className="text-base font-bold leading-tight mb-2">
+            <div className="text-[#F3F3F3] text-base font-bold leading-tight mb-2">
               {props.title}
             </div>
           )}
           {props.detail && (
-            <div className="text-sm font-normal leading-tight items-center mb-2">
+            <div className="text-[#B3B3B7] text-sm font-normal leading-tight items-center mb-2">
               {props.detail}
             </div>
           )}
-          <PrimaryBorderButton
-            icon={<Play />}
-            caption="Play now"
-          />
+          {props.button && (
+            <PrimaryBorderButton
+              icon={<Play />}
+              caption={props.button}
+            />
+          )}
           {props.time && (
             <div className="absolute top-0 right-0 text-grey text-sm">
               {props.time}

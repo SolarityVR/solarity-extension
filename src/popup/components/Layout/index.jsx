@@ -6,8 +6,10 @@ const Layout = (props) => {
       <div className=" absolute top-0 w-full">
         {props.header}
       </div>
-      <div className="p-6 !pt-[95px]">
-        {props.children}
+      <div className="py-6 !pt-[81px]">
+        <div className="h-[526px] overflow-y-auto">
+          {props.children}
+        </div>
       </div>
       {props.footer}
     </div>

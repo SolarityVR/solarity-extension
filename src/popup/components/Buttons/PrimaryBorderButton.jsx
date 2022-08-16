@@ -3,7 +3,7 @@ import 'font-awesome/css/font-awesome.min.css';
 
 const PrimaryBorderButton = (props) => {
   return (
-    <button className={`font-medium p-[8px] px-[15px] rounded-[10px] text-primary text-[16px] sm:text-[16px] text-center tracking-wider inline-flex items-center justify-center ${props.disabled ? 'bg-[#1d1e20] button-disabled' : 'bg-transparent border-primary border'} hover:bg-primary hover:text-white ${props.styles}`} onClick={props.disabled ? null : props.onClick}>
+    <button className={`font-medium p-[6px] px-[15px] rounded-[10px] text-primary text-[16px] sm:text-[16px] text-center tracking-wider inline-flex items-center justify-center ${props.disabled ? 'bg-[#1d1e20] button-disabled' : 'bg-[#162724] border-primary border'} hover:bg-primary hover:text-white ${props.styles}`} onClick={props.disabled ? null : props.onClick}>
       <span className="pr-2">
         {props.icon ? props.icon : ""}
       </span>

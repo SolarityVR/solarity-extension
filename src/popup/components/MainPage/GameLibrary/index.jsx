@@ -5,7 +5,7 @@ import LibraryMain from '../../../../assets/img/placeholder/library_main.png';
 const RecommendedQuest = (props) => {
 
   return (
-    <div>
+    <div className="p-6">
       <div className="text-xl leading-normal font-medium text-white pb-1">
         Game Library
       </div>
@@ -15,6 +15,7 @@ const RecommendedQuest = (props) => {
             image={<img src={LibraryMain} width={72} height={72} />}
             title="Assassin’s Creed"
             gap="6"
+            button="Play now"
           />
         ))}
       </div>

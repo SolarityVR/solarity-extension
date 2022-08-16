@@ -8,7 +8,7 @@ const Footer = (props) => {
   }
 
   return (
-    <div className="absolute bottom-0 w-full border-t-[1px] p-[14px] px-5 border-semiSplitter flex justify-between">
+    <div className="absolute bottom-0 w-full border-t-[1px] p-[14px] px-5 border-semiSplitter flex justify-between bg-[#141414]">
       {
         MENU_ITEMS.map((item, index) => (
           <div
