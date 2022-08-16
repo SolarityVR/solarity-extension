@@ -18,6 +18,7 @@ import FriendDetailPage from './pages/FriendDetailPage';
 import ChatMainPage from './pages/ChatPages/ChatMainPage';
 import QuestPage from './pages/QuestPage';
 import ProfilePage from './pages/ProfilePage';
+import MessagePage from './pages/MessagePage/index.jsx';
 // import { setValue } from './utils';
 
 const Popup = () => {
@@ -61,8 +62,9 @@ const Popup = () => {
         {pageStages == 6 && <QuestPage />}
         {pageStages == 7 && <ProfilePage />}
         {pageStages == 8 && <FriendDetailPage />}
-      </Layout>
-    </div>
+        {pageStages == 10 && <MessagePage />}
+      </Layout >
+    </div >
   );
 };
 
