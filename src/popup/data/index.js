@@ -153,8 +153,8 @@ export const CHATS = [
 
 export const LIVE_EVENT_ONLINE_USERS = [
   {
-    title: 'Shareholders’ meeting',
-    time: "50 min",
+    title: 'Poker Night',
+    time: "3 hr",
     users: [
       {
         img: Avatar1,

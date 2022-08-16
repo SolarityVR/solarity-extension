@@ -1,8 +1,8 @@
 {
   "version": "1.0.1",
   "manifest_version": 3,
-  "name": "Twitter Verse",
-  "description": "Twitter Extension",
+  "name": "SGN",
+  "description": "Solana Gaming Network",
   "background": {
     "service_worker": "/static/js/background.bundle.js"
   },

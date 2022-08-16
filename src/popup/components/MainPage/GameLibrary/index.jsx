@@ -13,7 +13,7 @@ const RecommendedQuest = (props) => {
         {[0, 1, 2, 3].map((item, index) => (
           <ItemTemplate
             image={<img src={LibraryMain} width={72} height={72} />}
-            title="Assassin’s Creed"
+            title="Mini Royale"
             gap="6"
             button="Play now"
           />
