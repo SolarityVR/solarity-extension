@@ -17,12 +17,13 @@ import FriendPage from './pages/FriendPage';
 import ChatMainPage from './pages/ChatPages/ChatMainPage';
 import QuestPage from './pages/QuestPage';
 import ProfilePage from './pages/ProfilePage';
+import MessagePage from './pages/MessagePage/index.jsx';
 // import { setValue } from './utils';
 
 const Popup = () => {
   const [loginStages, setLoginStages] = useState(0);
   const [solanaAddress, setSolanaAddress] = useState("");
-  const [pageStages, setPageStages] = useState(7);
+  const [pageStages, setPageStages] = useState(10);
 
   // const { pageStages, authFlag, profileData } = useSelector((state) => ({
   //   profileData: state.auth.profile,
@@ -59,6 +60,7 @@ const Popup = () => {
         {pageStages == 5 && <ChatMainPage />}
         {pageStages == 6 && <QuestPage />}
         {pageStages == 7 && <ProfilePage />}
+        {pageStages == 10 && <MessagePage />}
       </Layout>
     </div>
   );
