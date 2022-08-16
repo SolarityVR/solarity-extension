@@ -12,3 +12,5 @@ export { default as RightArrow } from "./RightArrow";
 export { default as TotalBalanceIcon } from "./TotalBalanceIcon";
 export { default as Tick } from './Tick';
 export { default as Link } from './Link';
+export { default as Setting } from "./Setting";
+export { default as Power } from "./Power";

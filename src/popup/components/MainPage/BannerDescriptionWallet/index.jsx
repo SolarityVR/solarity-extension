@@ -13,10 +13,10 @@ const BannerDescriptionWallet = () => {
   };
 
   return (
-    <div className={`relative w-fit`}>
-      <div className={`banner-description-wallet flex h-30 border-[#272829] relative cursor-pointer
+    <div className={`relative w-full px-6 border-[#272829]
+    lg:border-[1px] md:border-x-[0px] md:border-y-[1px] sm:border-x-[0px] sm:border-y-[1px] xs:border-x-[0px] xs:border-y-[1px]`}>
+      <div className={`banner-description-wallet flex h-30 relative cursor-pointer
                     p-[5px] gap-4
-                    lg:border-[1px] md:border-x-[0px] md:border-y-[1px] sm:border-x-[0px] sm:border-y-[1px] xs:border-x-[0px] xs:border-y-[1px]
                     lg:rounded-[25px] md:rounded-[0px] sm:rounded-[0px] xs:rounded-[0px]
                     justify-between lg:overflow-y-visible lg:overflow-x-visible
                     md:overflow-y-hidden md:overflow-x-visible sm:overflow-y-hidden sm:overflow-x-visible xs:overflow-y-hidden xs:overflow-x-visible
