@@ -64,7 +64,7 @@ export const FRIENDS = [
   },
   {
     img: Avatar2,
-    isActive: false
+    isActive: true
   },
   {
     img: Avatar3,
@@ -170,3 +170,34 @@ export const WalletBalanceData = [
       addr : '1z99'
   },
 ]
+
+export const FRIEND_LIST_DATA = [
+  {
+    img: Avatar1,
+    title: "Yield Guild",
+    detail: "Grinding on Axie",
+    time: "12:30PM",
+    isActive: true,
+  },
+  {
+    img: Avatar1,
+    title: "Yield Guild",
+    detail: "Grinding on Axie",
+    time: "12:30PM",
+    isActive: true,
+  },
+  {
+    img: Avatar7,
+    title: "Yield Guild",
+    detail: "Grinding on Axie",
+    time: "12:30PM",
+    isActive: false,
+  },
+  {
+    img: Avatar7,
+    title: "Yield Guild",
+    detail: "Grinding on Axie",
+    time: "12:30PM",
+    isActive: false,
+  },
+];
