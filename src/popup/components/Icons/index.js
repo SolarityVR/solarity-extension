@@ -10,3 +10,5 @@ export { default as Schedule } from "./Schedule";
 export { default as LeftArrow } from "./LeftArrow";
 export { default as RightArrow } from "./RightArrow";
 export { default as TotalBalanceIcon } from "./TotalBalanceIcon";
+export { default as Setting } from "./Setting";
+export { default as Power } from "./Power";

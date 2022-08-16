@@ -6,6 +6,7 @@ import Avatar from '../../assets/img/temp/Avatar_Konstantin1982.png';
 import Verified from '../../assets/img/profile/verified.png';
 import Logo from '../../assets/img/logo.png';
 import BannerDescriptionWallet from "../components/MainPage/BannerDescriptionWallet";
+import { Power, Setting } from "../components/Icons";
 
 const ProfilePage = () => {
   return (
@@ -40,6 +41,15 @@ const ProfilePage = () => {
       </div>
       <SocialList />
       <BannerDescriptionWallet />
+      <div className="px-6 py-3 text-grey text-sm border-b border-b-semiSplitter">
+        A button with an eye has been added to make it clear to the user how to enable a preview of the room
+      </div>
+      <div className="p-6 py-4 cursor-pointer text-white text-xl flex items-center border-b border-b-semiSplitter">
+        <Setting />&nbsp; Setting
+      </div>
+      <div className="p-6 py-4 cursor-pointer text-white text-xl flex items-center border-b border-b-semiSplitter">
+        <Power />&nbsp; Sign out
+      </div>
     </div>
   );
 }

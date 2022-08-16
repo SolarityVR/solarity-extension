@@ -14,6 +14,7 @@ import Footer from './components/Layout/Footer';
 
 import './Popup.css';
 import FriendPage from './pages/FriendPage';
+import FriendDetailPage from './pages/FriendDetailPage';
 import ChatMainPage from './pages/ChatPages/ChatMainPage';
 import QuestPage from './pages/QuestPage';
 import ProfilePage from './pages/ProfilePage';
@@ -22,7 +23,7 @@ import ProfilePage from './pages/ProfilePage';
 const Popup = () => {
   const [loginStages, setLoginStages] = useState(0);
   const [solanaAddress, setSolanaAddress] = useState("");
-  const [pageStages, setPageStages] = useState(7);
+  const [pageStages, setPageStages] = useState(8);
 
   // const { pageStages, authFlag, profileData } = useSelector((state) => ({
   //   profileData: state.auth.profile,
@@ -59,6 +60,7 @@ const Popup = () => {
         {pageStages == 5 && <ChatMainPage />}
         {pageStages == 6 && <QuestPage />}
         {pageStages == 7 && <ProfilePage />}
+        {pageStages == 8 && <FriendDetailPage />}
       </Layout>
     </div>
   );
