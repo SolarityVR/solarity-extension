@@ -19,6 +19,10 @@ import MaticLogo from '../../assets/img/wallets/matic_logo.png';
 import EthLogo from '../../assets/img/wallets/eth_logo.png';
 import SolLogo from '../../assets/img/wallets/sol_logo.png';
 
+import LibraryMain from '../../assets/img/placeholder/library_main.png';
+
+import Event2 from '../../assets/img/library/event2.png';
+
 export const WALLETS = [
   {
     label: "Phantom",
@@ -153,8 +157,13 @@ export const CHATS = [
 
 export const LIVE_EVENT_ONLINE_USERS = [
   {
-    title: 'Shareholders’ meeting',
+    img: Event2,
+    title: 'Poker Night',
     time: "50 min",
+    creator: {
+      img: Avatar3,
+      name: "MonkeDAO"
+    },
     users: [
       {
         img: Avatar1,
@@ -321,3 +330,18 @@ export const ChattingBoxData = [
       text : "Cya!"
   },
 ]
+
+export const GAME_LIBRARIES = [
+  {
+    image: LibraryMain,
+    title: "Assassin’s Creed"
+  },
+  {
+    image: LibraryMain,
+    title: "Assassin’s Creed"
+  },
+  {
+    image: LibraryMain,
+    title: "Assassin’s Creed"
+  },
+];
