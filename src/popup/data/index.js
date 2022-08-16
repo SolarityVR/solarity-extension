@@ -13,6 +13,12 @@ import Avatar7 from '../../assets/img/library/avatars/7.png';
 import Yield from '../../assets/img/library/flocks/yield.png';
 import Monke from '../../assets/img/library/flocks/monke.png';
 import BAYC from '../../assets/img/library/flocks/BAYC.png';
+
+// For wallets
+import MaticLogo from '../../assets/img/wallets/matic_logo.png';
+import EthLogo from '../../assets/img/wallets/eth_logo.png';
+import SolLogo from '../../assets/img/wallets/sol_logo.png';
+
 export const WALLETS = [
   {
     label: "Phantom",
@@ -142,3 +148,25 @@ export const LIVE_EVENT_ONLINE_USERS = [
     showUsers: 3
   }
 ];
+
+
+export const WalletBalanceData = [
+  {
+    kind : 'SOL',
+    balance : 0.03,
+    icon_url : SolLogo,
+    addr : '1z99'
+  },
+  {
+    kind : 'ETH',
+    balance : 0.19,
+    icon_url : EthLogo,
+    addr : '2x20'
+  },
+  {
+      kind : 'MATIC',
+      balance : 0.024,
+      icon_url : MaticLogo,
+      addr : '1z99'
+  },
+]

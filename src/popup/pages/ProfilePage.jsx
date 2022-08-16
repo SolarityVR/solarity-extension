@@ -1,11 +1,45 @@
 import React from "react";
+import { TitleItem } from "../components/Items";
+import SocialList from '../components/MainPage/SocialList';
+
+import Avatar from '../../assets/img/temp/Avatar_Konstantin1982.png';
+import Verified from '../../assets/img/profile/verified.png';
+import Logo from '../../assets/img/logo.png';
+import BannerDescriptionWallet from "../components/MainPage/BannerDescriptionWallet";
 
 const ProfilePage = () => {
   return (
-    <div className="bg-globalBgColor flex sm:flex-row xs:flex-col w-full relative">
-      <div className="bg-globalBgColor flex flex-col custom-2xl:px-[56px] xl:px-[25px] lg:px-[56px] md:px-[25px] sm:px-[20px] xs:px-[24px] w-full">
-
+    <div>
+      <div className="bg-globalBgColor flex sm:flex-row xs:flex-col w-full relative">
+        <div className="bg-globalBgColor flex flex-col px-[24px] w-full items-center p-[30px]">
+          <div className="relative w-[100px] rounded-[35px] border-[3px] border-globalBgColor">
+            <img src={Avatar} layout="responsive" width={136} height={136} alt="user avatar" />
+            <div className="absolute
+                          custom-2xl:right-[0px] custom-2xl:bottom-[0px] custom-2xl:w-[28px]
+                          xl:right-[0px] xl:bottom-[0px] xl:w-[26px]
+                          md:right-[0px] md:bottom-[0px] md:w-[24px]
+                          sm:right-[0px] sm:bottom-[0px] sm:w-[24px]
+                          xs:right-[0px] xs:bottom-[0px] xs:w-[24px]">
+              <img src={Verified} layout="responsive" width={28} height={28} alt="verified badge" />
+            </div>
+          </div>
+        </div>
       </div>
+      <div className="px-6">
+        <TitleItem
+          title={"Konstantin1982.sol"}
+          button={
+            <div className="flex gap-2 items-center">
+              <div>
+                <img src={Logo} width={16} height={16} />
+              </div>
+              <div className="text-white text-xl">{450}</div>
+            </div>
+          }
+        />
+      </div>
+      <SocialList />
+      <BannerDescriptionWallet />
     </div>
   );
 }

@@ -7,3 +7,6 @@ export { default as Play } from "./Play";
 export { default as RoundPlus } from "./RoundPlus";
 export { default as ArrowBack } from "./ArrowBack";
 export { default as Schedule } from "./Schedule";
+export { default as LeftArrow } from "./LeftArrow";
+export { default as RightArrow } from "./RightArrow";
+export { default as TotalBalanceIcon } from "./TotalBalanceIcon";

@@ -22,7 +22,7 @@ import ProfilePage from './pages/ProfilePage';
 const Popup = () => {
   const [loginStages, setLoginStages] = useState(0);
   const [solanaAddress, setSolanaAddress] = useState("");
-  const [pageStages, setPageStages] = useState(6);
+  const [pageStages, setPageStages] = useState(7);
 
   // const { pageStages, authFlag, profileData } = useSelector((state) => ({
   //   profileData: state.auth.profile,
