@@ -1,10 +1,13 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { MENU_ITEMS } from "../../data";
+import { setPageStages } from "../../redux/slices/authSlice";
 
 const Footer = (props) => {
+  const dispatch = useDispatch();
 
-  const switchMenu = () => {
-    alert('change menu');
+  const switchMenu = (pageNumber) => {
+    dispatch(setPageStages(pageNumber))
   }
 
   return (
@@ -14,7 +17,7 @@ const Footer = (props) => {
           <div
             className={"cursor-pointer hover:text-primary " + (item.name == props.activeMenu ? "text-primary" : "text-white")}
             key={index}
-            onClick={switchMenu}
+            onClick={() => switchMenu(index + 3)}
           >
             {item.content}
           </div>

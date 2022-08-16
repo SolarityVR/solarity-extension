@@ -10,7 +10,7 @@ import { Power, Setting } from "../components/Icons";
 
 const ProfilePage = () => {
   return (
-    <div>
+    <div className="pb-6">
       <div className="bg-globalBgColor flex sm:flex-row xs:flex-col w-full relative">
         <div className="bg-globalBgColor flex flex-col px-[24px] w-full items-center p-[30px]">
           <div className="relative w-[100px] rounded-[35px] border-[3px] border-globalBgColor">

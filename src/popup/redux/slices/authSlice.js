@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { apiCaller } from "../../utils/fetcher";
 
 const initialState = {
-  pageStages: 0,
+  pageStages: 3,
   publicKey: "",
   walletType: "",
   authFlag: false,

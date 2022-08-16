@@ -7,7 +7,7 @@ const Layout = (props) => {
         {props.header}
       </div>
       <div className="py-6 !pt-[81px]">
-        <div className="h-[526px] overflow-y-auto">
+        <div className="h-[476px] overflow-y-auto">
           {props.children}
         </div>
       </div>

@@ -1,18 +1,21 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { CHATS } from "../../data";
+import { setPageStages } from "../../redux/slices/authSlice";
 import PrimaryBorderButton from "../Buttons/PrimaryBorderButton";
 import { RoundPlus } from "../Icons";
 import { TitleItem } from "../Items";
 import ItemTemplate from "./ItemTemplate";
 
 const ChatsPanel = () => {
+  const dispatch = useDispatch();
   return (
     <div>
       <TitleItem 
         title="Chats" 
         comment="1unread" 
         button={
-          <div className=" cursor-pointer bg-darkGreen text-primary p-[8px] rounded-md">
+          <div className=" cursor-pointer bg-darkGreen text-primary p-[8px] rounded-md" onClick={() => dispatch(setPageStages(10))}>
             <RoundPlus />
           </div>
         } 
