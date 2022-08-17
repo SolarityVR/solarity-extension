@@ -3,7 +3,7 @@ const Config = {
     SOLARITY_TOKEN_ADDRESS: "S8v4cS7dnKzV6LYvzFPuuiWQMM4KSz7URuGYWMGXyTG",
     SOLANA_RPC_ENDPOINT: "https://solana-api.projectserum.com",
     FRONTEND_URL: "https://solarity-stage.vercel.app",
-    BACKEND_URL: "https://solarity-server.herokuapp.com",
+    BACKEND_URL: "https://solarity-backend.herokuapp.com",
     LOCAL_BACKEND_URL: "http://localhost:3004",
     LOCAL_FRONTEND_URL: "http://localhost:3000",
     LOCAL_MINTING_URL: "http://localhost:3001",

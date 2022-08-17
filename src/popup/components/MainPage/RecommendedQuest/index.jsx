@@ -12,7 +12,7 @@ const RecommendedQuest = (props) => {
       <TwoItemTemplate
         image={<img src={AuroryImg} width={96} height={78} className="rounded-md" />}
         title="Collect all pets!"
-        nextIcon={true}
+        // nextIcon={true}
         detail="Damage with Legendary Weapons"
         gap="3"
         reward="450"

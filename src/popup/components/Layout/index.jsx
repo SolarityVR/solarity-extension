@@ -9,7 +9,7 @@ const Layout = (props) => {
         </div>
       )}
       <div className={"py-6 " + (props.pageStages != 9 ? "!pt-[81px]" : "")}>
-        <div className={"overflow-y-auto " + (props.pageStages != 9 ? "h-[476px]" : "h-[557px]")}>
+        <div className={"ui-chat overflow-y-auto " + (props.pageStages != 9 ? "h-[476px]" : "h-[557px]")}>
           {props.children}
         </div>
       </div>

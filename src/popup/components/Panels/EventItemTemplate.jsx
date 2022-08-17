@@ -30,7 +30,7 @@ const EventItemTemplate = (props) => {
                 {props.onlineUsers.map((user, index) => {
                   if (index < props.showUsers) {
                     return (
-                      <div className="w-[16px] h-[16px] -ml-[5px] rounded-md">
+                      <div className="w-[16px] h-[16px] -ml-[5px] rounded-md" key={index}>
                         <img src={user.img} key={index} width={16} height={16} />
                       </div>
                     );

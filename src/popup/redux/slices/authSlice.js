@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { apiCaller } from "../../utils/fetcher";
 
 const initialState = {
-  pageStages: 3,
+  pageStages: 0,
   publicKey: "",
   walletType: "",
   authFlag: false,
@@ -152,6 +152,7 @@ export const login = createAsyncThunk(
         signature,
       });
       dispatch(setProfile(profile));
+      dispatch(setPageStages(3));
       response = true;
 
     } catch (err) { }

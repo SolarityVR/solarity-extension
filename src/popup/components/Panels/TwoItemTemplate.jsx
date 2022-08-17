@@ -26,7 +26,7 @@ const TwoItemTemplate = (props) => {
               </div>
             )}
             {props.nextIcon && (
-              <div className="absolute -right-2 h-[20px] top-[65%] text-primary cursor-pointer"><ArrowBack /></div>
+              <div className="absolute -right-6 h-[20px] top-[65%] text-primary cursor-pointer"><ArrowBack /></div>
             )}
           </div>
         </div>

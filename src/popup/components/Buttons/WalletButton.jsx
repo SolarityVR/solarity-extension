@@ -10,7 +10,7 @@ const WalletButton = (props) => {
       onClick={props.onClick}
     >
       <span className="text-[16px] w-[90%] text-left">{props.caption} <label className="text-white/30">{props.description}</label></span>
-      <div className="pt-2 text-right"><img src={props.label == Phantom ? Phantom : Slope} width={props.iSize === undefined ? 28 : props.iSize} height={props.iSize === undefined ? 28 : props.iSize} /></div>
+      <div className="pt-2 text-right"><img src={props.icon} width={props.iSize === undefined ? 28 : props.iSize} height={props.iSize === undefined ? 28 : props.iSize} /></div>
     </button>
   );
 };

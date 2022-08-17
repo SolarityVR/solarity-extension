@@ -30,7 +30,7 @@ const ChatsPanel = () => {
       {/* Menu Content */}
       <div className="menuContent grid gap-y-2">
           {CHATS.map((chat, index) => (
-            <ItemTemplate {...chat}/>
+            <ItemTemplate {...chat} key={index}/>
           ))}
       </div>
       <div className="py-6 flex justify-center">

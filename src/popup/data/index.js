@@ -18,23 +18,29 @@ import BAYC from '../../assets/img/library/flocks/BAYC.png';
 import MaticLogo from '../../assets/img/wallets/matic_logo.png';
 import EthLogo from '../../assets/img/wallets/eth_logo.png';
 import SolLogo from '../../assets/img/wallets/sol_logo.png';
+import Phantom from '../../assets/img/wallets/phantom.png';
+import Slope from '../../assets/img/wallets/slope.png';
 
 import LibraryMain from '../../assets/img/placeholder/library_main.png';
 
 import Event2 from '../../assets/img/library/event2.png';
+
+import RoyaleImg from '../../assets/img/library/miniroyale.png';
+import AuroryImg from '../../assets/img/library/aurory.png';
+import OncyberImg from '../../assets/img/library/oncyber.png';
 
 export const WALLETS = [
   {
     label: "Phantom",
     id: "phantom",
     type: "solana",
-    image: "../assets/img/wallets/phantom.png",
+    image: Phantom,
   },
   {
     label: "Solflare",
     id: "solflare",
     type: "solana",
-    image: "../assets/img/wallets/solflare.png",
+    image: Slope,
   }
 ];
 
@@ -131,7 +137,7 @@ export const FLOCKS = [
 export const CHATS = [
   {
     image: <img src={Avatar5} width={52} height={52} />,
-    title: "Yield Guild",
+    title: "Raj.verse",
     detail: "Grinding on Axie",
     time: "12:30PM",
     gap: 3,
@@ -139,7 +145,7 @@ export const CHATS = [
   },
   {
     image: <img src={Avatar6} width={52} height={52} />,
-    title: "Monke DAO",
+    title: "Super.verse",
     detail: "Minting Group Session",
     time: "2 minutes ago",
     gap: 3
@@ -147,7 +153,7 @@ export const CHATS = [
 
   {
     image: <img src={Avatar7} width={52} height={52} />,
-    title: "BAYC Guild",
+    title: "Tmeta.verse",
     detail: "Live in OtherSide",
     time: "1 month ago",
     gap: 3
@@ -210,28 +216,28 @@ export const WalletBalanceData = [
 export const FRIEND_LIST_DATA = [
   {
     img: Avatar1,
-    title: "Yield Guild",
+    title: "Anatoly.verse",
     detail: "Grinding on Axie",
     time: "12:30PM",
     isActive: true,
   },
   {
-    img: Avatar1,
-    title: "Yield Guild",
+    img: Avatar2,
+    title: "Super.verse",
     detail: "Grinding on Axie",
     time: "12:30PM",
     isActive: true,
   },
   {
-    img: Avatar7,
-    title: "Yield Guild",
+    img: Avatar3,
+    title: "Raj.verse",
     detail: "Grinding on Axie",
     time: "12:30PM",
     isActive: false,
   },
   {
-    img: Avatar7,
-    title: "Yield Guild",
+    img: Avatar4,
+    title: "SBF.verse",
     detail: "Grinding on Axie",
     time: "12:30PM",
     isActive: false,
@@ -242,106 +248,32 @@ export const ChattingBoxData = [
   {
       imgUrl : Avatar1,
       uName : "Konstantin1982.sol",
-      before : "40m",
+      before : "Today",
       text : "Hi, we are currently hiring a Minecraft Modder for MrBeast Gaming. We switched back to google forms so if you applied above or tried to apply, use this form instead."
-  },
-  {
-      imgUrl : Avatar2,
-      uName : "Johny",
-      before : "32m",
-      text : "Hello, guys! How are you?"
-  },
-  {
-      imgUrl : Avatar3,
-      uName : "Alex1440",
-      before : "25m",
-      text : "Johny, i’m fine :)"
-  },
-  {
-      imgUrl : Avatar7,
-      uName : "You",
-      before : "25m",
-      text : "Please apply using the link below"
-  },
-  {
-      imgUrl : Avatar5,
-      uName : "Eugene",
-      before : "40m",
-      text : "Please apply using the link below https://forms.gle/dYRrYcg7xpQmEwT67"
-  },
-  {
-      imgUrl : Avatar6,
-      uName : "Konstantin1982.sol",
-      before : "40m",
-      text : "Shortime"
-  },
-  {
-      imgUrl : Avatar7,
-      uName : "kisikbo5.sol",
-      before : "40m",
-      text : "Hi, we are currently hiring a Minecraft Modder for MrBeast Gaming. We switched back to google forms so if you applied above or tried to apply, use this form instead."
-  },
-  {
-      imgUrl : Avatar1,
-      uName : "vlady.sol",
-      before : "40m",
-      text : "What is the mainpoint of your explanation?"
-  },
-  {
-      imgUrl : Avatar4,
-      uName : "Nazyar.sol",
-      before : "40m",
-      text : "Oh, come on"
-  },
-  {
-      imgUrl : Avatar3,
-      uName : "vlady.sol",
-      before : "40m",
-      text : "Hey, guys, Heads up, keep going!"
-  },
-  {
-      imgUrl : Avatar6,
-      uName : "Duchdenwald.sol",
-      before : "40m",
-      text : "On 21th March there is going to be a conference of Sol NFT supporters"
-  },
-  {
-      imgUrl : Avatar7,
-      uName : "Schulze.sol",
-      before : "40m",
-      text : "That's cool"
-  },
-  {
-      imgUrl : Avatar6,
-      uName : "BigRocks.sol",
-      before : "40m",
-      text : "Hi, we are currently hiring a Minecraft Modder for MrBeast Gaming. We switched back to google forms so if you applied above or tried to apply, use this form instead."
-  },
-  {
-      imgUrl : Avatar5,
-      uName : "Jenny",
-      before : "40m",
-      text : "Nothig to say more.\nlet's meet some other day"
-  },
-  {
-      imgUrl : Avatar4,
-      uName : "Konstantin1982.sol",
-      before : "40m",
-      text : "Cya!"
   },
 ]
 
 export const GAME_LIBRARIES = [
   {
-    image: LibraryMain,
+    image: RoyaleImg,
     title: "Mini Royale"
   },
   {
-    image: LibraryMain,
+    image: AuroryImg,
     title: "Aurory"
   },
   {
-    image: LibraryMain,
+    image: OncyberImg,
     title: "OnCyber"
   },
 ];
+
+export const EmojiListItemData = [
+  "😀","😁","😂","🤣","😃","😄",
+  "😅","😆","😉","😊","😋","😎",
+  "😍","😘","🥰","😗","😙","😚",
+  "🙂","🤗","🤩","🤔","🤨","😐",
+  "😑","😶","🙄","😏","😣","😥",
+  "😮","🤐","😯","😪","😫","🥱",
+  "😴","😌","😛"
+]
