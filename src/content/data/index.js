@@ -7,9 +7,20 @@ const webaverse = chrome.runtime.getURL('static/img/library/webaverse.png')
 const oncyber = chrome.runtime.getURL('static/img/library/oncyber.png')
 const portals = chrome.runtime.getURL('static/img/library/portals.png')
 const plaza = chrome.runtime.getURL('static/img/library/plaza.png')
+const webb = chrome.runtime.getURL('static/img/library/webb.png')
 const poker = chrome.runtime.getURL('static/img/library/poker.png')
 const minecraft = chrome.runtime.getURL('static/img/library/minecraft.png')
 const miniroyale = chrome.runtime.getURL('static/img/library/miniroyale.png')
+const bepple = chrome.runtime.getURL('static/img/library/bepple.png')
+const avatar1 = chrome.runtime.getURL('static/img/library/avatars/1.png');
+const avatar2 = chrome.runtime.getURL('static/img/library/avatars/2.png');
+const avatar3 = chrome.runtime.getURL('static/img/library/avatars/3.png');
+const avatar4 = chrome.runtime.getURL('static/img/library/avatars/4.png');
+const avatar5 = chrome.runtime.getURL('static/img/library/avatars/5.png');
+const avatar6 = chrome.runtime.getURL('static/img/library/avatars/6.png');
+const avatar7 = chrome.runtime.getURL('static/img/library/avatars/7.png');
+
+
 
 export const LibraryMenu = [
   'Up and Coming',
@@ -326,7 +337,7 @@ export const GameLibraryData = [
         ]
     }, {
         image : oncyber,
-        title: "OnCyber.io",
+        title: "OnCyber",
         likes: 97,
         members : 231,
         owner: "@PanzerDogs",
@@ -447,13 +458,13 @@ export const GameLibraryData = [
             },
         ]
     }, {
-        image : plaza,
-        title: "Solarity Plaza",
+        image : webb,
+        title: "Webb",
         likes: 97,
         members : 231,
         owner: "@TwoZoos",
         category: "P2E",
-        iframe: "https://solarity-frontend.vercel.app/oraziogrinzosih/hub/",
+        iframe: "https://alpha.webb.game/",
         description: "Description",
         twitter: "https://twitter.com",
         discord: "https://discord.com",
@@ -629,5 +640,153 @@ export const GameLibraryData = [
                 price: 450,
             },
         ]
+    }, 
+]
+
+export const EventsMenu = [
+    "Your DAOs",
+    "Friends",
+    "Tournaments",
+    "Events"
+];
+
+export const LiveEventsData = [
+    {
+        image : plaza,
+        title: "Solarity Hall",
+        likes: 97,
+        members : 231,
+        owner: "@TwoZoos",
+        category: "P2E",
+        iframe: "https://solarity-frontend.vercel.app/iframe/joinModal/plaza?name=tmeta",
+        description: "Description",
+        twitter: "https://twitter.com",
+        discord: "https://discord.com",
+        website: "https://solarity.xyz",
+        quests: [
+            {
+                title: "Second Sea",
+                description: "You've unlocked the Second Sea!",
+                image: badges,
+                rarity: 0.6
+            }, {
+                title: "Second Sea",
+                description: "You've unlocked the Second Sea!",
+                image: badges,
+                rarity: 0.6
+            }, {
+                title: "Second Sea",
+                description: "You've unlocked the Second Sea!",
+                image: badges,
+                rarity: 0.6
+            }
+        ],
+        stores: [
+            {
+                title: "2x Money",
+                image: stores,
+                price: 450,
+            }, {
+                title: "2x Money",
+                image: stores,
+                price: 450,
+            }, {
+                title: "2x Money",
+                image: stores,
+                price: 450,
+            }, {
+                title: "2x Money",
+                image: stores,
+                price: 450,
+            }, {
+                title: "2x Money",
+                image: stores,
+                price: 450,
+            }, {
+                title: "2x Money",
+                image: stores,
+                price: 450,
+            }, {
+                title: "2x Money",
+                image: stores,
+                price: 450,
+            },
+        ],
+        creator: {
+            avatar: avatar1,
+            name: "tmeta"
+        },
+        friends: [
+            {
+                avatar: avatar1,
+                name: "Meta",
+            }, {
+                avatar: avatar2,
+                name: "Rocco",
+            }, {
+                avatar: avatar3,
+                name: "Beka",
+            }, {
+                avatar: avatar4,
+                name: "Supa",
+            }, {
+                avatar: avatar5,
+                name: "Bella",
+            }, 
+        ],
+        createAt: "2022.08.14 18:42:00"
+    }, 
+    {
+        image: poker,
+        title: "Poker Night",
+        creator: {
+            avatar: avatar6,
+            name: "monke DAO"
+        },
+        friends: [
+            {
+                avatar: avatar1,
+                name: "Meta",
+            }, {
+                avatar: avatar2,
+                name: "Rocco",
+            }, {
+                avatar: avatar3,
+                name: "Beka",
+            }, {
+                avatar: avatar4,
+                name: "Supa",
+            }, {
+                avatar: avatar5,
+                name: "Bella",
+            }, 
+        ],
+        createAt: "2022.08.14 18:42:00"
+    }, {
+        image: bepple,
+        title: "New Auction",
+        creator: {
+            avatar: avatar7,
+            name: "Beeple"
+        },
+        friends: [
+            {
+                avatar: avatar1,
+                name: "Meta",
+            }, {
+                avatar: avatar2,
+                name: "Rocco",
+            }, {
+                avatar: avatar3,
+                name: "Beka",
+            }, {
+                avatar: avatar4,
+                name: "Supa",
+            }, {
+                avatar: avatar5,
+                name: "Bella",
+            }, 
+        ],
+        createAt: "2022.08.14 18:42:00"
     }, 
 ]

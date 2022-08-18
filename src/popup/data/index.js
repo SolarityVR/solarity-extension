@@ -24,10 +24,13 @@ import Slope from '../../assets/img/wallets/slope.png';
 import LibraryMain from '../../assets/img/placeholder/library_main.png';
 
 import Event2 from '../../assets/img/library/event2.png';
+import PlazaImg from '../../assets/img/library/plaza.png';
 
 import RoyaleImg from '../../assets/img/library/miniroyale.png';
 import AuroryImg from '../../assets/img/library/aurory.png';
 import OncyberImg from '../../assets/img/library/oncyber.png';
+
+import LogoImg from '../../assets/img/logo.png';
 
 export const WALLETS = [
   {
@@ -187,7 +190,36 @@ export const LIVE_EVENT_ONLINE_USERS = [
         img: Avatar5,
       }
     ],
-    showUsers: 3
+    showUsers: 3,
+    event: ''
+  },
+  {
+    img: PlazaImg,
+    title: 'Solarity Hall',
+    time: "50 min",
+    creator: {
+      img: LogoImg,
+      name: "Solarity"
+    },
+    users: [
+      {
+        img: Avatar6,
+      },
+      {
+        img: Avatar4,
+      },
+      {
+        img: Avatar2,
+      },
+      {
+        img: Avatar3,
+      },
+      {
+        img: Avatar7,
+      }
+    ],
+    showUsers: 3,
+    event: 'https://solarity-frontend.vercel.app/iframe/joinModal/plaza?name=tmeta'
   }
 ];
 
@@ -256,15 +288,18 @@ export const ChattingBoxData = [
 export const GAME_LIBRARIES = [
   {
     image: RoyaleImg,
-    title: "Mini Royale"
+    title: "Mini Royale",
+    event: "https://miniroyale.io/"
   },
   {
     image: AuroryImg,
-    title: "Aurory"
+    title: "Aurory",
+    event: "https://app.aurory.io/"
   },
   {
     image: OncyberImg,
-    title: "OnCyber"
+    title: "OnCyber",
+    event: "https://oncyber.io/6529om"
   },
 ];
 

@@ -2,6 +2,8 @@ import React from "react"
 import { UpArrow, DownArrow, SettingsIcon, LogOutIcon } from "../../Icons"
 import DummyAvatarSmall from "../../Layout/DummyAvatarSmall"
 
+const Avatar1 = chrome.runtime.getURL('static/img/library/avatars/1.png')
+
 const MenuItem = ({ children }) => {
   return (
     <div className="rounded-[10px] hover:bg-[#1d1d1f] bg-transparent px-[10px] py-[8px] w-full flex flex-row font-500 text-[#f3f3f3] items-center group-hover:flex hidden hover:text-primary">
@@ -12,7 +14,7 @@ const MenuItem = ({ children }) => {
 
 const UserInfoMenu = (props) => {
   return (
-    <div className="select-none flex flex-row items-center border-l-semiSplitter border-l-[1px] h-full ">
+    <div className="select-none flex flex-row items-center border-l-semiSplitter border-l-[1px] h-full mr-7 ">
       <div className="custom-2xl:px-[20px] xl:px-[10px] lg:px-[20px] md:px-[20px] xs:px-[20px]
                             cursor-pointer">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#3F3F43" strokeWidth={2}>
@@ -20,15 +22,15 @@ const UserInfoMenu = (props) => {
         </svg>
       </div>
       <a href="/konstantin/profile">
-        <DummyAvatarSmall />
+        <img src={Avatar1} width={40} height={40} className="rounded-2xl" />
       </a>
       <div className="group relative ml-[14px] py-[15px] text-[#929298] text-[14px] font-500 cursor-pointer flex items-center" onMouseEnter={props.onEnter} onMouseLeave={props.onLeave}>
-        Konstantin1982.sol
+        tmeta.verse
         <div className="ml-[8px]">
           {props.openState ? <UpArrow /> : <DownArrow />}
         </div>
 
-        <div className={`duration-300 px-[16px] group-hover:py-[8px] p-[0px] flex flex-col items-start absolute top-[50px] opacity-0  h-[0px] w-full bg-[#131314]
+        <div className={`duration-300 px-[16px] group-hover:py-[8px] p-[0px] flex flex-col items-start absolute top-[50px] opacity-0  h-[0px] bg-[#131314]
                             border-[#1d1f1f] border-[2px] rounded-[12px] text-white z-[1000]  group-hover:h-[88px] group-hover:opacity-100 overflow-hidden`} >
           <MenuItem>
             <div className="mr-[14px]">

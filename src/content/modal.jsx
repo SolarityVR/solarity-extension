@@ -1,5 +1,5 @@
 /*global chrome*/
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Rnd } from 'react-rnd'
 import GameDetail from "./components/Custom/GameDetail";
 import Library from "./components/Custom/Library";
@@ -7,6 +7,7 @@ import { ArrowLeft, CloseIcon } from "./components/Icons";
 import LibraryLayout from "./components/LibraryLayout";
 import '../assets/styles/tailwind.css';
 import './content.styles.css';
+import { GameLibraryData } from "./data";
 
 const Modal = () => {
     const [gameLibraryToggle, setGameLibraryToggle] = useState(false);
@@ -40,6 +41,23 @@ const Modal = () => {
         setIsIframe(false);
         setStatus(defaultStatus)
     }
+
+    useEffect(() => {
+        function init() {
+            chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+                switch (message.command) {
+                    case 'open-game-modal-action':
+                        const { title, event } = message;
+                        const selectedOne = GameLibraryData.find(s => s.title == title);
+                        selectedOne.iframe = event;
+                        setSelectedGame(selectedOne);
+                        setIsIframe(true);
+                        break;
+                }
+            })
+        }
+        init();
+    }, []);
 
     return (
         <Rnd
@@ -76,13 +94,13 @@ const Modal = () => {
                                     <span className='ml-3'>Back</span>
                                 </div>
                             </div>
-                            <iframe frameBorder="0" src={selectedGame.iframe} featurepolicy="{&quot;vr&quot;: [&quot;*&quot;]}" allow="camera;microphone;vr;" allowFullScreen={true} scrolling="no" width="100%" height="100%"></iframe>
+                            <iframe frameBorder="0" src={selectedGame.iframe} featurepolicy="{'vr': ['*']}" allow="camera;microphone;vr;" allowFullScreen={true} scrolling="no" width="100%" height="100%"></iframe>
                         </div>
                         :
                         <LibraryLayout>
                             {
                                 gameLibraryPageFlag === 0 ?
-                                    <Library setPage={setGameLibraryPageFlag} selectGame={setSelectedGame} />
+                                    <Library setPage={setGameLibraryPageFlag} setIframe={setIsIframe} selectGame={setSelectedGame} />
                                     :
                                     <GameDetail setPage={setGameLibraryPageFlag} setIframe={setIsIframe} selectedGame={selectedGame} />
                             }

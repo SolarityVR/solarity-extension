@@ -104,6 +104,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       var event = new CustomEvent('login', { detail: { command: "get-signature", nonce, walletType, publicKey } });
       window.dispatchEvent(event);
       break;
+    case 'open-game-modal-action':
+      gameModal.style.display = "block";
+      break;
   }
 })
 
