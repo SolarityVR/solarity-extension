@@ -10,7 +10,7 @@ import Layout from './components/Layout';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 
-import { setPageStages, login, userExist } from './redux/slices/authSlice';
+import { setPageStages, login, userExist, checkSession } from './redux/slices/authSlice';
 
 import './Popup.css';
 import FriendPage from './pages/FriendPage';
@@ -20,6 +20,7 @@ import ChatPanelPage from './pages/ChatPages/ChatPanelPage';
 import QuestPage from './pages/QuestPage';
 import ProfilePage from './pages/ProfilePage';
 import MessagePage from './pages/MessagePage';
+import AppLoader from './pages/AppLoader';
 import { setValue } from './utils';
 
 import socket from './utils/socket-client';
@@ -69,6 +70,9 @@ const Popup = () => {
     if (!window.initFlag && window.socket) {
       init_socket();
     }
+
+    // Get profile data from server
+    dispatch(checkSession());
   }, [])
 
   const onExtMessage = (message, sender, sendResponse) => {
@@ -84,6 +88,7 @@ const Popup = () => {
 
   return (
     <div className='w-[375px] h-[600px] bg-[#141414] relative'>
+      <AppLoader />
       {/* login and register */}
       {authFlag == false && (
         <div className='w-full h-full'>

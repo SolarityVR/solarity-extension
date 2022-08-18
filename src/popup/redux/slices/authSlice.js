@@ -1,5 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { apiCaller } from "../../utils/fetcher";
+import socket from '../../utils/socket-client'
+import { startLoadingApp, stopLoadingApp } from "./commonSlice";
 
 const initialState = {
   pageStages: 0,
@@ -133,6 +135,24 @@ export const setUploadPic = createAsyncThunk(
     }
     finalFunction();
     return returnValue;
+  }
+);
+
+export const checkSession = createAsyncThunk(
+  "auth/checkSession",
+  async (_, { dispatch }) => {
+    let response = false;
+    dispatch(startLoadingApp());
+    try {
+      if (!("socket" in window)) {
+        window.socket = socket();
+      }
+      const { data } = await apiCaller.get("/auth/check");
+      dispatch(setProfile(data.profile));
+      response = true;
+    } catch {}
+    dispatch(stopLoadingApp());
+    return response;
   }
 );
 
