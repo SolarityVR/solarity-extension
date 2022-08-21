@@ -79,12 +79,13 @@ const GameDetail = (props) => {
                         Quests
                       </div>
                       {selectedGame.quests.map((quest, index) => (
-                        <div className="flex flex-row mb-[10px]" key={index}>
-                          <div className="">
+                        <div className="flex mb-[10px]" key={index}>
+                          <div>
                             <img
                               src={quest.image}
                               width={70}
                               height={70}
+                            // className="w-[70px] h-[70px]"
                             />
                           </div>
                           <div className="ml-[15px]">
@@ -94,9 +95,9 @@ const GameDetail = (props) => {
                             <div className="text-[12px] text-white font-normal">
                               {quest.description}
                             </div>
-                            <div className="text-[12px] text-[#29B080] font-normal mt-[5px]">
+                            {/* <div className="text-[12px] text-[#29B080] font-normal mt-[5px]">
                               Rarity: {quest.rarity}%
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       ))}

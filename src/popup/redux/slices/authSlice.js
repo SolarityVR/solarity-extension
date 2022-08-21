@@ -149,6 +149,7 @@ export const checkSession = createAsyncThunk(
       }
       const { data } = await apiCaller.get("/auth/check");
       dispatch(setProfile(data.profile));
+      dispatch(setPageStages(3));
       response = true;
     } catch {}
     dispatch(stopLoadingApp());

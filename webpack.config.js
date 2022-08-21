@@ -147,6 +147,15 @@ var options = {
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: 'src/assets/styles/tailwind.css',
+          to: path.join(__dirname, 'build/static/css'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
           from: 'src/content/modules/bs58.bundle.js',
           to: path.join(__dirname, 'build/modules'),
           force: true,

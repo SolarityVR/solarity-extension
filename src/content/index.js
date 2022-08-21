@@ -107,6 +107,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     case 'open-game-modal-action':
       gameModal.style.display = "block";
       break;
+    case 'open-popup-modal-action':
+      gameModal.style.display = "block";
+      break;
   }
 })
 

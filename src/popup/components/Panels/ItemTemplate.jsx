@@ -6,7 +6,9 @@ const ItemTemplate = (props) => {
   return (
     <div className={`p-[14px] text-lightGrey bg-lightDark rounded-[15px] cursor-pointer border hover:border-primary ` + (props.isActive ? "border-primary" : "border-transparent")}>
       <div className="flex">
-        {props.image}
+        <div>
+          {props.image}
+        </div>
         <div className={`pl-${props.gap} relative w-full`}>
           {props.title && (
             <div className="text-[#F3F3F3] text-base font-bold leading-tight mb-2">

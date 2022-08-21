@@ -1,7 +1,7 @@
 {
   "version": "1.0.1",
   "manifest_version": 3,
-  "name": "Twitter Verse",
+  "name": "SGN",
   "description": "Twitter Extension",
   "background": {
     "service_worker": "/static/js/background.bundle.js"
@@ -17,7 +17,7 @@
   "content_scripts": [
     {
       "matches": ["https://*/*", "http://*/*"],
-      "css": ["/static/css/content.styles.css"],
+      "css": ["/static/css/content.styles.css", "/static/css/tailwind.css"],
       "js": ["/static/js/contentScript.bundle.js"]
     }
   ],
@@ -28,6 +28,7 @@
     {
       "resources": [
         "/static/css/content.styles.css",
+        "/static/css/tailwind.css",
         "/static/img/*",
         "logo.png",
         "/modules/*"

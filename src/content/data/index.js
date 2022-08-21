@@ -44,20 +44,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -105,20 +102,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -166,20 +160,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -227,20 +218,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -288,20 +276,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -349,20 +334,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -410,20 +392,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -471,20 +450,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -532,20 +508,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -593,20 +566,17 @@ export const GameLibraryData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
@@ -665,20 +635,17 @@ export const LiveEventsData = [
         website: "https://solarity.xyz",
         quests: [
             {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Anatoly",
+                description: "Money Boy",
+                image: avatar1
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Konstantin",
+                description: "Degen Ape",
+                image: avatar2,
             }, {
-                title: "Second Sea",
-                description: "You've unlocked the Second Sea!",
-                image: badges,
-                rarity: 0.6
+                title: "Solarityman",
+                description: "Monke",
+                image: avatar3,
             }
         ],
         stores: [
