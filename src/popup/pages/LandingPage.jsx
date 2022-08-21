@@ -20,7 +20,7 @@ const LandingPage = (props) => {
     <div className="w-full h-full">
       <div className="w-full h-full relative bg-black/70 pt-10 rounded-lg">
         <img src={Logo} className="mx-auto w-24 h-24" />
-        <h2 className="text-primary text-3xl font-bold text-center mt-2">Solarity Extension</h2>
+        <h2 className="text-primary text-3xl font-bold text-center mt-2">Solarity</h2>
         <div className="absolute flex bottom-0 w-[100%] mx-auto" onClick={(e) => { e.stopPropagation() }}>
           {/*content*/}
           <div className="rounded-t-[30px] rounded-b-lg text-center shadow-lg relative flex flex-col w-full bg-[#141416] outline-none focus:outline-none">

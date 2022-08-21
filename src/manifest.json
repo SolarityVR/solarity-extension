@@ -2,7 +2,7 @@
   "version": "1.0.1",
   "manifest_version": 3,
   "name": "SGN",
-  "description": "Twitter Extension",
+  "description": "Solarity",
   "background": {
     "service_worker": "/static/js/background.bundle.js"
   },
