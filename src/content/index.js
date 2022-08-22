@@ -42,11 +42,12 @@ const gameModal = document.createElement('div');
 gameModal.style.position="fixed";
 gameModal.style.top='0px';
 gameModal.style.left="0px";
+gameModal.style.zIndex = "1000000";
 gameModal.id = "game-modal";
 document.body.appendChild(gameModal);
 ReactDOM.render(<GameModal />, gameModal);
-// Hide game modal
 gameModal.style.display= "none";
+// Hide game modal
 
 // Listen for messages sent from background.js
 chrome.runtime.onMessage.addListener(

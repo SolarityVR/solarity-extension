@@ -174,6 +174,15 @@ var options = {
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: 'src/content/jquery.js',
+          to: path.join(__dirname, 'build/modules'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
           from: 'src/content/modules/bundle.js',
           to: path.join(__dirname, 'build/modules'),
           force: true,
