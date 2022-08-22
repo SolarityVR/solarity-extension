@@ -39,12 +39,24 @@ B.onload = function () {
 
 // Inject game modal to twitter page
 const gameModal = document.createElement('div');
+const tmpDiv = document.createElement('div');
 gameModal.style.position="fixed";
 gameModal.style.top='0px';
 gameModal.style.left="0px";
 gameModal.style.zIndex = "1000000";
 gameModal.id = "game-modal";
-document.body.appendChild(gameModal);
+document.body.appendChild(tmpDiv);
+const shadowRoot = tmpDiv.attachShadow({mode: 'open'});
+const linkElem = document.createElement('link');
+linkElem.setAttribute('rel', 'stylesheet');
+linkElem.setAttribute('href', chrome.runtime.getURL('static/css/tailwind.css'));
+shadowRoot.appendChild(linkElem);
+const linkElem1 = document.createElement('link');
+linkElem1.setAttribute('rel', 'stylesheet');
+linkElem1.setAttribute('href', chrome.runtime.getURL('static/css/tailwind.css'));
+linkElem1.setAttribute('href', chrome.runtime.getURL('static/css/content.styles.css'));
+shadowRoot.appendChild(linkElem1);
+shadowRoot.appendChild(gameModal);
 ReactDOM.render(<GameModal />, gameModal);
 gameModal.style.display= "none";
 // Hide game modal
@@ -83,9 +95,9 @@ function addTwitterMenuItem() {
     }
   });
 
-  $('#game-modal-close').click(function (e) {
+  shadowRoot.getElementById('game-modal-close').onclick = (e) => {
     gameModal.style.display = "none";
-  })
+  }
 
   //Inject logo
   $('h1').append(logo);

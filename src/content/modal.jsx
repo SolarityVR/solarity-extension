@@ -5,7 +5,7 @@ import GameDetail from "./components/Custom/GameDetail";
 import Library from "./components/Custom/Library";
 import { ArrowLeft, CloseIcon } from "./components/Icons";
 import LibraryLayout from "./components/LibraryLayout";
-import '../assets/styles/tailwind.css';
+// import '../assets/styles/tailwind.css';
 import './content.styles.css';
 import { GameLibraryData } from "./data";
 

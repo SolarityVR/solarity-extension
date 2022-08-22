@@ -15,7 +15,8 @@
     "watch": "npm-watch",
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
-    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
+    "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "tailwind": "npx tailwindcss -o tailwind.css --minify"
   },
   "dependencies": {
     "@nfteyez/sol-rayz": "^0.10.2",
