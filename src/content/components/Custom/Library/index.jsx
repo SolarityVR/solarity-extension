@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { LeftArrow, RightArrow } from '../../Icons';
 import { GameLibraryData, LibraryMenu, EventsMenu, LiveEventsData } from "../../../data";
 import GamePanel from "./Panels/GamePanel";
@@ -107,7 +106,7 @@ const Library = (props) => {
           </button>
         </div>
       </div>
-      <div className="gap-[32px] grid custom-2xl:grid-cols-7 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 justify-items-center my-[32px]">
+      <div className="gap-[32px] grid custom-2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 justify-items-center my-[32px]">
         {
           GameLibraryData.map((item, index) => (
             <GamePanel image={item.image} key={index} title={item.title} likes={item.likes} members={item.members} onClick={() => onClickGameItem(item)} />

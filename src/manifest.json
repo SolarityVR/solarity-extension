@@ -22,8 +22,7 @@
         "/static/css/tailwind.css"
       ],
       "js": [
-        "/static/js/contentScript.bundle.js",
-        "/modules/jquery.js"
+        "/static/js/contentScript.bundle.js"
       ]
     }
   ],
