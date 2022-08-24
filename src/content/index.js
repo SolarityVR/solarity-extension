@@ -103,10 +103,10 @@ function addTwitterMenuItem() {
   }
 
   //Inject logo
-  if(checkInTwitter(location.href)) {
+  // if(checkInTwitter(window.location.href)) {
     $('h1').append(logo);
     $('h1').css('cssText', 'display: flex !important;');
-  }
+  // }
 
 }
 
@@ -148,7 +148,7 @@ window.addEventListener('login-result', function (evt) {
 })
 
 function checkInTwitter(url) {
-  matches = url.match(/(?:https?:\/\/)?(?:www.)?(?:twitter)(?:.com\/)/im);
+  let matches = url.match(/(?:https?:\/\/)?(?:www.)?(?:twitter)(?:.com\/)?([@a-zA-Z0-9-_]+)/im);
   if(!!matches && matches.length != 0) {
     return true;
   } else {
