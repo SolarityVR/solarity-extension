@@ -4,7 +4,7 @@ import { Play, Schedule } from "../Icons";
 
 const EventItemTemplate = (props) => {
   return (
-    <div className={`p-[14px] text-lightGrey bg-lightDark rounded-[15px] cursor-pointer border hover:border-primary ` + (props.isActive ? "border-primary" : "border-transparent")}>
+    <div className={`p-[14px] text-lightGrey bg-lightDark rounded-[15px] cursor-pointer border hover:border-[#29B080] ` + (props.isActive ? "border-[#29B080]" : "border-transparent")}>
       <div className="flex mb-2">
         {props.image}
         <div className={`pl-${props.gap} relative w-full`}>

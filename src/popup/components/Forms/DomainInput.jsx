@@ -7,7 +7,7 @@ const DomainInput = (props) => {
   const [domainFooter, setDomainFooter] = useState('.verse');
   const focusInput = () => {
     setClassFocus('top-[-15%] !text-[12px] text-primary');
-    setClassBorder('border-primary');
+    setClassBorder('border-[#29B080]');
   }
   const unFocusInput = () => {
     if (!domainValue) {

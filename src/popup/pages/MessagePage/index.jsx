@@ -22,7 +22,7 @@ const MessagePage = () => {
         </div>
       </div>
       {selectedFriend ?
-        <div className="px-6 h-[54px]"><span className="text-[14px] text-primary border-[1px] border-primary px-[15px] py-[10px] rounded-[40px] bg-[#162724]">{selectedFriend.name}</span></div>
+        <div className="px-6 h-[54px]"><span className="text-[14px] text-primary border-[1px] border-[#29B080] px-[15px] py-[10px] rounded-[40px] bg-[#162724]">{selectedFriend.name}</span></div>
         : <SearchInput />}
       <MessageList selectedFriend={selectedFriend} setSelectedFriend={setSelectedFriend} />
     </div>

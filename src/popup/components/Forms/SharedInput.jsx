@@ -6,7 +6,7 @@ const DomainInput = (props) => {
   const [titleValue, setTitleValue] = useState(props.bio || '');
   const focusInput = () => {
     setClassFocus('top-[-15%] !text-[12px] text-primary');
-    setClassBorder('border-primary');
+    setClassBorder('border-[#29B080]');
   }
   const unFocusInput = () => {
     if (!titleValue) {

@@ -13,7 +13,7 @@ const FriendList = () => {
         {FRIENDS.map((friend, index) => (
           <AvatarItem {...friend} key={index} />
         ))}
-        <div className="w-[52px] h-[52px] border border-primary rounded-2xl cursor-pointer">
+        <div className="w-[52px] h-[52px] border border-[#29B080] rounded-2xl cursor-pointer">
           <h4 className="text-base text-center text-white pt-3">10+</h4>
         </div>
       </div>

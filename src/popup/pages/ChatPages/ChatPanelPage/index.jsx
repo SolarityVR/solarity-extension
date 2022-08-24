@@ -52,7 +52,7 @@ const ChatPanelPage = () => {
       </div>
       <div className="px-6 absolute bottom-[52px] w-full bg-[#141414] pb-3">
         <div
-          className={`flex flex-col rounded-[15px] border-[1.2px] ${focusState ? "border-primary" : "border-[#272829]"} 
+          className={`flex flex-col rounded-[15px] border-[1.2px] ${focusState ? "border-[#29B080]" : "border-[#272829]"} 
               w-[100%] bg-globalBgColor overflow-hidden`}
           id="chatting_input_container"
           onDragStart={(e) => e.preventDefault()}

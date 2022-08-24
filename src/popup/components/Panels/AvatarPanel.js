@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const AvatarPanel = (props) => {
   return (
     <div
-      className={`relative w-full rounded-[20px] border-[1.5px] border-white/10 hover:border-primary z-10 bg-transparent cursor-pointer max-w-[190px] ${props.selected ? "border-primary" : ""}`}
+      className={`relative w-full rounded-[20px] border-[1.5px] border-white/10 hover:border-[#29B080] z-10 bg-transparent cursor-pointer max-w-[190px] ${props.selected ? "border-[#29B080]" : ""}`}
       onClick={() => props.onClick()}
     >
       <div className="avatar-panel max-w-[180px] p-1">

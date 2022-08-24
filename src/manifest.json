@@ -30,8 +30,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "/static/css/content.styles.css",
-        "/static/css/tailwind.css",
+        "/static/css/*",
+        "/static/fonts/Outfit.woff2",
         "/static/img/*",
         "logo.png",
         "/modules/*"

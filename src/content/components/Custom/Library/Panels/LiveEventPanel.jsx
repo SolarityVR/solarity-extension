@@ -6,7 +6,7 @@ const LiveEventPanel = (props) => {
 
   return (
     <div className="flex flex-col relative overflow-hidden cursor-pointer
-                        w-full rounded-[10px] border-[1.2px] border-[#272829] hover:border-primary transition duration-300 bg-[#242424]" onClick={props.onClick}>
+                        w-full rounded-[10px] border-[1.2px] border-[#272829] hover:border-[#29B080] transition duration-300 bg-[#242424]" onClick={props.onClick}>
       <div className="w-full relative">
         <img src={data.image} />
         <div className="absolute bottom-[10px] left-[10px] flex flex-row gap-[7px] z-10">

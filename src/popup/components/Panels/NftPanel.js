@@ -3,7 +3,7 @@ import { minifyString } from "../../utils";
 
 const NftPanel = (props) => {
   return (
-    <div onClick={() => props.onClick()} className={`relative w-full h-[200px] rounded-[20px] border-[1.5px] border-white/10 hover:border-primary z-10 bg-transparent cursor-pointer max-w-[190px] ${props.selected ? "border-primary" : ""}`}>
+    <div onClick={() => props.onClick()} className={`relative w-full h-[200px] rounded-[20px] border-[1.5px] border-white/10 hover:border-[#29B080] z-10 bg-transparent cursor-pointer max-w-[190px] ${props.selected ? "border-[#29B080]" : ""}`}>
       <div className="absolute top-1 left-1 right-1 rounded-[20px] avatar-panel h-[150px] max-w-[180px]">
         <img
           className="rounded-2xl"

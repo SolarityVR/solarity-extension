@@ -6,7 +6,7 @@ import Logo1 from '../../../assets/img/logo1.png';
 const TwoItemTemplate = (props) => {
   return (
     <div className="grid gap-y-2">
-      <div className={`p-[14px] text-lightGrey bg-lightDark rounded-[15px] border hover:border-primary ` + (props.isActive ? "border-primary" : "border-transparent")}>
+      <div className={`p-[14px] text-lightGrey bg-lightDark rounded-[15px] border hover:border-[#29B080] ` + (props.isActive ? "border-[#29B080]" : "border-transparent")}>
         <div className="flex">
           {props.image}
           <div className={`pl-${props.gap} relative w-full`}>

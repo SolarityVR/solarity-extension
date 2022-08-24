@@ -56,7 +56,7 @@ const GameDetail = (props) => {
                               (item, index) => (
                                 <a href={selectedGame[item.index]} target="_blank" key={index}>
                                   <li
-                                    className="h-[35px] w-[35px] bg-[#131314] rounded-[12px] border-[1px] border-[#272829] flex flex-row justify-center items-center ml-[15px] cursor-pointer hover:border-primary hover:bg-focusbackground overflow-hidden"
+                                    className="h-[35px] w-[35px] bg-[#131314] rounded-[12px] border-[1px] border-[#272829] flex flex-row justify-center items-center ml-[15px] cursor-pointer hover:border-[#29B080] hover:bg-focusbackground overflow-hidden"
                                     key={index}
                                   >
                                     {item.icon}
@@ -130,7 +130,7 @@ const GameDetail = (props) => {
                               &nbsp;<span>{store.price}</span>
                             </div>
                             <button
-                              className={`font-medium py-[8.5px] rounded-[12px] text-white w-[100%] text-[14px] sm:text-[14px] text-center tracking-wider  inline-flex items-center justify-center bg-primary hover:bg-lightprimary mt-[20px]`}
+                              className={`font-medium py-[8.5px] rounded-[12px] text-white w-[100%] text-[14px] sm:text-[14px] text-center tracking-wider  inline-flex items-center justify-center bg-[#29B080] hover:bg-lightprimary mt-[20px]`}
                             >
                               <span>Buy</span>
                             </button>

@@ -8,7 +8,7 @@ const GameDetailPanel = (props) => {
 
   return (
     <div className="flex flex-col relative overflow-hidden
-                        w-full rounded-[20px] border-[1.2px] border-[#272829] hover:border-primary transition duration-300 bg-[#242424]">
+                        w-full rounded-[20px] border-[1.2px] border-[#272829] hover:border-[#29B080] transition duration-300 bg-[#242424]">
       <div className="w-full "><img src={data.image} style={{ width: "100%" }} /></div>
       <div className="py-[10px] px-[20px]">
         <div className="text-[24px] text-[#F3F3F3] leading-[36px]">{data.title}</div>
@@ -22,7 +22,7 @@ const GameDetailPanel = (props) => {
           <div className="flex flex-row items-center"><UsersLarge />&nbsp;{data.members}</div>
         </div>
         <div className="mt-[20px]">
-          <button className={`solarity-button font-medium py-[10px] rounded-[12px] mb-[15px] text-white w-[100%] text-[21px] sm:text-[18px] text-center tracking-wider  inline-flex items-center justify-center bg-primary hover:bg-lightprimary`} onClick={() => onPlay(true)}>
+          <button className={`solarity-button font-medium py-[10px] rounded-[12px] mb-[15px] text-white w-[100%] text-[21px] sm:text-[18px] text-center tracking-wider  inline-flex items-center justify-center bg-[#29B080] hover:bg-lightprimary`} onClick={() => onPlay(true)}>
             <Play />
             <span className="ml-[20px]">Play</span>
           </button>

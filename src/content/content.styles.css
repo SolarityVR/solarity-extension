@@ -1,4 +1,4 @@
-body {
+* {
   font-family: 'Outfit';
 }
 
@@ -51,6 +51,22 @@ code {
   --gradient-color-stops: rgb(27, 168, 116, 0.3) 0%, transparent 70%;
   --light-gradient-color-stops: rgb(27, 168, 116, 0.1) 0%, transparent 70%;
   --gradient-linear-stops: rgba(28, 28, 28, 1) 0%, #141414 100%;
+}
+
+* {
+  outline-width: 0;
+  outline-color: var(--focus-color);
+  -webkit-outline-width: 0;
+  -webkit-outline-color: var(--focus-color);
+  -moz-outline-width: 0;
+  -moz-outline-color: var(--focus-color);
+  transition: 0.1s ease-in;
+}
+
+*:focus {
+  outline: none;
+  -webkit-outline: none;
+  -moz-outline: none;
 }
 
 * {

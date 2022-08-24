@@ -22,7 +22,7 @@ const SearchGameBox = () => {
                         custom-2xl:mr-[20px] xl:mr-[10px] 
                         custom-2xl:w-[516px] xl:w-[516px]
                         relative">
-      <input type="search" placeholder="Search" className={`bg-globalBgColor  border-[1.2px] rounded-[15px] focus:border-primary px-[16px] py-[11px] text-[#929298] w-full ${typing ? 'border-primary' : 'border-[#272829]'}`} onChange={(e) => searchGames(e)} />
+      <input type="search" placeholder="Search" className={`bg-globalBgColor  border-[1.2px] rounded-[15px] focus:border-[#29B080] px-[16px] py-[11px] text-[#929298] w-full ${typing ? 'border-[#29B080]' : 'border-[#272829]'}`} onChange={(e) => searchGames(e)} />
       <div className={`absolute right-[20px] ${typing ? 'hidden' : 'block'}`} >
         <SearchIcon />
       </div>

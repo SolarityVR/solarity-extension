@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { runtime } from 'webpack';
 import $ from './jquery';
 import GameModal from "./modal";
 
@@ -44,10 +45,9 @@ gameModal.style.zIndex = "1000000";
 gameModal.id = "game-modal";
 document.body.appendChild(tmpDiv);
 const shadowRoot = tmpDiv.attachShadow({mode: 'open'});
-addStyleDom(shadowRoot, 'https://fonts.googleapis.com/css?family=Montserrat', false);
-addStyleDom(shadowRoot, 'https://fonts.googleapis.com/css?family=Outfit', false);
 addStyleDom(shadowRoot, 'static/css/tailwind.css', true);
 addStyleDom(shadowRoot, 'static/css/content.styles.css', true);
+addCSS(chrome.runtime.getURL('static/css/content.css'))
 shadowRoot.appendChild(gameModal);
 ReactDOM.render(<GameModal />, gameModal);
 gameModal.style.display= "none";

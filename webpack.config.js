@@ -156,6 +156,24 @@ var options = {
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: 'src/assets/styles/content.css',
+          to: path.join(__dirname, 'build/static/css'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/assets/styles/fonts/Outfit.woff2',
+          to: path.join(__dirname, 'build/static/fonts'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
           from: 'src/content/modules/bs58.bundle.js',
           to: path.join(__dirname, 'build/modules'),
           force: true,

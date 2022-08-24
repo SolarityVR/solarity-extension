@@ -16,7 +16,7 @@
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-    "tailwind": "npx tailwindcss -o tailwind.css --minify"
+    "tailwind": "npx tailwindcss -o ./src/assets/styles/tailwind.css --minify"
   },
   "dependencies": {
     "@nfteyez/sol-rayz": "^0.10.2",
@@ -32,6 +32,7 @@
     "font-awesome": "^4.7.0",
     "ipfs": "^0.62.3",
     "jquery": "^3.6.0",
+    "path-browserify": "^1.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-dropzone": "^14.2.1",
@@ -68,6 +69,7 @@
     "fs-extra": "^10.0.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
+    "https-browserify": "^1.0.0",
     "node-sass": "^6.0.1",
     "postcss": "^8.4.6",
     "postcss-loader": "^6.2.1",

@@ -8,6 +8,7 @@ import Popup from './Popup';
 
 import './index.css';
 import '../assets/styles/tailwind.css';
+import '../assets/styles/fonts.css';
 
 render(
   <Provider store={store}>
