@@ -2,7 +2,6 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { runtime } from 'webpack';
 import $ from './jquery';
 import GameModal from "./modal";
 
@@ -103,10 +102,10 @@ function addTwitterMenuItem() {
   }
 
   //Inject logo
-  if(checkInTwitter(window.location.href)) {
+  // if(checkInTwitter(window.location.href)) {
     $('h1').append(logo);
     $('h1').css('cssText', 'display: flex !important;');
-  }
+  // }
 
 }
 
