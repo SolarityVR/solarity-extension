@@ -61,7 +61,7 @@ function addStyleDom(shadowRoot, href, flag) {
   }
   shadowRoot.appendChild(linkElem);
 }
-// Hide game modal
+///////////////////////////////////////////////////
 
 // Listen for messages sent from background.js
 chrome.runtime.onMessage.addListener(
@@ -80,7 +80,7 @@ chrome.runtime.onMessage.addListener(
 
 function startCheckingTwitter() {
   // addTwitterBtn();
-      addTwitterMenuItem();
+  addTwitterMenuItem();
 }
 
 function addTwitterMenuItem() {
@@ -107,6 +107,24 @@ function addTwitterMenuItem() {
     $('h1').css('cssText', 'display: flex !important;');
   // }
 
+}
+
+// Check if users are in Twitter website with url
+function checkInTwitter(url) {
+  let matches = url.match(/(?:https?:\/\/)?(?:www.)?(?:twitter)(?:.com\/)?([@a-zA-Z0-9-_]+)/im);
+  if(!!matches && matches.length != 0) {
+    return true;
+  } else {
+    return false
+  }
+}
+
+// Add link tag on the website with specific url
+function addCSS(url) {
+  var s = document.createElement('link');
+  s.rel = 'stylesheet';
+  s.href = url;
+  document.getElementsByTagName('head')[0].appendChild(s);
 }
 
 // Send action to background of content
@@ -145,19 +163,3 @@ window.addEventListener('login-result', function (evt) {
       break;
   }
 })
-
-function checkInTwitter(url) {
-  let matches = url.match(/(?:https?:\/\/)?(?:www.)?(?:twitter)(?:.com\/)?([@a-zA-Z0-9-_]+)/im);
-  if(!!matches && matches.length != 0) {
-    return true;
-  } else {
-    return false
-  }
-}
-
-function addCSS(url) {
-  var s = document.createElement('link');
-  s.rel = 'stylesheet';
-  s.href = url;
-  document.getElementsByTagName('head')[0].appendChild(s);
-}
