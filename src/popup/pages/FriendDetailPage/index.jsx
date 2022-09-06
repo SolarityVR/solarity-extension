@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { LeftArrowButton } from "../../components/Buttons";
 import { SearchInput } from "../../components/Forms";
+import { RoundPlus } from "../../components/Icons";
 import { AvatarItem, TitleItem } from "../../components/Items";
 import ItemTemplate from "../../components/Panels/ItemTemplate";
 import { FRIEND_LIST_DATA } from "../../data";
@@ -14,7 +15,7 @@ const FriendDetailPage = () => {
     <div className="pt-[15px]" >
       <div className="px-6 pb-6">
         <div onClick={() => dispatch(setPageStages(4))}>
-          <LeftArrowButton caption="Find friends" />
+          <LeftArrowButton caption="Friends" />
         </div>
       </div>
       <div className="grid gap-y-4">
@@ -24,7 +25,14 @@ const FriendDetailPage = () => {
         <SocialPanel />
       </div>
       <div className="px-6 pb-6">
-        <TitleItem title="Friends" comment="55" />
+        <TitleItem
+          title="Friends"
+          comment="55"
+          button={
+            <div className=" cursor-pointer bg-darkGreen text-primary p-[8px] rounded-md" onClick={() => dispatch(setPageStages(11))}>
+              <RoundPlus />
+            </div>
+          } />
         <div className="text-lg text-white -mt-4">Online</div>
         <div className="grid gap-y-2">
           {FRIEND_LIST_DATA.map((friend, index) => {

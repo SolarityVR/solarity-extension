@@ -2,7 +2,7 @@ import axios from "axios";
 import Config from "../../config";
 
 const urlBase =
-  Config.NODE_ENV === false
+  true
     ? Config.LOCAL_BACKEND_URL + "/api"
     : Config.BACKEND_URL + "/api";
 

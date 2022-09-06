@@ -4,7 +4,7 @@ import { Play } from "../Icons";
 
 const ItemTemplate = (props) => {
   return (
-    <div className={`p-[14px] text-lightGrey bg-lightDark rounded-[15px] cursor-pointer border hover:border-[#29B080] ` + (props.isActive ? "border-[#29B080]" : "border-transparent")}>
+    <div className={`p-[14px] text-lightGrey bg-lightDark rounded-[15px] border hover:border-[#29B080] ` + (props.isActive ? "border-[#29B080]" : "border-transparent")}>
       <div className="flex">
         <div>
           {props.image}
@@ -16,7 +16,7 @@ const ItemTemplate = (props) => {
             </div>
           )}
           {props.detail && (
-            <div className="text-[#B3B3B7] text-sm font-normal leading-tight items-center mb-2">
+            <div className="text-[#B3B3B7] text-sm font-normal leading-tight items-center">
               {props.detail}
             </div>
           )}
@@ -31,7 +31,7 @@ const ItemTemplate = (props) => {
               {props.time}
             </div>
           )}
-          {props.badge && (
+          {!!props.badge && (
             <div className="absolute right-0 h-[18px] top-[50%] text-[10px] leading-4 rounded-full text-center pt-[1px] px-[6px] justify-items-center text-primary bg-[#162724] border-[#29B080] border">{props.badge}</div>
           )}
         </div>

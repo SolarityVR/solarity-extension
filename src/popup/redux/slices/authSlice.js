@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import ACTIONS from "../../../config/action";
 import { apiCaller } from "../../utils/fetcher";
 import socket from '../../utils/socket-client'
 import { startLoadingApp, stopLoadingApp } from "./commonSlice";
@@ -148,8 +149,11 @@ export const checkSession = createAsyncThunk(
         window.socket = socket();
       }
       const { data } = await apiCaller.get("/auth/check");
-      dispatch(setProfile(data.profile));
-      dispatch(setPageStages(3));
+      if(!!data.profile.username) {
+        dispatch(setProfile(data.profile));
+        dispatch(setPageStages(3));
+        window.socket.emit(ACTIONS.JOIN_EXTENSION, {name: data.profile.username});
+      }
       response = true;
     } catch {}
     dispatch(stopLoadingApp());

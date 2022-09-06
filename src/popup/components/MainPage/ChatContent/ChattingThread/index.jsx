@@ -39,8 +39,8 @@ const ChattingThread = (props) => {
         </div>
 
         <div
-          className={` max-w-[276px] rounded-tl-[3px] rounded-tr-[15px] rounded-bl-[15px] rounded-br-[15px] break-words whitespace-pre-wrap
-                                pt-[14px] pb-[20px] px-[20px] ${props.uName == profileData.username
+          className={` max-w-[276px] rounded-tl-[3px] rounded-tr-[10px] rounded-bl-[10px] rounded-br-[10px] break-words whitespace-pre-wrap
+                                pt-[10px] pb-[10px] px-[15px] ${props.uName == profileData.username
               ? "bg-[#3f3f43]"
               : "bg-[#1d1d1e]"
             } font-[400] text-[16px] text-[#b3b3b7] leading-[150%] relative`}

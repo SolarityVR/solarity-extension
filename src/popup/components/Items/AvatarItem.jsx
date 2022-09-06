@@ -1,9 +1,9 @@
 import React from "react";
 const AvatarItem = (props) => {
   return (
-    <div className="relative cursor-pointer" >
-      <div className="w-13 h-13 rounded-2xl">
-        <img src={props.img} alt="Avatar" />
+    <div className="relative" >
+      <div className="w-13 h-13 rounded-xl">
+        <img src={props.img} className=" rounded-xl" alt="Avatar" width="52" height="52" />
       </div>
       {props.isActive && (
         <div

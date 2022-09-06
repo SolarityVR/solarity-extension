@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
+import 'jest-extended';
 
 import LandingPage from './pages/LandingPage';
 import UserInfoPage from './pages/auth/UserInfoPage';
@@ -20,36 +21,58 @@ import ChatPanelPage from './pages/ChatPages/ChatPanelPage';
 import QuestPage from './pages/QuestPage';
 import ProfilePage from './pages/ProfilePage';
 import MessagePage from './pages/MessagePage';
+import InviteFriendPage from './pages/InviteFriendPage';
 import AppLoader from './pages/AppLoader';
-import { setValue } from './utils';
+import { eqArraySets, setValue, time_ago } from './utils';
 
 import socket from './utils/socket-client';
-import { setGroupMsg } from './redux/slices/chatSlice';
+import { setFriends, setOnline, setTypingState, setUserMsg } from './redux/slices/chatSlice';
+import ACTIONS from '../config/action';
 
 const Popup = () => {
   const [loginStages, setLoginStages] = useState(0);
   const [solanaAddress, setSolanaAddress] = useState("");
   const menuData = [0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 2];
 
-  const { pageStages, authFlag, profileData } = useSelector((state) => ({
+  const { pageStages, authFlag, profileData, friends, members, typingMembers } = useSelector((state) => ({
     profileData: state.auth.profile,
     pageStages: state.auth.pageStages,
     authFlag: state.auth.authFlag,
+    friends: state.chat.friends,
+    members: state.chat.members,
+    typingMembers: state.chat.typingMembers,
   }));
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.members = members;
+    window.typingMembers = typingMembers;
+  }, [members, typingMembers])
 
   useEffect(() => {
     chrome.runtime.onMessage.addListener(onExtMessage);
     const init_socket = () => {
       window.initFlag = true;
 
-      window.socket.on('send-msg-extension', (msg) => {
+      window.socket.on(ACTIONS.USER_INFO_EXTENSION, (friends) => {
+        dispatch(setFriends(friends));
+      })
+
+      window.socket.on(ACTIONS.ADD_USER_EXTENSION, (data) => {
+        dispatch(setOnline(data));
+      })
+
+      window.socket.on(ACTIONS.TYPING_STATE, (data) => {
+        if (eqArraySets(window.members, data.members)) {
+          dispatch(setTypingState({ state: data.state, name: data.name, typingMembers: window.typingMembers }));
+        }
+      })
+
+      window.socket.on(ACTIONS.SEND_MSG_EXTENSION, (msg) => {
         if (!!msg) {
-          // if (msg.groupType) {
-          dispatch(setGroupMsg(msg));
-          // } else {
-          //   dispatch(setUserMsg(msg));
-          // }
+          if (!msg.groupType) {
+            dispatch(setUserMsg(msg));
+          }
           if (msg.members[0] != localStorage.getItem('name')) {
             // toast.success(msg.content, {
             //   position: "top-right",
@@ -108,6 +131,7 @@ const Popup = () => {
           {pageStages == 8 && <FriendDetailPage />}
           {pageStages == 9 && <ChatPanelPage />}
           {pageStages == 10 && <MessagePage />}
+          {pageStages == 11 && <InviteFriendPage />}
         </Layout >
       )}
     </div >

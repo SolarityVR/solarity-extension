@@ -14,3 +14,6 @@ export { default as Tick } from './Tick';
 export { default as Link } from './Link';
 export { default as Setting } from "./Setting";
 export { default as Power } from "./Power";
+export { default as Reply } from "./Reply";
+export { default as Send } from "./Send";
+export { default as ReplyInput } from "./ReplyInput";

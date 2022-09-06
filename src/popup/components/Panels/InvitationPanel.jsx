@@ -3,6 +3,7 @@ import { TitleItem } from "../Items";
 import ItemTemplate from "./ItemTemplate";
 import Avatar1 from '../../../assets/img/library/avatars/1.png'
 
+
 const InvitationPanel = () => {
   return (
     <div>
