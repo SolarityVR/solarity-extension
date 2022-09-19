@@ -147,6 +147,33 @@ var options = {
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: 'src/content/app.css',
+          to: path.join(__dirname, 'build/static/css'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/assets/styles/modal.css',
+          to: path.join(__dirname, 'build/static/css'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/assets/styles/root.css',
+          to: path.join(__dirname, 'build/static/css'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
           from: 'src/assets/styles/tailwind.css',
           to: path.join(__dirname, 'build/static/css'),
           force: true,
@@ -239,6 +266,15 @@ var options = {
         {
           from: 'src/assets/img/library/',
           to: path.join(__dirname, 'build/static/img/library'),
+          force: true,
+        },
+      ],
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/assets/img/payModal/',
+          to: path.join(__dirname, 'build/static/img/payModal'),
           force: true,
         },
       ],

@@ -18,6 +18,9 @@
     {
       "matches": ["https://*/*", "http://*/*"],
       "css": [
+        "/static/css/app.css",
+        "/static/css/modal.css",
+        "/static/css/root.css"
       ],
       "js": [
         "/static/js/contentScript.bundle.js"
