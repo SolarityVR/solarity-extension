@@ -438,7 +438,7 @@ function showVrBanner(vr) {
   initEvents();
 }
 
-function parseUsername(url) {return 'oraziogrinzosih';
+function parseUsername(url) {
   let output = url;
   let matches;
 

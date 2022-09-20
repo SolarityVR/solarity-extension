@@ -12,6 +12,9 @@ const poker = chrome.runtime.getURL('static/img/library/poker.png')
 const minecraft = chrome.runtime.getURL('static/img/library/minecraft.png')
 const miniroyale = chrome.runtime.getURL('static/img/library/miniroyale.png')
 const bepple = chrome.runtime.getURL('static/img/library/bepple.png')
+const axieQuest = chrome.runtime.getURL('static/img/library/axie-Infinity-quest.png')
+const miniQuest = chrome.runtime.getURL('static/img/library/mini-royale-quest.png')
+const slope = chrome.runtime.getURL('static/img/library/slope.png')
 const avatar1 = chrome.runtime.getURL('static/img/library/avatars/1.png');
 const avatar2 = chrome.runtime.getURL('static/img/library/avatars/2.png');
 const avatar3 = chrome.runtime.getURL('static/img/library/avatars/3.png');
@@ -19,6 +22,8 @@ const avatar4 = chrome.runtime.getURL('static/img/library/avatars/4.png');
 const avatar5 = chrome.runtime.getURL('static/img/library/avatars/5.png');
 const avatar6 = chrome.runtime.getURL('static/img/library/avatars/6.png');
 const avatar7 = chrome.runtime.getURL('static/img/library/avatars/7.png');
+const avatar8 = chrome.runtime.getURL('static/img/library/avatars/8.png');
+const avatar9 = chrome.runtime.getURL('static/img/library/avatars/9.png');
 
 
 
@@ -620,89 +625,13 @@ export const EventsMenu = [
     "Events"
 ];
 
+export const QuestsMenu = [
+    "Highest Yields",
+    "F2P",
+    "Collectibles"
+];
+
 export const LiveEventsData = [
-    {
-        image : plaza,
-        title: "Solarity Hall",
-        likes: 97,
-        members : 231,
-        owner: "@TwoZoos",
-        category: "P2E",
-        iframe: "https://solarity-frontend.vercel.app/iframe/joinModal/plaza?name=tmeta",
-        description: "Description",
-        twitter: "https://twitter.com",
-        discord: "https://discord.com",
-        website: "https://solarity.xyz",
-        quests: [
-            {
-                title: "Anatoly",
-                description: "Money Boy",
-                image: avatar1
-            }, {
-                title: "Konstantin",
-                description: "Degen Ape",
-                image: avatar2,
-            }, {
-                title: "Solarityman",
-                description: "Monke",
-                image: avatar3,
-            }
-        ],
-        stores: [
-            {
-                title: "2x Money",
-                image: stores,
-                price: 450,
-            }, {
-                title: "2x Money",
-                image: stores,
-                price: 450,
-            }, {
-                title: "2x Money",
-                image: stores,
-                price: 450,
-            }, {
-                title: "2x Money",
-                image: stores,
-                price: 450,
-            }, {
-                title: "2x Money",
-                image: stores,
-                price: 450,
-            }, {
-                title: "2x Money",
-                image: stores,
-                price: 450,
-            }, {
-                title: "2x Money",
-                image: stores,
-                price: 450,
-            },
-        ],
-        creator: {
-            avatar: avatar1,
-            name: "tmeta"
-        },
-        friends: [
-            {
-                avatar: avatar1,
-                name: "Meta",
-            }, {
-                avatar: avatar2,
-                name: "Rocco",
-            }, {
-                avatar: avatar3,
-                name: "Beka",
-            }, {
-                avatar: avatar4,
-                name: "Supa",
-            }, {
-                avatar: avatar5,
-                name: "Bella",
-            }, 
-        ],
-        createAt: "2022.08.14 18:42:00"
-    }, 
     {
         image: poker,
         title: "Poker Night",
@@ -754,6 +683,32 @@ export const LiveEventsData = [
                 name: "Bella",
             }, 
         ],
+        createAt: "2022.08.14 18:42:00"
+    }, 
+]
+
+export const LiveQuestsData = [
+    {
+        image: axieQuest,
+        title: "Breed Em All:",
+        description: "Play Head Bone today to earn more Mana!",
+        creator: {
+            avatar: avatar8,
+            name: "Axie Infinity"
+        },
+        hourly: 25,
+        walletType: slope,
+        createAt: "2022.08.14 18:42:00"
+    }, {
+        image: miniQuest,
+        title: "One True King:",
+        description: "Play Head Bone today to earn more Mana!",
+        creator: {
+            avatar: avatar9,
+            name: "Mini Royale"
+        },
+        hourly: 10,
+        walletType: slope,
         createAt: "2022.08.14 18:42:00"
     }, 
 ]
