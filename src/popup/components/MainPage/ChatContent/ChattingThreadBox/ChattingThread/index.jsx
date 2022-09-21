@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactHtmlParser from "react-html-parser";
 import { useDispatch, useSelector } from "react-redux";
 import { setReply } from "../../../../../redux/slices/chatSlice";
+import { formatAMPM } from "../../../../../utils";
 
 import { Reply } from "../../../../Icons";
 import ImgFileType from "./ImgFileType";
@@ -128,20 +129,17 @@ const ChattingThread = (props) => {
       onMouseLeave={() => setShowReplyBtn(false)}
     >
       {/* Avatar Part */}
-      <div className=" min-h-[40px] min-w-[40px] rounded-[15px] overflow-hidden relative ">
+      <div className={`min-h-[40px] min-w-[40px] rounded-[15px] overflow-hidden relative ${props.uName === profile.username ? "hidden" : ""}`}>
         <img src={props.imgUrl} width={40} height={40} />
       </div>
       <div className=" flex flex-col gap-[10px] justify-between items-start md:w-[278px] xs:max-w-[100%]">
         {/* Header of Msg */}
-        <div className={` flex flex-row gap-[10px] justify-start items-center `}>
+        <div className={` flex flex-row gap-[10px] justify-start items-center  ${props.uName === profile.username ? "hidden" : ""}`}>
           <div
             className={` font-['Outfit'] text-[14px] ${props.uName === profile.username ? "text-[#f3f3f3]" : "text-[#929298]"
               } `}
           >
             {props.uName}
-          </div>
-          <div className=" font-['Outfit'] text-[14px] font-[400] text-[#474749] ">
-            {props.date}
           </div>
         </div>
         <div
@@ -163,7 +161,7 @@ const ChattingThread = (props) => {
               {props.replyToWhom}
             </div>
           </div>
-          <div>{ReactHtmlParser(msg)}<span className="text-grey text-[12px] font-['Outfit'] pt-1 pl-2 float-right">12:23 PM</span></div>
+          <div>{ReactHtmlParser(msg)}<span className="text-grey text-[12px] font-['Outfit'] pt-1 pl-2 float-right">{formatAMPM(new Date(props.date))}</span></div>
           {/* Reply Part */}
           <div
             className={`absolute ${showReplyBtn ? "flex" : "hidden"

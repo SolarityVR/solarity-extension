@@ -47,11 +47,11 @@ const ChattingThreadBox = (props) => {
 
   return (
     <div
-      className={` flex custom-2xl:h-[76%] pt-14 xs:h-[73%] gap-[24px] relative `}
+      className={` flex custom-2xl:h-[80%] pt-14 xs:h-[80%] gap-[24px] relative `}
       id="chatting_thread_box"
     >
       <div
-        className="flex flex-col px-[26px] w-full h-full overflow-y-scroll overflow-x-visible gap-[24px] relative pb-[30px]"
+        className="flex flex-col px-[26px] w-full h-full overflow-y-scroll overflow-x-visible gap-[2px] relative pb-[30px]"
         id="chatting_thread_box_1"
       >
         {chatLogs.map((chatLog, index) => (
@@ -59,7 +59,7 @@ const ChattingThreadBox = (props) => {
             imgUrl={!!chatLog.sender.profileImage ? chatLog.sender.profileImage : defaultAvatar}
             uName={chatLog.sender.name}
             text={chatLog.content}
-            date={chatLog.before}
+            date={chatLog.date}
             hisMsg={!!chatLog.reply.hisMsg ? chatLog.reply.hisMsg : ""}
             replyToWhom={chatLog.reply.replyToWhom}
             attachments={chatLog.attachments}
