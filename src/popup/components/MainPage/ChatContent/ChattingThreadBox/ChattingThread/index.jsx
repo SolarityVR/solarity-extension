@@ -122,7 +122,7 @@ const ChattingThread = (props) => {
 
   return (
     <div
-      className=" flex flex-row gap-[16px] items-start justify-start"
+      className={`flex ${props.uName === profile.username ? 'flex-row-reverse' : 'flex-row'} gap-[16px] items-start justify-start`}
       onDragStart={(e) => e.preventDefault()}
       onMouseEnter={() => setShowReplyBtn(true)}
       onMouseLeave={() => setShowReplyBtn(false)}
@@ -133,7 +133,7 @@ const ChattingThread = (props) => {
       </div>
       <div className=" flex flex-col gap-[10px] justify-between items-start md:w-[278px] xs:max-w-[100%]">
         {/* Header of Msg */}
-        <div className={` flex ${props.uName === profile.username ? 'flex-row-reverse' : 'flex-row'} gap-[10px] justify-start items-center `}>
+        <div className={` flex flex-row gap-[10px] justify-start items-center `}>
           <div
             className={` font-['Outfit'] text-[14px] ${props.uName === profile.username ? "text-[#f3f3f3]" : "text-[#929298]"
               } `}
@@ -145,8 +145,8 @@ const ChattingThread = (props) => {
           </div>
         </div>
         <div
-          className={` flex flex-col md:max-w-[240px] xs:max-w-[240px] rounded-tl-[3px] rounded-tr-[15px] rounded-bl-[15px] rounded-br-[15px] break-all whitespace-pre-wrap
-                                pt-[14px] pb-[20px] px-[20px] ${props.uName === profile.username
+          className={` flex flex-col md:max-w-[240px] xs:max-w-[240px] ${props.uName === profile.username ? "rounded-tl-[10px] rounded-tr-[3px]" : "rounded-tl-[3px] rounded-tr-[10px]"} rounded-bl-[10px] rounded-br-[10px] break-all whitespace-pre-wrap
+                                pt-[5px] pb-[3px] px-[15px] ${props.uName === profile.username
               ? "bg-[#3f3f43]"
               : "bg-[#1d1d1e]"
             } font-[400] text-[16px] text-[#b3b3b7] leading-[150%] relative`}
@@ -163,7 +163,7 @@ const ChattingThread = (props) => {
               {props.replyToWhom}
             </div>
           </div>
-          <div className="pt-[5px]">{ReactHtmlParser(msg)}</div>
+          <div>{ReactHtmlParser(msg)}<span className="text-grey text-[12px] font-['Outfit'] pt-1 pl-2 float-right">12:23 PM</span></div>
           {/* Reply Part */}
           <div
             className={`absolute ${showReplyBtn ? "flex" : "hidden"
