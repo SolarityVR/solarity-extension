@@ -133,7 +133,7 @@ const ChattingThread = (props) => {
       </div>
       <div className=" flex flex-col gap-[10px] justify-between items-start md:w-[278px] xs:max-w-[100%]">
         {/* Header of Msg */}
-        <div className=" flex flex-row gap-[10px] justify-start items-center ">
+        <div className={` flex ${props.uName === profile.username ? 'flex-row-reverse' : 'flex-row'} gap-[10px] justify-start items-center `}>
           <div
             className={` font-['Outfit'] text-[14px] ${props.uName === profile.username ? "text-[#f3f3f3]" : "text-[#929298]"
               } `}
