@@ -8,6 +8,7 @@ import { roomIcon } from './components/Icons/RoomIcon';
 import $ from './jquery';
 import GameModal from "./modal";
 import PayModal from './payModal';
+import ChatModal from './chat';
 
 var solanaAddress = '';
 var settings = {
@@ -45,23 +46,6 @@ B.onload = function () {
 };
 (document.head || document.documentElement).appendChild(B);
 
-// Inject game modal to twitter page
-const gameModal = document.createElement('div');
-const tmpDiv = document.createElement('div');
-gameModal.style.position="fixed";
-gameModal.style.top='0px';
-gameModal.style.left="0px";
-gameModal.style.zIndex = "1000000";
-gameModal.id = "game-modal";
-document.body.appendChild(tmpDiv);
-const shadowRoot = tmpDiv.attachShadow({mode: 'open'});
-addStyleDom(shadowRoot, 'static/css/tailwind.css', true);
-addStyleDom(shadowRoot, 'static/css/content.styles.css', true);
-addCSS(chrome.runtime.getURL('static/css/content.css'))
-shadowRoot.appendChild(gameModal);
-ReactDOM.render(<GameModal />, gameModal);
-gameModal.style.display= "none";
-
 class Main extends React.Component {
 
   render() {
@@ -69,23 +53,44 @@ class Main extends React.Component {
   }
 }
 
+const tmpDiv = document.createElement('div');
+const shadowRoot = tmpDiv.attachShadow({mode: 'open'});
+const gameModal = document.createElement('div');
 const app = document.createElement('div');
-app.id = "twitter-pay-extension-root";
-document.body.appendChild(app);
-ReactDOM.render(<Main />, app);
-app.style.display = "none";
-
 const appmodal = document.createElement('div');
-appmodal.id = "twitter-extension-modal";
-document.body.appendChild(appmodal);
-ReactDOM.render(<div className="modal">
-  <div className="modal-content">
-    <span className="close-button">×</span>
-    <div className="modal-container">
+if(window.location.href.includes('http://') || window.location.href.includes('https://')) {
+  // Inject game modal to twitter page
+  gameModal.style.position="fixed";
+  gameModal.style.top='0px';
+  gameModal.style.left="0px";
+  gameModal.style.zIndex = "1000000";
+  gameModal.id = "game-modal";
+  document.body.appendChild(tmpDiv);
+  addStyleDom(shadowRoot, 'static/css/tailwind.css', true);
+  addStyleDom(shadowRoot, 'static/css/content.styles.css', true);
+  addCSS(chrome.runtime.getURL('static/css/content.css'))
+  shadowRoot.appendChild(gameModal);
+  ReactDOM.render(<GameModal />, gameModal);
+  gameModal.style.display= "none";
 
+  // Inject payment modal to twitter page
+  app.id = "twitter-pay-extension-root";
+  document.body.appendChild(app);
+  ReactDOM.render(<Main />, app);
+  app.style.display = "none";
+
+  // Inject room list modal to twitter page
+  appmodal.id = "twitter-extension-modal";
+    document.body.appendChild(appmodal);
+    ReactDOM.render(<div className="modal">
+    <div className="modal-content">
+      <span className="close-button">×</span>
+      <div className="modal-container">
+      </div>
     </div>
-  </div>
-</div>, appmodal);
+  </div>, appmodal);
+}
+
 
 function addStyleDom(shadowRoot, href, flag) {
   const linkElem = document.createElement('link');
@@ -95,7 +100,9 @@ function addStyleDom(shadowRoot, href, flag) {
   } else {
     linkElem.setAttribute('href', href);
   }
-  shadowRoot.appendChild(linkElem);
+  if(!!shadowRoot) {
+    shadowRoot.appendChild(linkElem);
+  }
 }
 ///////////////////////////////////////////////////
 
@@ -133,15 +140,17 @@ function addTwitterMenuItem() {
     }
   });
 
-  shadowRoot.getElementById('game-modal-close').onclick = (e) => {
-    gameModal.style.display = "none";
+  if(!!shadowRoot) {
+    shadowRoot.getElementById('game-modal-close').onclick = (e) => {
+      gameModal.style.display = "none";
+    }
   }
 
   //Inject logo
-  if(checkInTwitter(window.location.href)) {
+  // if(checkInTwitter(window.location.href)) {
     $('h1').append(logo);
     $('h1').css('cssText', 'display: flex !important;');
-  }
+  // }
 
 }
 
@@ -439,6 +448,7 @@ function showVrBanner(vr) {
 }
 
 function parseUsername(url) {
+  return Config.CLIENT_TWITTER_NAME;
   let output = url;
   let matches;
 

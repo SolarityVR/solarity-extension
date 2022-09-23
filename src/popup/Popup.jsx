@@ -110,7 +110,7 @@ const Popup = () => {
   }
 
   return (
-    <div className='w-[375px] h-[613px] bg-[#141414] relative'>
+    <div className='w-[375px] h-[600px] bg-[#141414] relative'>
       <AppLoader />
       {/* login and register */}
       {authFlag == false && (
