@@ -53,11 +53,13 @@ class Main extends React.Component {
   }
 }
 
-const tmpDiv = document.createElement('div');
-const shadowRoot = tmpDiv.attachShadow({mode: 'open'});
+const gameDiv = document.createElement('div');
 const gameModal = document.createElement('div');
 const app = document.createElement('div');
-const appmodal = document.createElement('div');
+const appModal = document.createElement('div');
+const chatModal = document.createElement('div');
+const gameShadowRoot = gameDiv.attachShadow({mode: 'open'});
+const appShadowRoot = appModal.attachShadow({mode: 'open'});
 if(window.location.href.includes('http://') || window.location.href.includes('https://')) {
   // Inject game modal to twitter page
   gameModal.style.position="fixed";
@@ -65,11 +67,11 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
   gameModal.style.left="0px";
   gameModal.style.zIndex = "1000000";
   gameModal.id = "game-modal";
-  document.body.appendChild(tmpDiv);
-  addStyleDom(shadowRoot, 'static/css/tailwind.css', true);
-  addStyleDom(shadowRoot, 'static/css/content.styles.css', true);
+  document.body.appendChild(gameDiv);
+  addStyleDom(gameShadowRoot, 'static/css/tailwind.css', true);
+  addStyleDom(gameShadowRoot, 'static/css/content.styles.css', true);
   addCSS(chrome.runtime.getURL('static/css/content.css'))
-  shadowRoot.appendChild(gameModal);
+  gameShadowRoot.appendChild(gameModal);
   ReactDOM.render(<GameModal />, gameModal);
   gameModal.style.display= "none";
 
@@ -80,19 +82,20 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
   app.style.display = "none";
 
   // Inject room list modal to twitter page
-  appmodal.id = "twitter-extension-modal";
-    document.body.appendChild(appmodal);
+  appModal.id = "twitter-extension-modal";
+    document.body.appendChild(appModal);
     ReactDOM.render(<div className="modal">
     <div className="modal-content">
       <span className="close-button">×</span>
       <div className="modal-container">
       </div>
     </div>
-  </div>, appmodal);
+  </div>, appModal);
+  
 }
 
 
-function addStyleDom(shadowRoot, href, flag) {
+function addStyleDom(gameShadowRoot, href, flag) {
   const linkElem = document.createElement('link');
   linkElem.setAttribute('rel', 'stylesheet');
   if(flag) {
@@ -100,8 +103,8 @@ function addStyleDom(shadowRoot, href, flag) {
   } else {
     linkElem.setAttribute('href', href);
   }
-  if(!!shadowRoot) {
-    shadowRoot.appendChild(linkElem);
+  if(!!gameShadowRoot) {
+    gameShadowRoot.appendChild(linkElem);
   }
 }
 ///////////////////////////////////////////////////
@@ -140,8 +143,8 @@ function addTwitterMenuItem() {
     }
   });
 
-  if(!!shadowRoot) {
-    shadowRoot.getElementById('game-modal-close').onclick = (e) => {
+  if(!!gameShadowRoot) {
+    gameShadowRoot.getElementById('game-modal-close').onclick = (e) => {
       gameModal.style.display = "none";
     }
   }
