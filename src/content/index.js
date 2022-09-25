@@ -84,6 +84,7 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
   // Inject room list modal to twitter page
   appModal.id = "twitter-extension-modal";
     document.body.appendChild(appModal);
+    appShadowRoot.appendChild
     ReactDOM.render(<div className="modal">
     <div className="modal-content">
       <span className="close-button">×</span>
