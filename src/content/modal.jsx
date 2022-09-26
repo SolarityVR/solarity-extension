@@ -91,7 +91,7 @@ const Modal = () => {
                         <div className='w-full h-full overflow-hidden rounded-[25px]'>
                             <div className='fixed top-[5vh] left-[30px] cursor-pointer text-primary' onClick={() => setIsIframe(false)}>
                                 <div className='flex rounded-lg bg-brandblack px-4 py-2'>
-                                    <div className="mt-2">
+                                    <div className="mt-1">
                                         <ArrowLeft />
                                     </div>
                                     <span className='ml-3'>Back</span>

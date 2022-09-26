@@ -7,6 +7,7 @@ const webaverse = chrome.runtime.getURL('static/img/library/webaverse.png')
 const oncyber = chrome.runtime.getURL('static/img/library/oncyber.png')
 const portals = chrome.runtime.getURL('static/img/library/portals.png')
 const plaza = chrome.runtime.getURL('static/img/library/plaza.png')
+const gallery = chrome.runtime.getURL('static/img/library/gallery.png')
 const webb = chrome.runtime.getURL('static/img/library/webb.png')
 const poker = chrome.runtime.getURL('static/img/library/poker.png')
 const minecraft = chrome.runtime.getURL('static/img/library/minecraft.png')
@@ -500,8 +501,8 @@ export const GameLibraryData = [
             },
         ]
     }, {
-        image : poker,
-        title: "Poker Night",
+        image : plaza,
+        title: "Solarity Hall",
         likes: 97,
         members : 231,
         owner: "@888",
@@ -557,14 +558,15 @@ export const GameLibraryData = [
                 price: 450,
             },
         ]
-    }, {
-        image : minecraft,
-        title: "Minecraft",
+    }, 
+    {
+        image : gallery,
+        title: "Solarity Gallery",
         likes: 97,
         members : 231,
-        owner: "@Mojanc",
+        owner: "@888",
         category: "P2E",
-        iframe: "https://classic.minecraft.net/?join=Aklaj1y66iD8xJvx",
+        iframe: "https://solarity-frontend.vercel.app/oraziogrinzosih/hub/",
         description: "Description",
         twitter: "https://twitter.com",
         discord: "https://discord.com",
@@ -615,7 +617,66 @@ export const GameLibraryData = [
                 price: 450,
             },
         ]
-    }, 
+    }
+    // {
+    //     image : minecraft,
+    //     title: "Minecraft",
+    //     likes: 97,
+    //     members : 231,
+    //     owner: "@Mojanc",
+    //     category: "P2E",
+    //     iframe: "https://classic.minecraft.net/?join=Aklaj1y66iD8xJvx",
+    //     description: "Description",
+    //     twitter: "https://twitter.com",
+    //     discord: "https://discord.com",
+    //     website: "https://solarity.xyz",
+    //     quests: [
+    //         {
+    //             title: "Anatoly",
+    //             description: "Money Boy",
+    //             image: avatar1
+    //         }, {
+    //             title: "Konstantin",
+    //             description: "Degen Ape",
+    //             image: avatar2,
+    //         }, {
+    //             title: "Solarityman",
+    //             description: "Monke",
+    //             image: avatar3,
+    //         }
+    //     ],
+    //     stores: [
+    //         {
+    //             title: "2x Money",
+    //             image: stores,
+    //             price: 450,
+    //         }, {
+    //             title: "2x Money",
+    //             image: stores,
+    //             price: 450,
+    //         }, {
+    //             title: "2x Money",
+    //             image: stores,
+    //             price: 450,
+    //         }, {
+    //             title: "2x Money",
+    //             image: stores,
+    //             price: 450,
+    //         }, {
+    //             title: "2x Money",
+    //             image: stores,
+    //             price: 450,
+    //         }, {
+    //             title: "2x Money",
+    //             image: stores,
+    //             price: 450,
+    //         }, {
+    //             title: "2x Money",
+    //             image: stores,
+    //             price: 450,
+    //         },
+    //     ]
+    // }, 
 ]
 
 export const EventsMenu = [

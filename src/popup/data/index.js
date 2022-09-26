@@ -25,6 +25,7 @@ import LibraryMain from '../../assets/img/placeholder/library_main.png';
 
 import Event2 from '../../assets/img/library/event2.png';
 import PlazaImg from '../../assets/img/library/plaza.png';
+import galleryImg from '../../assets/img/library/gallery.png'
 
 import RoyaleImg from '../../assets/img/library/miniroyale.png';
 import AuroryImg from '../../assets/img/library/aurory.png';
@@ -166,16 +167,19 @@ export const CHATS = [
 
 export const LIVE_EVENT_ONLINE_USERS = [
   {
-    img: Event2,
-    title: 'Poker Night',
+    img: galleryImg,
+    title: 'Solarity Gallery',
     time: "50 min",
     creator: {
-      img: Avatar3,
-      name: "MonkeDAO"
+      img: LogoImg,
+      name: "Solarity"
     },
     users: [
       {
-        img: Avatar1,
+        img: Avatar6,
+      },
+      {
+        img: Avatar4,
       },
       {
         img: Avatar2,
@@ -184,14 +188,11 @@ export const LIVE_EVENT_ONLINE_USERS = [
         img: Avatar3,
       },
       {
-        img: Avatar4,
-      },
-      {
-        img: Avatar5,
+        img: Avatar7,
       }
     ],
     showUsers: 3,
-    event: ''
+    event: 'http://localhost:3000/iframe/joinModal/gallery?name=tmeta'
   },
   {
     img: PlazaImg,
@@ -219,7 +220,7 @@ export const LIVE_EVENT_ONLINE_USERS = [
       }
     ],
     showUsers: 3,
-    event: 'https://solarity-frontend.vercel.app/iframe/joinModal/plaza?name=tmeta'
+    event: 'http://localhost:3000/iframe/joinModal/plaza?name=tmeta'
   }
 ];
 
