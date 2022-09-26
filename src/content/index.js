@@ -354,10 +354,8 @@ function getUserInfo(twitter_name, modal) {
             </li>`
           }
           list += `</ul>`;
-          var appS = $('#app-div').shadowRoot;
-          $(appS).find('.modal-container').html(list);
-          // appShadowRoot.querySelector('.modal-container').innerHTML = list;
-          var defaultRoom = appShadowRoot.querySelector('.modal-container ul li:eq(0)').find('a').attr('vr');
+          appShadowRoot.querySelector('.modal-container').innerHTML = list;
+          var defaultRoom = $('.modal-container ul li:eq(0)', appShadowRoot).find('a').attr('vr');
           if (modal == false) {
             showVrBanner(defaultRoom);
           }
@@ -375,7 +373,7 @@ function getUserInfo(twitter_name, modal) {
             </h4>
             <div class="error">You don't have rooms available!!</div>
           `;
-          appShadowRoot.querySelector('.modal-container').html(errorHtml);
+          appShadowRoot.querySelector('.modal-container').innerHTML = errorHtml;
         }
       } else {
         // if fetch is fail
@@ -397,7 +395,7 @@ function getUserInfo(twitter_name, modal) {
             </h4>
             <div class="error">${result.response}</div>
           `;
-          appShadowRoot.querySelector('.modal-container').html(errorHtml);
+          appShadowRoot.querySelector('.modal-container').innerHTML = errorHtml;
         }
       }
       initEvents();
@@ -426,8 +424,8 @@ function setRoomItem (roomIndex, vrURL, roomName) {
       </li>
     </ul>
   `;
-  appShadowRoot.querySelector('.modal-container').html(list);
-  var defaultRoom =  appShadowRoot.querySelector('.modal-container ul li:eq(0)').find('a').attr('vr');
+  appShadowRoot.querySelector('.modal-container').innerHTML = list;
+  var defaultRoom =  $('.modal-container ul li:eq(0)', appShadowRoot).find('a').attr('vr');
   if (modal == false) {
     showVrBanner(defaultRoom);
   }
@@ -495,12 +493,12 @@ function initEvents() {
     e.preventDefault();
   });
 
-  $('.buttonRoomSolana').off().on('click', function (e) {
+  $('.buttonRoomSolana', appShadowRoot).off().on('click', function (e) {
     var vr = $(this).attr('vr');
     var index = $(this).attr('roomIndex');
     localStorage.setItem('solarity-selected-room-index', index);
     toggleModal();
-    $('.modal-container ul li').removeClass('room-selected');
+    appShadowRoot.querySelector('.modal-container ul li').removeClass('room-selected');
     $(this).closest('li').addClass('room-selected');
     showVrBanner(vr);
   });
