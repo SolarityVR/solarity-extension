@@ -54,12 +54,14 @@ class Main extends React.Component {
 }
 
 const gameDiv = document.createElement('div');
+const appDiv = document.createElement('div');
+appDiv.id = 'app-div';
 const gameModal = document.createElement('div');
 const app = document.createElement('div');
 const appModal = document.createElement('div');
 const chatModal = document.createElement('div');
 const gameShadowRoot = gameDiv.attachShadow({mode: 'open'});
-const appShadowRoot = appModal.attachShadow({mode: 'open'});
+const appShadowRoot = appDiv.attachShadow({mode: 'open'});
 if(window.location.href.includes('http://') || window.location.href.includes('https://')) {
   // Inject game modal to twitter page
   gameModal.style.position="fixed";
@@ -70,7 +72,7 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
   document.body.appendChild(gameDiv);
   addStyleDom(gameShadowRoot, 'static/css/tailwind.css', true);
   addStyleDom(gameShadowRoot, 'static/css/content.styles.css', true);
-  addCSS(chrome.runtime.getURL('static/css/content.css'))
+  addCSS(chrome.runtime.getURL('static/css/content.css'));
   gameShadowRoot.appendChild(gameModal);
   ReactDOM.render(<GameModal />, gameModal);
   gameModal.style.display= "none";
@@ -83,16 +85,22 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
 
   // Inject room list modal to twitter page
   appModal.id = "twitter-extension-modal";
-    document.body.appendChild(appModal);
-    appShadowRoot.appendChild
-    ReactDOM.render(<div className="modal">
+  appModal.style.position="fixed";
+  appModal.style.top='0px';
+  appModal.style.left="0px";
+  appModal.style.zIndex = "1000000";
+  document.body.appendChild(appDiv);
+  addStyleDom(appShadowRoot, 'static/css/app.css', true);
+  addStyleDom(appShadowRoot, 'static/css/modal.css', true);
+  addStyleDom(appShadowRoot, 'static/css/root.css', true);
+  appShadowRoot.appendChild(appModal)
+  ReactDOM.render(<div className="modal">
     <div className="modal-content">
       <span className="close-button">×</span>
       <div className="modal-container">
       </div>
     </div>
   </div>, appModal);
-  
 }
 
 
@@ -346,8 +354,10 @@ function getUserInfo(twitter_name, modal) {
             </li>`
           }
           list += `</ul>`;
-          $('.modal-container').html(list);
-          var defaultRoom = $('.modal-container ul li:eq(0)').find('a').attr('vr');
+          var appS = $('#app-div').shadowRoot;
+          $(appS).find('.modal-container').html(list);
+          // appShadowRoot.querySelector('.modal-container').innerHTML = list;
+          var defaultRoom = appShadowRoot.querySelector('.modal-container ul li:eq(0)').find('a').attr('vr');
           if (modal == false) {
             showVrBanner(defaultRoom);
           }
@@ -365,7 +375,7 @@ function getUserInfo(twitter_name, modal) {
             </h4>
             <div class="error">You don't have rooms available!!</div>
           `;
-          $('.modal-container').html(errorHtml);
+          appShadowRoot.querySelector('.modal-container').html(errorHtml);
         }
       } else {
         // if fetch is fail
@@ -387,7 +397,7 @@ function getUserInfo(twitter_name, modal) {
             </h4>
             <div class="error">${result.response}</div>
           `;
-          $('.modal-container').html(errorHtml);
+          appShadowRoot.querySelector('.modal-container').html(errorHtml);
         }
       }
       initEvents();
@@ -416,8 +426,8 @@ function setRoomItem (roomIndex, vrURL, roomName) {
       </li>
     </ul>
   `;
-  $('.modal-container').html(list);
-  var defaultRoom = $('.modal-container ul li:eq(0)').find('a').attr('vr');
+  appShadowRoot.querySelector('.modal-container').html(list);
+  var defaultRoom =  appShadowRoot.querySelector('.modal-container ul li:eq(0)').find('a').attr('vr');
   if (modal == false) {
     showVrBanner(defaultRoom);
   }
@@ -465,8 +475,8 @@ function parseUsername(url) {
 }
 
 function initModalBox() {
-  var modal = document.querySelector(".modal");
-  var closeButton = document.querySelector(".close-button");
+  var modal = appShadowRoot.querySelector(".modal");
+  var closeButton = appShadowRoot.querySelector(".close-button");
   modal.classList.toggle("show-modal");
 
   closeButton.addEventListener("click", toggleModal);
@@ -474,7 +484,7 @@ function initModalBox() {
 }
 
 function windowOnClick(event) {
-  var modal = document.querySelector(".modal");
+  var modal = appShadowRoot.querySelector(".modal");
   if (event.target === modal) {
     toggleModal();
   }
@@ -528,7 +538,7 @@ window.addEventListener('RecieveWallate', function (evt) {
 })
 
 function toggleModal() {
-  var modal = document.querySelector(".modal");
+  var modal = appShadowRoot.querySelector(".modal");
   modal.classList.toggle("show-modal");
 }
 
