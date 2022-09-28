@@ -319,7 +319,7 @@ function getUserInfo(twitter_name, modal) {
     } else {
       $('body').find('.cover').remove();
 
-      if (result.success) { 
+      if (result.success) {
         // if fetch is success
         if (localStorage.getItem('solarity-selected-room-index') == undefined) {
           localStorage.setItem('solarity-selected-room-index', 0);
