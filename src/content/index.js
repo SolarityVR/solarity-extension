@@ -159,10 +159,10 @@ function addTwitterMenuItem() {
   }
 
   //Inject logo
-  // if(checkInTwitter(window.location.href)) {
+  if(checkInTwitter(window.location.href)) {
     $('h1').append(logo);
     $('h1').css('cssText', 'display: flex !important;');
-  // }
+  }
 
 }
 
@@ -493,7 +493,7 @@ function initEvents() {
     e.preventDefault();
   });
 
-  $('.buttonRoomSolana', appShadowRoot).off().on('click', function (e) {
+  $('.buttonRoomSolana').off().on('click', function (e) {
     var vr = $(this).attr('vr');
     var index = $(this).attr('roomIndex');
     localStorage.setItem('solarity-selected-room-index', index);
