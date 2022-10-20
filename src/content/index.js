@@ -101,6 +101,7 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
       </div>
     </div>
   </div>, appModal);
+  appModal.style.display="none";
 }
 
 
@@ -159,10 +160,10 @@ function addTwitterMenuItem() {
   }
 
   //Inject logo
-  if(checkInTwitter(window.location.href)) {
+  // if(checkInTwitter(window.location.href)) {
     $('h1').append(logo);
     $('h1').css('cssText', 'display: flex !important;');
-  }
+  // }
 
 }
 
@@ -208,6 +209,7 @@ function addTwitterBtn() {
   );
   $(roomBtn).click(function (e) {
     var twitter_name = parseUsername(window.location.href);
+    appModal.style.display="block";
     if ($('.modal-container ul li').length == 0) {
       initModalBox();
     } else {

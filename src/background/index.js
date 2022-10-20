@@ -17,12 +17,19 @@ var twitterApp = {
     fetch(`${Config.BACKEND_URL}/api/users/${address}`)
       .then(async (response) => {
         var data = await response.json();
-        sendResponse({
-          'success': true,
-          "solanaAddress": data.user.solanaAddress,
-          "response": data.user.rooms,
-          "username": data.user.username
-        });
+        if(data.user) {
+          sendResponse({
+            'success': true,
+            "solanaAddress": data.user.solanaAddress,
+            "response": data.user.rooms,
+            "username": data.user.username
+          });
+        } else {
+          sendResponse({
+            'success': false,
+            "response" : "We can't find your profile on the website."
+          });
+        }
       })
       .catch((error) => {
         sendResponse({
