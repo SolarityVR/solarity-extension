@@ -27,7 +27,7 @@ var twitterApp = {
         } else {
           sendResponse({
             'success': false,
-            "response" : "We can't find your profile on the website."
+            "response" : data.message
           });
         }
       })
