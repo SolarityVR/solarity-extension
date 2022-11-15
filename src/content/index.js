@@ -160,10 +160,10 @@ function addTwitterMenuItem() {
   }
 
   //Inject logo
-  // if(checkInTwitter(window.location.href)) {
+  if(checkInTwitter(window.location.href)) {
     $('h1').append(logo);
     $('h1').css('cssText', 'display: flex !important;');
-  // }
+  }
 
 }
 
@@ -462,7 +462,6 @@ function showVrBanner(vr) {
 }
 
 function parseUsername(url) {
-  return Config.CLIENT_TWITTER_NAME;
   let output = url;
   let matches;
 
