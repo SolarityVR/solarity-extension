@@ -192,7 +192,7 @@ export const LIVE_EVENT_ONLINE_USERS = [
       }
     ],
     showUsers: 3,
-    event: 'http://localhost:3000/iframe/joinModal/gallery?name=tmeta'
+    event: 'https://solarity-frontend.vercel.app/iframe/joinModal/gallery?name=tmeta'
   },
   {
     img: PlazaImg,
@@ -220,7 +220,7 @@ export const LIVE_EVENT_ONLINE_USERS = [
       }
     ],
     showUsers: 3,
-    event: 'http://localhost:3000/iframe/joinModal/plaza?name=tmeta'
+    event: 'https://solarity-frontend.vercel.app/iframe/joinModal/plaza?name=tmeta'
   }
 ];
 
