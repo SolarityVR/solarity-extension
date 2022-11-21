@@ -694,8 +694,8 @@ export const QuestsMenu = [
 
 export const LiveEventsData = [
     {
-        image: poker,
-        title: "Poker Night",
+        image: plaza,
+        title: "Solarity Hall",
         creator: {
             avatar: avatar6,
             name: "monke DAO"
@@ -720,8 +720,8 @@ export const LiveEventsData = [
         ],
         createAt: "2022.08.14 18:42:00"
     }, {
-        image: bepple,
-        title: "New Auction",
+        image: gallery,
+        title: "Solarity Gallery",
         creator: {
             avatar: avatar7,
             name: "Beeple"
