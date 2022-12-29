@@ -68,7 +68,7 @@ const ChatPanelPage = () => {
 
   const backChatPage = () => {
     dispatch(setPageStages(5));
-    dispatch(setChatType(false));
+    dispatch(setChatType(2));
     dispatch(setMembers([]));
   }
 

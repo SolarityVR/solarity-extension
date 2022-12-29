@@ -54,7 +54,7 @@ const ChatsPanel = () => {
       }
     }
     dispatch(setMembers([profile._id].concat(members)));
-    dispatch(setChatType(false));
+    dispatch(setChatType(2));
     dispatch(setPageStages(9));
   }
 

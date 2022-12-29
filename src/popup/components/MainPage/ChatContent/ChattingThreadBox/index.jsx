@@ -19,7 +19,7 @@ const ChattingThreadBox = (props) => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        const { data } = await apiCaller.post("/chats/fetchMessages", { members });
+        const { data } = await apiCaller.post("/chats/fetchMessages", { members, chatKind: 2 });
         for (var i = 0; i < data.chat.msgs.length; i++) {
           dispatch(setUserMsg({
             groupType: data.chat.type,
@@ -27,7 +27,7 @@ const ChattingThreadBox = (props) => {
             members: data.chat.users,
             sender: {
               name: data.chat.msgs[i].sender.username,
-              profileImage: data.chat.msgs[i].sender.profileImage ? data.chat.msgs[i].sender.profileImage : null,
+              profileImage: data.chat.msgs[i].sender.profileImage ? data.chat.msgs[i].sender.profileImage.link : null,
             },
             content: data.chat.msgs[i].content,
             reply: data.chat.msgs[i].reply,

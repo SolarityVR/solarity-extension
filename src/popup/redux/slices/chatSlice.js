@@ -5,7 +5,7 @@ import Avatar1 from '../../../assets/img/library/avatars/1.png';
 const initialState = {
   chatLogs: [],
   friends: [],
-  chatType: false,
+  chatType: 2,
   members: [],
   newMsg: {
     reply: {

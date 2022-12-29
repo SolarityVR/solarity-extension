@@ -70,7 +70,7 @@ const Popup = () => {
 
       window.socket.on(ACTIONS.SEND_MSG_EXTENSION, (msg) => {
         if (!!msg) {
-          if (!msg.groupType) {
+          if (msg.groupType == 2) {
             dispatch(setUserMsg(msg));
           }
           if (msg.members[0] != localStorage.getItem('name')) {

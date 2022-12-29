@@ -18,7 +18,7 @@ const MessageList = (props) => {
 
   const dispatch = useDispatch();
   const startChat = () => {
-    dispatch(setChatType(false));
+    dispatch(setChatType(2));
     dispatch(setMembers([profileData._id, selectedFriend._id]));
     dispatch(setPageStages(9));
   }
