@@ -49,19 +49,19 @@ const ChatPanelPage = () => {
       if (e.target.value === "") {
         return;
       }
+
       window.socket.emit(ACTIONS.SEND_MSG_EXTENSION, {
         groupType: chatType,
         daoId: null,
         members: members,
-        date: Date(),
         content: e.target.value,
-        attachment: '',
-        filename: '',
-        filetype: '',
-        replyId: '',
+        reply: newMsg.reply,
+        attachments: {},
+        date: Date(),
         editState: false,
-        deleteState: false,
+        deleteState: false
       })
+      
       e.target.value = "";
     }
   }

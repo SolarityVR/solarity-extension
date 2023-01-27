@@ -30,7 +30,7 @@ const ChatsPanel = () => {
           tmpChats.push({
             _id: data.chats[i]._id,
             users: data.chats[i].users,
-            image: <img className="rounded-xl" src={person.profileImage ? person.profileImage.link: defaultAvatar} width={52} height={52}/>,
+            image: <img className="rounded-xl" style={{height: "52px"}} src={person.profileImage ? person.profileImage.link: defaultAvatar} width={52} height={52}/>,
             title: person.username,
             detail: data.chats[i].lastMsg.content,
             time: time_ago(data.chats[i].lastMsg.createdAt),
