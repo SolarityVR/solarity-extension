@@ -42,30 +42,7 @@ const ChatPanelPage = () => {
     setShowEmoji(!showEmoji);
     document.getElementById("chatting_input").focus();
   };
-
-  const enterKeyCapture = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      if (e.target.value === "") {
-        return;
-      }
-
-      window.socket.emit(ACTIONS.SEND_MSG_EXTENSION, {
-        groupType: chatType,
-        daoId: null,
-        members: members,
-        content: e.target.value,
-        reply: newMsg.reply,
-        attachments: {},
-        date: Date(),
-        editState: false,
-        deleteState: false
-      })
-      
-      e.target.value = "";
-    }
-  }
-
+  
   const backChatPage = () => {
     dispatch(setPageStages(5));
     dispatch(setChatType(2));

@@ -125,6 +125,7 @@ const MsgInput = (props) => {
         },
         myMsg: e.target.value
       }));
+
       // Send message to server
       window.socket.emit(ACTIONS.SEND_MSG_EXTENSION, {
         groupType: chatType,

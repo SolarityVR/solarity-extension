@@ -11,7 +11,7 @@ import Layout from './components/Layout';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 
-import { setPageStages, login, userExist, checkSession } from './redux/slices/authSlice';
+import { login, userExist, checkSession } from './redux/slices/authSlice';
 
 import './Popup.css';
 import FriendPage from './pages/FriendPage';
@@ -30,11 +30,9 @@ import { setFriends, setOnline, setTypingState, setUserMsg } from './redux/slice
 import ACTIONS from '../config/action';
 
 const Popup = () => {
-  const [loginStages, setLoginStages] = useState(0);
-  const [solanaAddress, setSolanaAddress] = useState("");
   const menuData = [0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 2];
 
-  const { pageStages, authFlag, profileData, friends, members, typingMembers } = useSelector((state) => ({
+  const { pageStages, authFlag, members, typingMembers } = useSelector((state) => ({
     profileData: state.auth.profile,
     pageStages: state.auth.pageStages,
     authFlag: state.auth.authFlag,

@@ -55,13 +55,15 @@ class Main extends React.Component {
 
 const gameDiv = document.createElement('div');
 const appDiv = document.createElement('div');
+const app = document.createElement('div');
 appDiv.id = 'app-div';
 const gameModal = document.createElement('div');
-const app = document.createElement('div');
 const appModal = document.createElement('div');
+const payModal = document.createElement('div');
 const chatModal = document.createElement('div');
 const gameShadowRoot = gameDiv.attachShadow({mode: 'open'});
 const appShadowRoot = appDiv.attachShadow({mode: 'open'});
+const payShadowRoot = app.attachShadow({mode: 'open'});
 if(window.location.href.includes('http://') || window.location.href.includes('https://')) {
   // Inject game modal to twitter page
   gameModal.style.position="fixed";
@@ -72,7 +74,6 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
   document.body.appendChild(gameDiv);
   addStyleDom(gameShadowRoot, 'static/css/tailwind.css', true);
   addStyleDom(gameShadowRoot, 'static/css/content.styles.css', true);
-  addCSS(chrome.runtime.getURL('static/css/content.css'));
   gameShadowRoot.appendChild(gameModal);
   ReactDOM.render(<GameModal />, gameModal);
   gameModal.style.display= "none";
@@ -80,8 +81,12 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
   // Inject payment modal to twitter page
   app.id = "twitter-pay-extension-root";
   document.body.appendChild(app);
-  ReactDOM.render(<Main />, app);
-  app.style.display = "none";
+  addStyleDom(payShadowRoot, 'static/css/app.css', true);
+  addStyleDom(payShadowRoot, 'static/css/modal.css', true);
+  addStyleDom(payShadowRoot, 'static/css/root.css', true);
+  appShadowRoot.appendChild(payModal)
+  ReactDOM.render(<Main />, payModal);
+  payModal.style.display = "none";
 
   // Inject room list modal to twitter page
   appModal.id = "twitter-extension-modal";
@@ -94,16 +99,19 @@ if(window.location.href.includes('http://') || window.location.href.includes('ht
   addStyleDom(appShadowRoot, 'static/css/modal.css', true);
   addStyleDom(appShadowRoot, 'static/css/root.css', true);
   appShadowRoot.appendChild(appModal)
-  ReactDOM.render(<div className="modal">
-    <div className="modal-content">
-      <span className="close-button">×</span>
-      <div className="modal-container">
+  ReactDOM.render(
+    (
+      <div className="modal">
+        <div className="modal-content">
+          <span className="close-button">×</span>
+          <div className="modal-container">
+          </div>
+        </div>
       </div>
-    </div>
-  </div>, appModal);
+    ), appModal
+  );
   appModal.style.display="none";
 }
-
 
 function addStyleDom(gameShadowRoot, href, flag) {
   const linkElem = document.createElement('link');
@@ -218,28 +226,29 @@ function addTwitterBtn() {
     }
   });
 
-  $(payBtn).click(function (e) {
+  // $(payBtn).click(function (e) {
+  //   payModal.style.display="block";
 
-    if ($('.cover').length == 0) {
-      $('body').append('<div class="cover"> loading...</div>');
-    }
-    var event = new CustomEvent('RecieveContent', { detail: "connect-wallet" });
-    window.dispatchEvent(event);
-  });
+  //   if ($('.cover').length == 0) {
+  //     $('body').append('<div class="cover"> loading...</div>');
+  //   }
+  //   var event = new CustomEvent('RecieveContent', { detail: "connect-wallet" });
+  //   window.dispatchEvent(event);
+  // });
 
   $(viewBtn).click(function (e) {
     showVrBanner(`${Config.FRONTEND_URL}/iframe/joinModal/plaza`);
   })
 
-  $('body .buttons').append(payBtn);
+  // $('body .buttons').append(payBtn);
   $('body .buttons').append(roomBtn);
   $('body .buttons').append(viewBtn);
   //others profile
-  $("div[data-testid='primaryColumn']").find("div:not([addition='pay']) > div[data-testid*='follow']").closest('[data-testid="placementTracking"]').before(payBtn);
+  // $("div[data-testid='primaryColumn']").find("div:not([addition='pay']) > div[data-testid*='follow']").closest('[data-testid="placementTracking"]').before(payBtn);
   $("div[data-testid='primaryColumn']").find("div:not([addition='pay']) > div[data-testid*='follow']").closest('[data-testid="placementTracking"]').before(roomBtn);
   $("div[data-testid='primaryColumn']").find("div:not([addition='pay']) > div[data-testid*='follow']").closest('[data-testid="placementTracking"]').before(viewBtn);
   //your profile
-  $('a[data-testid="editProfileButton"]').before(payBtn);
+  // $('a[data-testid="editProfileButton"]').before(payBtn);
   $('a[data-testid="editProfileButton"]').before(roomBtn);
   $('a[data-testid="editProfileButton"]').before(viewBtn);
 
