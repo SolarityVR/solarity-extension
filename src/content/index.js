@@ -237,7 +237,7 @@ function addTwitterBtn() {
   // });
 
   $(viewBtn).click(function (e) {
-    showVrBanner(`${Config.FRONTEND_URL}/iframe/joinModal/plaza`);
+    showVrBanner(`${Config.FRONTEND_URL}/iframe/twitterModal/plaza`);
   })
 
   // $('body .buttons').append(payBtn);
@@ -450,22 +450,16 @@ function showVrBanner(vr) {
   $(injectNode).children().remove();
   // Inject carousel
   injectNode.prepend(`
-    <div class="slider">
-      <ul>
-        <li class="c"> 
-          <iframe 
-            frameborder="0" 
-            src="${vr}" 
-            featurepolicy='{"vr": ["*"]}' 
-            allow="camera;microphone;" 
-            allowFullScreen="true" 
-            scrolling="no" 
-            width="100%" 
-            height="100%"
-          ></iframe> 
-        </li>
-      </ul>
-    </div>
+    <iframe 
+      frameborder="0" 
+      src="${vr}" 
+      featurepolicy='{"vr": ["*"]}' 
+      allow="camera;microphone;" 
+      allowFullScreen="true" 
+      scrolling="no" 
+      width="100%" 
+      height="100%"
+    ></iframe>
   `);
   initEvents();
 }

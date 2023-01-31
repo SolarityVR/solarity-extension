@@ -9,7 +9,6 @@ const socket = () => {
     rejectUnauthorized: false,
   };
   return io.connect(
-    // process.env.NODE_ENV === "development"
     false
       ? "http://localhost:3004"
       : "https://solarity-backend.herokuapp.com",
