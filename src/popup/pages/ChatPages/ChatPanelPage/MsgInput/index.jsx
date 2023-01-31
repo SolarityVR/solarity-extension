@@ -70,6 +70,7 @@ const MsgInput = (props) => {
       setPreview([]);
       return;
     }
+    
     let previewUrlArray = [];
     for (let k of selectedFile) {
       const objectUrl = URL.createObjectURL(k);

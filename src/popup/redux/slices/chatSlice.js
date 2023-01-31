@@ -57,6 +57,7 @@ export const chatSlice = createSlice({
     },
     setUserMsg: (state, action) => {
       state.chatLogs.push(action.payload);
+      window.socket.emit(ACTIONS.CHANGE_READ_STATE, {msgId: action.payload.msgId});
     },
     setNewMsg: (state, action) => {
       state.newMsg = action.payload;

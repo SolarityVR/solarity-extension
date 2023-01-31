@@ -339,6 +339,7 @@ function getUserInfo(twitter_name, modal) {
         if (data.length != 0) {
           var list = `<ul class="list-group">`;
           for (var i = 0; i < data.length; i++) {
+            
             var selcted_room = (i == localStorage.getItem('solarity-selected-room-index') ? 'room-selected' : '');
             list += `<li class="${selcted_room}">
               <a 

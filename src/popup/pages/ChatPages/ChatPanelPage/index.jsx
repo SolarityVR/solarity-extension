@@ -56,12 +56,14 @@ const ChatPanelPage = () => {
           <LeftArrowButton caption="Chat group" onClick={backChatPage} />
         </div>
       </div>
+      
       <ChattingThreadBox
         newMsgDataState={newMsgDataState}
         setNewMsgDataState={setNewMsgDataState}
         newMsgSendingState={newMsgSendingState}
         setNewMsgSendingState={setNewMsgSendingState}
       />
+
       <MsgInput
         focusState={focusState}
         setFocusState={setFocusState}
