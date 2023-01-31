@@ -70,7 +70,7 @@ const MsgInput = (props) => {
       setPreview([]);
       return;
     }
-    
+
     let previewUrlArray = [];
     for (let k of selectedFile) {
       const objectUrl = URL.createObjectURL(k);
@@ -87,13 +87,13 @@ const MsgInput = (props) => {
 
   const enterKeyCapture = (e) => {
     if (window.typingCounts == 0) {
-      window.socket.emit(ACTIONS.TYPING_STATE, { members, name: profile.username, state: "true" });
+      window.socket.emit(ACTIONS.TYPING_STATE, { members, name: profile.username, state: "true", chatKind: chatType });
     }
     window.typingCounts++;
     setTimeout(() => {
       window.typingCounts--;
       if (window.typingCounts == 0) {
-        window.socket.emit(ACTIONS.TYPING_STATE, { members, name: profile.username, state: "false" })
+        window.socket.emit(ACTIONS.TYPING_STATE, { members, name: profile.username, state: "false", chatKind: chatType })
       }
     }, 1000);
     if (e.key === "Enter") {
