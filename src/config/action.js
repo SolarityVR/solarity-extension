@@ -1,5 +1,6 @@
 const ACTIONS = {
   TYPING_STATE: 'typing-state',
+  CHANGE_READ_STATE: 'change-read-state',
   REMOVE_USER_EXTENSION: 'remove-user-extension',
   SEND_MSG_EXTENSION: 'send-msg-extension',
   ADD_USER_EXTENSION: 'add-user-extension',

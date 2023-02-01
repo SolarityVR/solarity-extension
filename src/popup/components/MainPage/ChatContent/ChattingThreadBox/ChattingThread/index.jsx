@@ -129,8 +129,8 @@ const ChattingThread = (props) => {
       onMouseLeave={() => setShowReplyBtn(false)}
     >
       {/* Avatar Part */}
-      <div className={`min-h-[40px] min-w-[40px] rounded-[15px] overflow-hidden relative ${props.uName === profile.username ? "hidden" : ""}`}>
-        <img src={props.imgUrl} width={40} height={40} />
+      <div className={`min-h-[40px] min-w-[40px] rounded-[15px] relative ${props.uName === profile.username ? "hidden" : ""}`}>
+        <img src={props.imgUrl} style={{width: "40px", height: "40px", borderRadius: '10px'}} />
       </div>
       <div className=" flex flex-col gap-[10px] justify-between items-start md:w-[278px] xs:max-w-[100%]">
         {/* Header of Msg */}

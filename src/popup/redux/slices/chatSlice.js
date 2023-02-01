@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { apiCaller } from "../../utils/fetcher";
 import Avatar1 from '../../../assets/img/library/avatars/1.png';
+import ACTIONS from "../../../config/action";
 
 const initialState = {
   chatLogs: [],
@@ -57,6 +58,7 @@ export const chatSlice = createSlice({
     },
     setUserMsg: (state, action) => {
       state.chatLogs.push(action.payload);
+      console.log(action.payload);
       window.socket.emit(ACTIONS.CHANGE_READ_STATE, {msgId: action.payload.msgId});
     },
     setNewMsg: (state, action) => {
